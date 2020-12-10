@@ -67,7 +67,9 @@ const Land = props =>{
       </div>
       <div className="card-deck">
         {/* Card One */}
-        <div className="card">
+        <div className="card"
+         data-aos="fade-up-right"
+        >
           <img src={process.env.PUBLIC_URL + '/images/property.jpg'} className="card-img-top" alt="Real Estate / Property" />
           <div className="card-body">
             <h5 className="card-title">Real Estate &amp; Property</h5>

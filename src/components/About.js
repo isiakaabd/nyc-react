@@ -1,7 +1,11 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 import './css/about.css'
 
 
+
+AOS.init();
 
 const About = props =>{
     
@@ -34,16 +38,24 @@ const About = props =>{
   {/* SECTION-2 */}
   <section className="section-2">
     <div className="pictures-grid">
-      <figure className="img1">
+      <figure className="img1"
+      data-aos="zoom-in-up"
+      >
         <img src={process.env.PUBLIC_URL + '/images/two.jpg'} alt="First Pic" />  
       </figure>
-      <figure className="img2">
+      <figure className="img2"
+      data-aos="zoom-in-down"
+      >
         <img src={process.env.PUBLIC_URL + '/images/four.jpg'} alt="Second Pic" />
       </figure>
-      <figure className="img3">
+      <figure className="img3"
+      data-aos="zoom-in-up"
+      >
         <img src={process.env.PUBLIC_URL + '/images/three.jpg'} alt="Third Pic" />
       </figure>
-      <figure className="img4">
+      <figure className="img4"
+      data-aos="zoom-in-down"
+      >
         <img src={process.env.PUBLIC_URL + '/images/one.jpg'} alt="Fourth Pic" />
       </figure>
     </div>
@@ -54,7 +66,9 @@ const About = props =>{
       <div className="about-header">
         <h1>About Us</h1>
       </div>
-      <div className="about-body">
+      <div className="about-body"
+      data-aos="zoom-in-left"
+      >
         <h2>Naija Yellow Catalogue, bridging the gap between business owners and consumers online.</h2>
         <br />
         <p>
@@ -88,7 +102,9 @@ const About = props =>{
       <div className="story-header">
         <h1>Our Story</h1>
       </div>
-      <div className="story-body">
+      <div className="story-body"
+      data-aos="zoom-in-right"
+      >
         <h2>How it all started in 2020?</h2> <br />
         <p>The creation of the ELITE team began at a software fellowship “TIIDELab Fellowship” in August,2020.
           We
