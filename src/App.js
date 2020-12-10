@@ -11,11 +11,14 @@ import { Test } from './testingForms';
 
 import Login from "./components/SignUp-Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ContactUs from "./components/ContactUs";
+
 
 function App() {
   return (
     <Router>
       <div className="App">
+
         <Header />
 
         <div>
@@ -28,9 +31,16 @@ function App() {
             <Route exact path="/terms" component={Terms} />
             
             <Route exact path="/login" component={Login} />
+
+            <Route exact path="/forgot" component={ForgotPassword} />
+            <Route exact path="/reset" component={ResetPassword} />
+            <Route exact path="/search" component={SearchResult} />
+            <Route exact path="/contact" component={ContactUs} />
+
             {/* <Route exact path="/forgot" component={ForgotPassword} /> */}
             {/* <Route exact path="/reset" component={ResetPassword} /> */}
             {/* <Route exact path="/search" component={SearchResult} /> */}
+
           </Switch>
         </div>
         <Footer />
