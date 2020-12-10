@@ -10,11 +10,14 @@ import ResetPassword from "./components/ResetPassword";
 import SearchResult from "./components/SearchResult";
 import Login from "./components/SignUp-Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ContactUs from "./components/ContactUs";
+
 
 function App() {
   return (
     <Router>
       <div className="App">
+
         <Header />
 
         <div class="container">
@@ -29,6 +32,7 @@ function App() {
             <Route exact path="/forgot" component={ForgotPassword} />
             <Route exact path="/reset" component={ResetPassword} />
             <Route exact path="/search" component={SearchResult} />
+            <Route exact path="/contact" component={ContactUs} />
           </Switch>
         </div>
         <Footer />
