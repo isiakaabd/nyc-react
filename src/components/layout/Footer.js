@@ -64,9 +64,6 @@ const Footer = props =>{
         </div>
       </footer>
       
-
-
-
     );
 }
 

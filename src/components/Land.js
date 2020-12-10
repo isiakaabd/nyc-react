@@ -1,6 +1,10 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 import './css/landing.css'
 
+
+AOS.init();
 
 const Land = props =>{
     
@@ -25,7 +29,7 @@ const Land = props =>{
           <div className="input-icon">
             <i className="fas fa-book-open" />
             <input type="text" name="whoweknow" id="business" placeholder="We know" required />
-            <select id="category" required>
+            <select id="sel-category" required>
               <option value disabled selected hidden>Category</option>
               <option>Real Estate/Property</option>
               <option>Beauty &amp; Fashion</option>
@@ -63,7 +67,9 @@ const Land = props =>{
       </div>
       <div className="card-deck">
         {/* Card One */}
-        <div className="card">
+        <div className="card"
+         data-aos="fade-up-right"
+        >
           <img src={process.env.PUBLIC_URL + '/images/property.jpg'} className="card-img-top" alt="Real Estate / Property" />
           <div className="card-body">
             <h5 className="card-title">Real Estate &amp; Property</h5>
@@ -75,7 +81,9 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Two */}
-        <div className="card">
+        <div className="card"
+        data-aos="fade-up-left"
+        >
           <img src={process.env.PUBLIC_URL + '/images/catering.jpg'} className="card-img-top" alt="Catering" />
           <div className="card-body">
             <h5 className="card-title">Catering &amp; Decorations</h5>
@@ -86,7 +94,11 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Three */}
-        <div className="card">
+        <div className="card"
+        data-aos="fade-down-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        >
           <img src={process.env.PUBLIC_URL + '/images/construction.jpg'} className="card-img-top" alt="Construction" />
           <div className="card-body">
             <h5 className="card-title">Construction and Renovation</h5>
@@ -97,7 +109,10 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Four */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-left"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+        >
           <img src={process.env.PUBLIC_URL + '/images/health.jpg'} className="card-img-top" alt="Health" />
           <div className="card-body">
             <h5 className="card-title">Health &amp; Fitness</h5>
@@ -110,7 +125,9 @@ const Land = props =>{
       </div>
       <div className="card-deck">
         {/* Card Five */}
-        <div className="card">
+        <div className="card"
+        data-aos="fade-down-left"
+        >
           <img src={process.env.PUBLIC_URL + '/images/fashion.jpg'} className="card-img-top" alt="Fashion" />
           <div className="card-body">
             <h5 className="card-title">Fashion &amp; Beauty</h5>
@@ -121,7 +138,10 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Six */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        >
           <img src={process.env.PUBLIC_URL + '/images/electronics.jpg'} className="card-img-top" alt="Electronics" />
           <div className="card-body">
             <h5 className="card-title">Electronics &amp; Repair</h5>
@@ -132,7 +152,7 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Seven */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-right">
           <img src={process.env.PUBLIC_URL + '/images/media.jpg'} className="card-img-top" alt="Media" />
           <div className="card-body">
             <h5 className="card-title">News &amp; Media</h5>
@@ -143,7 +163,7 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Eight */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-left">
           <img src={process.env.PUBLIC_URL + '/images/agriculture.jpg'} className="card-img-top" alt="Agriculture" />
           <div className="card-body">
             <h5 className="card-title">Agriculture</h5>
@@ -156,9 +176,9 @@ const Land = props =>{
       </div>
       <div className="card-deck">
         {/* Card Nine */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-right">
           <img src={process.env.PUBLIC_URL + '/images/travel.jpg'} className="card-img-top" alt="Transportation" />
-          <div className="card-body">
+          <div className="card-body" data-aos="zoom-in-up">
             <h5 className="card-title">Transportation</h5>
             <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional
               content. This card has even longer content than the first to show that equal height action.</p>
@@ -168,7 +188,10 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Ten */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-left"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+        >
           <img src={process.env.PUBLIC_URL + '/images/education.jpg'} className="card-img-top" alt="Education" />
           <div className="card-body">
             <h5 className="card-title">Education</h5>
@@ -181,7 +204,7 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Eleven */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-right">
           <img src={process.env.PUBLIC_URL + '/images/technology.jpg'} className="card-img-top" alt="Technology" />
           <div className="card-body">
             <h5 className="card-title">Technology</h5>
@@ -192,7 +215,7 @@ const Land = props =>{
           </div>
         </div>
         {/* Card Twelve */}
-        <div className="card">
+        <div className="card" data-aos="fade-down-left">
           <img src={process.env.PUBLIC_URL + '/images/food.jpg'} className="card-img-top" alt="Restaurant" />
           <div className="card-body">
             <h5 className="card-title">Restaurant</h5>

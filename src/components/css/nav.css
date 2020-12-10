@@ -9,7 +9,6 @@ nav {
     background: rgba(0, 0, 0, 0.96);
     font-family: 'Ubuntu', sans-serif;
     width: 100%;
-    padding: 40px 0;
   }
   
   nav .navbar-brand img {
@@ -68,7 +67,7 @@ nav {
   }
   
   nav .nav-item-2 a:hover {
-    color: #EBBA32;
+    color: #EBBA32 !important;
   }
   
   nav .nav-item-2 .add-btn {
@@ -102,7 +101,7 @@ nav {
       background: #000000;
       color: #EBBA32;
       transition: top 1s ease;
-      padding: 25px 300px;
+      padding: 25px 300px !important;
       margin-top: 70px;
       display: none;
     }

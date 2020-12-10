@@ -15,7 +15,7 @@
     height: 75vh !important;
   }
   
-  #main-area .main-content{
+.main-content{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -80,6 +80,7 @@
   .box-contents{
     padding: 57px 32px;
     margin: 0 2rem;
+  
   }
   
   .main-box{
@@ -91,7 +92,8 @@
   }
   
   select{
-    padding: 15px 0;
+    margin: 5px;
+    padding: 14px 0;
     outline: none;
     width: 22%;
     border-radius: 4px;
@@ -99,12 +101,34 @@
     color: grey;
   }
   
-  input[type='text']{
-    padding: 12px 40px;
+
+  #business{
+    padding: 14px 40px;
     outline: none;
     border-radius: 4px;
     border: none;
     width: 35%;
+    margin: 0 2px;
+  }
+
+  #sel-category{
+    margin: 0 2px;
+    padding: 14px 0;
+    outline: none;
+    width: 22%;
+    border-radius: 4px;
+    border: none;
+    color: grey;
+  }
+
+  #location{
+    margin: 0 2px;
+    padding: 14px 0;
+    outline: none;
+    width: 22%;
+    border-radius: 4px;
+    border: none;
+    color: grey;
   }
   
   input[type='date']{
@@ -125,12 +149,13 @@
   }
   
   .search-btn {
+    margin: -5px 2px;
     background: #EBBA32;
     border: none;
     color: #000000;
-    padding: 15px 40px;
+    padding: 15px 40px !important;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 14px !important;
     border-radius: 5px;
   }
   
