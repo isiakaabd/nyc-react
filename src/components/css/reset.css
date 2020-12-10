@@ -11,8 +11,9 @@
         justify-content: space-around;
     }
     .reset-case img{ 
-        width: 650px;
-        height:550px;
+        width: 50px;
+        height:530px;
+        margin: 1rem 2rem;
     }
     .reset-case .image_case{
         flex: 1.5;
