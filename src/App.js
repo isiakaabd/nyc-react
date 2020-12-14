@@ -8,7 +8,7 @@ import Faq from "./components/Faq";
 //import ResetPassword from "./components/ResetPassword";
 import Terms from "./components/Terms";
 // import { Test } from "./testingForms";
-
+import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import Login from "./components/SignUp-Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ContactUs from "./components/ContactUs";
@@ -32,7 +32,7 @@ function App() {
 
             <Route exact path="/login" component={Login} />
 
-        
+            <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
 
             {/* <Route exact path="/forgot" component={ForgotPassword} /> */}
