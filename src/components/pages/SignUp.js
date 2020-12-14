@@ -1,18 +1,25 @@
 import React, { Component, createRef } from 'react';
 import { Link } from "react-router-dom";
-import "./css/special/signup.css";
+import "../css/special/signup.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as yup from "yup";
+import SignUpLogin2 from './drag'
+import { SignUpSetup } from '../Validation/setups';
 //import logo from '../img/logo.png';
 
 // Functional Component
 
-class SignUpLogin extends Component {
+class SignUp extends Component {
   constructor(props){
     super(props);
     // Creating a Ref
     this.login = createRef()
-    this.state = {};
+    this.state = {
+      user: {
+          email: '',
+          password: ''
+      },
+      isUserAuthenticated: false
+  }
 
   }
 
@@ -31,6 +38,8 @@ class SignUpLogin extends Component {
     signInButton.addEventListener('click', () => {
       container.classList.remove('right-panel-active');
     });
+
+
   }
 
   
@@ -43,23 +52,8 @@ class SignUpLogin extends Component {
       // Initial Values of the props
       initialValues={{ email: "", password: "" , name: ""}}
       // Validation Defination with yup
-      validationSchema={yup.object().shape({
-        name: yup.string()
-          .max(15, "Must be 15 characters or less")
-          .min(3, "Must be at least 3 characters")
-          .required("This field is Required"),
-        email: yup.string()
-        .email("Email is Invalid")
-        .required("Enter a valid Email Address"),
-        password: yup
-          .string()
-          .required("Password is Required")
-          .min(8, "Password must be at least 8 Characters")
-          .matches(
-            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-          ),
-      })}
+      validationSchema = {SignUpSetup}
+      // onSubmit={(values)=>auth(values)}
     >
       {(props) => {
         const {
@@ -143,86 +137,7 @@ class SignUpLogin extends Component {
                 </Form>
               </div>
 
-              <div className="form-container sign-in-container">
-                <Form>
-                  <h2 className="first-h1">Welcome Back</h2>
-                  <p className="p2"> Sign In Via</p>
-                  <div className="social-media-platforms">
-                    <Link to="/" className="social-media-1">
-                      <i className="fab fa-facebook" />
-                    </Link>
-                    <Link to="/" className="social-media-1">
-                      <i className="fab fa-instagram" />
-                    </Link>
-                    <Link to="/">
-                      <i className="fab fa-linkedin" />
-                    </Link>
-                  </div>
-                  <span>OR</span>
-                  <Field
-                    type="email"
-                    name="email"
-                    id="signin-email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email && touched.email && "error"}
-                    placeholder="Enter your Email Address"
-                  />
-                  {errors.email && touched.email && (
-                    <div className="input-feedback">
-                      <i className="fas fa-exclamation-circle"></i>
-                      {errors.email}
-                    </div>
-                  )}
-                  <Field
-                    type="password"
-                    name="password"
-                    id="signin-password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password && touched.password && "error"}
-                    placeholder="Enter Password"
-                  />
-                  {errors.email && touched.email && (
-                    <div className="input-feedback">
-                      <i className="fas fa-exclamation-circle"></i>
-                      {errors.password}
-                    </div>
-                  )}
-                  <Link to="./forgot">Forgot your password?</Link>
-                  <button
-                    type="submit"
-                    id="login-button"
-                    className="login-button"
-                    disabled={isSubmitting}
-                  >
-                    Sign In
-                  </button>
-                </Form>
-              </div>
-
-              <div className="overlay-container">
-                <div className="overlay">
-                  <div className="overlay-panel overlay-left">
-                    <h2 className="first-h1">Already have an account? </h2>
-                    <p className="p3">
-                      Provide your details and continue your journey with us.
-                    </p>
-                    <button className="ghost" id="signIn">
-                      Sign In
-                    </button>
-                  </div>
-                  <div className="overlay-panel overlay-right">
-                    <h2 className="first-h1">Don't Have an Account Yet?</h2>
-                    <p className="p4">
-                      Enter your details and start journey with us
-                    </p>
-                    <button className="ghost" id="signUp">
-                      Sign Up
-                    </button>
-                  </div>
-                </div>
-              </div>
+             <SignUpLogin2 />
             </div>
 
             <style jsx="true">{`
@@ -486,4 +401,4 @@ class SignUpLogin extends Component {
   }
 }
 
-export { SignUpLogin }
+export { SignUp }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/terms.css'
+import '../css/terms.css'
 
 const Terms = props =>{
 
