@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./css/about.css";
+import "../css/about.css";
 
 AOS.init();
 

@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import TextInputList from "./layout/input/TextInputList";
-import Textarea from './layout/input/Textarea';
+import TextInputList from "../layout/input/TextInputList";
+import Textarea from '../layout/input/Textarea';
 import PropTypes from "prop-types"
-import "./css/contact-us.css";
+import "../css/contact-us.css";
 import axios from 'axios';
 
 

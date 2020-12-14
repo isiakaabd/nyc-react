@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./css/forgot.css";
+import "../css/forgot.css";
 import Reset from "./ResetPassword";
 
 class ForgotPassword extends Component {
