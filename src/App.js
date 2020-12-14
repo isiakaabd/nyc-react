@@ -9,7 +9,7 @@ import Faq from "./components/Faq";
 import Terms from "./components/Terms";
 // import { Test } from "./testingForms";
 
-import Login from "./components/SignUp-Login";
+import { SignUpLogin }from "./components/SignUpLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ContactUs from "./components/ContactUs";
 
@@ -30,7 +30,7 @@ function App() {
             <Route exact path="/faq" component={Faq} />
             <Route exact path="/terms" component={Terms} />
 
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={SignUpLogin} />
 
         
             <Route exact path="/contact" component={ContactUs} />
