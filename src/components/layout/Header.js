@@ -40,7 +40,7 @@ const Header = (props) => {
                 <a href="./contents/pricing.html">Adverts</a>
               </li>
               <li>
-                <a href="./contents/contact-us.html">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>

@@ -8,8 +8,8 @@ import Faq from "./components/Faq";
 //import ResetPassword from "./components/ResetPassword";
 import Terms from "./components/Terms";
 // import { Test } from "./testingForms";
-
-import { SignUpLogin }from "./components/SignUpLogin";
+import MainUserpage from './components/reducer/Userpage/MainUserpage';
+import SignUpLogin from "./components/SignUpLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ContactUs from "./components/ContactUs";
 
@@ -32,7 +32,7 @@ function App() {
 
             <Route exact path="/login" component={SignUpLogin} />
 
-        
+            <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
 
             {/* <Route exact path="/forgot" component={ForgotPassword} /> */}
