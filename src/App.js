@@ -12,6 +12,8 @@ import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import Login from "./components/SignUp-Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ContactUs from "./components/ContactUs";
+import UploadDoc from "./components/reducer/Userpage/modal/UploadDoc";
+import Default from "./components/Default";
 
 
 function App() {
@@ -35,8 +37,9 @@ function App() {
             <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
 
-            {/* <Route exact path="/forgot" component={ForgotPassword} /> */}
-            {/* <Route exact path="/reset" component={ResetPassword} /> */}
+            <Route exact path="/doc" component={UploadDoc} />
+
+            <Route component={Default} />
             {/* <Route exact path="/search" component={SearchResult} /> */}
 
           </Switch>
