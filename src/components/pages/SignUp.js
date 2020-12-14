@@ -1,31 +1,59 @@
-import React from "react";
+import React, { Component, createRef } from 'react';
 import { Link } from "react-router-dom";
-import "./css/special/signup.css";
-import { Formik, Field, Form } from "formik";
-import * as yup from "yup";
+import "../css/special/signup.css";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import SignUpLogin2 from './drag'
+import { SignUpSetup } from '../Validation/setups';
 //import logo from '../img/logo.png';
 
 // Functional Component
 
-const Login = () => {
-  return (
-    <Formik
+class SignUp extends Component {
+  constructor(props){
+    super(props);
+    // Creating a Ref
+    this.login = createRef()
+    this.state = {
+      user: {
+          email: '',
+          password: ''
+      },
+      isUserAuthenticated: false
+  }
+
+  }
+
+
+
+
+  componentDidMount(){
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });  
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+
+
+  }
+
+  
+
+
+
+  render() {
+    return (
+      <Formik
       // Initial Values of the props
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ email: "", password: "" , name: ""}}
       // Validation Defination with yup
-      validationSchema={yup.object().shape({
-        busName: yup
-          .string()
-          .max(15, "Must be 15 characters or less")
-          .min(3, "Must be at least 3 characters")
-          .required("Required"),
-        email: yup.string().email().required("Enter a valid Email Address"),
-        password: yup
-          .string()
-          .required("No Password Provided")
-          .min(8, "Password is too short")
-          .matches(/(?=.*[0-9])/, "Password should contain a number"),
-      })}
+      validationSchema = {SignUpSetup}
+      // onSubmit={(values)=>auth(values)}
     >
       {(props) => {
         const {
@@ -40,7 +68,8 @@ const Login = () => {
             <div className="container" id="container">
               <div className="form-container sign-up-container">
                 <Form>
-                  <h1 className="first-h1">Create Account</h1>
+               
+                  <h2 className="first-h1">Create Account</h2>
                   <p className="p1">Via</p>
                   <div className="social-media-platforms">
                     <Link to="/" className="social-media-1">
@@ -56,7 +85,7 @@ const Login = () => {
                   <span>OR</span>
                   <Field
                     type="text"
-                    name="busName"
+                    name="name"
                     id="business-name"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -65,8 +94,7 @@ const Login = () => {
                   />
                   {errors.email && touched.email && (
                     <div className="input-feedback">
-                      <i className="fas fa-exclamation-circle"></i>
-                      {errors.name}
+                    {errors.name}
                     </div>
                   )}
                   <Field
@@ -102,97 +130,14 @@ const Login = () => {
                     type="submit"
                     id="signup-button"
                     disabled={isSubmitting}
-                    className={
-                      errors.password &&
-                      touched.password &&
-                      "error signup-button"
-                    }
+                    
                   >
                     Sign Up
                   </button>
                 </Form>
               </div>
 
-              <div className="form-container sign-in-container">
-                <Form>
-                  <h2 className="first-h1">Welcome Back</h2>
-                  <p className="p2"> Sign In Via</p>
-                  <div className="social-media-platforms">
-                    <Link to="/" className="social-media-1">
-                      <i className="fab fa-facebook" />
-                    </Link>
-                    <Link to="/" className="social-media-1">
-                      <i className="fab fa-instagram" />
-                    </Link>
-                    <Link to="/">
-                      <i className="fab fa-linkedin" />
-                    </Link>
-                  </div>
-                  <span>OR</span>
-                  <Field
-                    type="email"
-                    name="email"
-                    id="signin-email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email && touched.email && "error"}
-                    placeholder="Enter your Email Address"
-                  />
-                  {errors.email && touched.email && (
-                    <div className="input-feedback">
-                      <i className="fas fa-exclamation-circle"></i>
-                      {errors.email}
-                    </div>
-                  )}
-                  <Field
-                    type="password"
-                    name="password"
-                    id="signin-password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password && touched.password && "error"}
-                    placeholder="Enter Password"
-                  />
-                  {errors.email && touched.email && (
-                    <div className="input-feedback">
-                      <i className="fas fa-exclamation-circle"></i>
-                      {errors.password}
-                    </div>
-                  )}
-                  <Link to="./forgot">Forgot your password?</Link>
-                  <button
-                    type="submit"
-                    id="login-button"
-                    className="login-button"
-                    disabled={isSubmitting}
-                  >
-                    Sign In
-                  </button>
-                </Form>
-              </div>
-
-              <div className="overlay-container">
-                <div className="overlay">
-                  <div className="overlay-panel overlay-left">
-                    <h2 className="first-h1">Already have an account? </h2>
-                    <p className="p3">
-                      Provide your details and continue your journey with us
-                    </p>
-                    <button className="ghost" id="signIn">
-                      Sign In
-                    </button>
-                  </div>
-                  <div className="overlay-panel overlay-right">
-                    <h2 className="first-h1">Don't Have an Account Yet?</h2>
-                    <p className="p4">
-                      Enter your details and start journey with us
-                    </p>
-                    <button className="ghost" id="signUp">
-                      Sign Up
-                    </button>
-                  </div>
-                </div>
-              </div>
+             <SignUpLogin2 />
             </div>
 
             <style jsx="true">{`
@@ -255,9 +200,9 @@ const Login = () => {
                 overflow: hidden;
                 width: 1180px;
                 max-width: 100%;
-                min-height: 560px;
-                margin-top: 8rem;
-                margin-bottom: 10rem;
+                min-height: 620px;
+                margin-top: 12rem;
+                margin-bottom: 14rem;
               }
 
               .form-container form {
@@ -308,12 +253,12 @@ const Login = () => {
                 color: rgba(235, 54, 54);
                 margin-top: -15px;
                 padding-top: 10px;
-                font-size: 14px;
+                font-size: 12px;
                 margin-bottom: 20px;
               }
 
               .input-feedback i {
-                padding-right: 8px;
+                padding-right: 7px;
               }
 
               button {
@@ -338,15 +283,15 @@ const Login = () => {
                 border-radius: 10px;
               }
 
-              .signup-button {
+              #signup-button {
                 border-radius: 10px;
                 background: #ebba32;
                 color: white;
-                font-size: 12px;
+             
                 font-weight: bold;
                 padding: 12px 45px;
                 letter-spacing: 1px;
-                text-transform: uppercase;
+                
                 transition: transform 80ms ease-in;
               }
 
@@ -452,7 +397,8 @@ const Login = () => {
         );
       }}
     </Formik>
-  );
-};
+    )
+  }
+}
 
-export default Login;
+export { SignUp }

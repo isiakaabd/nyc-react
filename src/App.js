@@ -1,19 +1,23 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Land from "./components/Land";
-import About from "./components/About";
-import Faq from "./components/Faq";
+import Land from "./components/pages/Land";
+import About from "./components/pages/About";
+import Faq from "./components/pages/Faq";
 //import ForgotPassword from "./components/ForgotPassword";
 //import ResetPassword from "./components/ResetPassword";
-import Terms from "./components/Terms";
+import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
 import MainUserpage from './components/reducer/Userpage/MainUserpage';
-import Login from "./components/SignUp-Login";
+import {SignUp} from "./components/pages/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import ContactUs from "./components/ContactUs";
 import UploadDoc from "./components/reducer/Userpage/modal/UploadDoc";
 import Default from "./components/Default";
+
+
+
 
 
 function App() {
@@ -32,7 +36,7 @@ function App() {
             <Route exact path="/faq" component={Faq} />
             <Route exact path="/terms" component={Terms} />
 
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={SignUp} />
 
             <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
