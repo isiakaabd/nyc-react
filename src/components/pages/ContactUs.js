@@ -159,19 +159,12 @@ const divContainer = {
     boxShadow: "0 0 10px #000000b3",
     borderRadius: "5px",
     padding: "12px 20px",
-    // boxShadow: "2px 2px 5px rgba(0,0,0,.2)",
     alignItem: "center",
     marginTop: "20px",
     width: "200px",
     alignSelf: "center"
 }
-// const inputStyle={
-//     input:focus,
-//   textarea:focus{
-//   backgroundColor: "#f3f3f3f3"
 
-//   } 
-// }
 
 
 ContactUs.propTypes = {

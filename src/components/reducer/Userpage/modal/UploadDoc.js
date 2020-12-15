@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
+import Modals from './Modal';
 
 export default function UploadDoc() {
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    const openModal = () => {
-        setIsOpen(true);
+    const [show, setShow] = useState(false);
+    const handleShow = () => {
+
+        setShow(hi => !hi)
+        console.log(show)
     }
     return (
-        <>
+        <div className="d-flex">
 
             < div className="col-10 col-md-9 col-lg-10 py-4   mx-auto">
                 <h4 className="text-left text-nowrap mx-auto" >Uploaded Documents</h4>
@@ -28,12 +31,11 @@ export default function UploadDoc() {
                 <div className=" d-flex flex-wrap " style={{ gap: "20px" }}>
 
                     <button
-                        isOpen={modalIsOpen}
-                        onClick={openModal}
-                        className="py-3"
-                        style={{ width: '180px', marginTop: "30px", height: '53px', border: 'none', color: 'white', borderRadius: '10px', backgroundColor: '#F8C810 !important', boxShadow: '#686868', padding: '1px !important', fontWeight: 'bolder' }} type="button" S className="btn btn-warning"
-                        dataToggle="modal"
-                        data-target="#staticBackdrop">
+
+                        className="btn btn-warning py-3"
+                        style={{ width: '180px', marginTop: "30px", height: '53px', border: 'none', color: 'white', borderRadius: '10px', backgroundColor: '#F8C810 !important', boxShadow: '#686868', padding: '1px !important', fontWeight: 'bolder' }} type="button"
+                        onClick={handleShow}
+                    >
                         Upload Document
                              </button>
                     <button className="py-3"
@@ -42,55 +44,8 @@ export default function UploadDoc() {
                           </button>
                 </div>
             </ div>
-            <Modal
-                isOpen={modalIsOpen}
-            >
-                <div className="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true" style={{ marginLeft: '140px' }}>
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Upload Document</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label htmlFor="recipient-name" className="col-form-label" style={{ color: '#8f8f8f' }}>Title</label>
-                                        <input type="text" className="form-control" id="title" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="recipient-name" className="col-form-label" style={{ color: '#8f8f8f' }}>Attach Document</label>
-                                        <div style={{ height: '230px', borderRadius: '5px', border: '3px dashed #c4c4c4' }} className="custom-file">
-                                            <div className="custom-file" id="change">
-                                                <input id="uploadDoc" type="file" onchange="imageLoader(event)" style={{ height: '250px', width: '600px', cursor: 'pointer' }} className="custom-file-input" name="filename" accept="image/gif, image/jpeg, image/png , .pdf , .jpeg,.png" />
-                                            </div>
-                                            <div style={{ width: '600px', height: '230px' }}>
-                                                <img src id="document" style={{ width: '430px', height: '220px', marginLeft: '15px', marginTop: '-35px', display: 'none' }} />
-                                                <div id="picCont">
-                                                    <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', marginLeft: '190px', marginTop: '-23px', marginBottom: '10px' }} />
-                                                    <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f', marginLeft: '-140px' }}>Drag or drop here</p>
-                                                    <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f', marginLeft: '-140px' }}>Or</p>
-                                                    <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f', marginLeft: '-140px' }}>Browse files</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <label htmlFor="message-text" className="col-form-label" style={{ fontSize: '14px', color: '#c4c4c4' }}>Accepted file types : .jpeg, .jpg, .png &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><i className="fas fa-lock" style={{ color: '#c4c4c4' }}> </i> Secure </span></label>
-                                        <div className="form-group">
-                                            <label htmlFor="message-text" className="col-form-label">Description</label>
-                                            <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
-                                        </div>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" onclick="uploadedDocs()" className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>Upload</button>
-                                    </div>
-                                </form></div>
-                        </div>
-                    </div>
-                </div>
-            </Modal>
-        </>
+            <Modals show={show} setShow={setShow} handleShow={handleShow} />
+
+        </div >
     )
 }
