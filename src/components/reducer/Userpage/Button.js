@@ -21,7 +21,7 @@ function Button() {
 
 
             <div className="sub-container ">
-                <input type="image" style={{ width: "30px" }} src="/images/arimoro.jpeg" className="imageDisplay" id="imageDisplay" />
+                <input type="image" style={{ width: "150px" }} src="/images/arimoro.jpeg" className="imageDisplay" id="imageDisplay" />
                 <h3 id="Name" style={{ fontWeight: 900, fontFamily: 'ubuntu' }}  > {businessName}</h3>
                 <button type="button" className="btn btn-default btn-block"><a href="#">View Profile</a></button>
             </div>

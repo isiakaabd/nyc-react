@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ButtonContainer from './ButtonContainer';
 import Modals from './Modal';
 
 
@@ -12,7 +13,7 @@ export default function UploadDoc() {
     return (
         <div className="container">
 
-            < div className="col-11 col-md-12 col-lg-12 py-4 ml-0  mx-auto">
+            <div className="col-11 col-md-12 col-lg-12 py-4 ml-0  mx-auto">
                 <h4 className="text-left text-nowrap mx-auto" >Uploaded Documents</h4>
                 <div className="d-flex flex-wrap col-12 col-md-12 col-lg-12" style={{ alignItems: 'center', background: '#686868', boxShadow: '0px 0px 1.27907px rgba(0, 0, 0, 0.1), 0px 2.55814px 12.7907px rgba(0, 0, 0, 0.3)', backdropFilter: 'blur(55.63px)', borderRadius: '10px' }}>
 
@@ -29,20 +30,17 @@ export default function UploadDoc() {
 
                 {/* Button trigger modal */}
                 <div className=" d-flex flex-wrap " style={{ gap: "20px" }}>
+                    <ButtonContainer
 
-                    <button
-
-                        className="btn btn-warning py-3"
-                        style={{ width: '180px', marginTop: "30px", height: '53px', border: 'none', color: 'white', borderRadius: '10px', backgroundColor: '#F8C810 !important', boxShadow: '#686868', padding: '1px !important', fontWeight: 'bolder' }} type="button"
                         onClick={handleShow}
-                    >
-                        Upload Document
-                             </button>
-                    <button className="py-3"
-                        style={{ width: '180px', marginTop: "30px", height: '53px', color: 'white', border: 'none', borderRadius: '10px', backgroundColor: '#F8C810 !important', padding: '1px !important', boxShadow: '#686868', fontWeight: 'bolder' }} type="button" className="btn btn-warning">
-                        View Document
-                          </button>
-                </div>
+                        name="Upload Document" />
+
+                    <ButtonContainer className="py-3"
+                        name="View Document "
+
+                    />
+
+                </ div>
             </ div>
             <Modals show={show} setShow={setShow} handleShow={handleShow} />
 

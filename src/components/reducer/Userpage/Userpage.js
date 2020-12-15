@@ -32,7 +32,7 @@ export default function Userpage() {
                 <div className="fine" style={{ width: '301px', height: '200px', background: '#ebebe0' }}>
                     <form style={{ width: '300px' }}>
                         <div style={{ width: '300px' }} className="custom-file">
-                            <input style={{ height: '200px' }} type="file" className="custom-file-input" name="filename" id="customFile" accept="image/gif, image/jpeg, image/png" />
+                            <input style={{ width: "150px" }} type="file" className="custom-file-input" name="filename" id="customFile" accept="image/gif, image/jpeg, image/png" />
                         </div>
                     </form>
                     <h2>Or drag your file here to upload</h2>
@@ -43,14 +43,14 @@ export default function Userpage() {
             <form className="mt-3">
                 <div className="form-row">
                     <TextInput
-
+                        className="form-group col-md-6"
                         value={businessName}
                         id="Business Name"
                         name="text"
                         placeholder="Business Name " />
 
                     <TextInput
-
+                        className="form-group col-md-6"
                         value={email}
                         id="email"
                         placeholder="Email"
@@ -61,7 +61,7 @@ export default function Userpage() {
 
                 <div className="form-row">
                     <TextInput
-
+                        className="form-group col-md-6"
                         name="text"
                         value={phone}
                         id="phone-Number"
@@ -69,6 +69,7 @@ export default function Userpage() {
 
                     <TextInput
                         name="fax"
+                        className="form-group col-md-6"
                         value={fax}
                         id="Fax"
                         placeholder="Fax" />
@@ -139,7 +140,7 @@ export default function Userpage() {
 
 
                     <TextInput
-
+                        className="form-group col-md-6"
                         name="url"
                         value={website}
                         id="url"
@@ -147,7 +148,7 @@ export default function Userpage() {
 
 
                     <TextInput
-
+                        className="form-group col-md-6"
                         name="location"
                         value={location}
                         id="locations"
