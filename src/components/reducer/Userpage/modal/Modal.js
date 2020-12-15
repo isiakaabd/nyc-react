@@ -1,9 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 Modal.setAppElement("#root")
-export default function Modals({ show, setShow, handleShow }) {
+export default function Modals({ show, handleShow }) {
 
 
 
@@ -45,7 +44,9 @@ export default function Modals({ show, setShow, handleShow }) {
                 <div className="modal-header">
                     <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Upload Document</h5>
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span
+                            aria-hidden="true"
+                            onClick={handleShow}>×</span>
                     </button>
                 </div>
                 <div className="modal-body">
@@ -91,12 +92,10 @@ export default function Modals({ show, setShow, handleShow }) {
                 </div>
             </div>
 
-            {/* </div> */}
 
 
 
         </Modal >
-
     )
 
 
