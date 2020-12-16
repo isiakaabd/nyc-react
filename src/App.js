@@ -9,9 +9,15 @@ import Faq from "./components/pages/Faq";
 import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
 import MainUserpage from './components/reducer/Userpage/MainUserpage';
-import {SignUp} from "./components/pages/SignUp";
+import { SignUp } from "./components/pages/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
+import UploadDoc from "./components/reducer/Userpage/modal/UploadDoc";
+import Modals from "./components/reducer/Userpage/modal/Modal";
+
+
+
 
 
 function App() {
@@ -21,13 +27,15 @@ function App() {
 
         <Header />
 
+
+
         <div>
           <Switch>
             <Route exact path="/">
               <Land />
             </Route>
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/faq" component={Faq} />
+            <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/terms" component={Terms} />
 
             <Route exact path="/login" component={SignUp} />
@@ -35,9 +43,11 @@ function App() {
             <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
 
-            {/* <Route exact path="/forgot" component={ForgotPassword} /> */}
-            {/* <Route exact path="/reset" component={ResetPassword} /> */}
-            {/* <Route exact path="/search" component={SearchResult} /> */}
+            <Route exact path="/doc" component={UploadDoc} />
+
+
+            <Route component={Default} />
+
 
           </Switch>
         </div>

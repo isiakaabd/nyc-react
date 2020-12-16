@@ -1,4 +1,4 @@
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL } from "./type"
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, UPLOAD_RECORD } from "./type"
 
 const initialState = {
     contacts: [{
@@ -37,7 +37,14 @@ const reducer = (state = initialState, action) => {
         case EDIT_RECORD:
             return {
                 ...state,
-                contacts: state.contacts
+                contacts: state.contacts,
+                modal: !state.modal
+            }
+        case UPLOAD_RECORD:
+            return {
+                ...state,
+                contacts: action.payload,
+                modal: !state.modal
             }
         case STATE_MODAL:
             return {

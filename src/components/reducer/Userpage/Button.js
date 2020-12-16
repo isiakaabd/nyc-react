@@ -21,7 +21,7 @@ function Button() {
 
 
             <div className="sub-container ">
-                <input type="image" style={{ width: "30px" }} src="/images/arimoro.jpeg" className="imageDisplay" id="imageDisplay" />
+                <input type="image" style={{ width: "150px" }} src="/images/arimoro.jpeg" className="imageDisplay" id="imageDisplay" />
                 <h3 id="Name" style={{ fontWeight: 900, fontFamily: 'ubuntu' }}  > {businessName}</h3>
                 <button type="button" className="btn btn-default btn-block"><a href="#">View Profile</a></button>
             </div>
@@ -38,7 +38,11 @@ function Button() {
                 <button type="button" className="list-group-item list-group-item-action"> <img className="svg" src="/images/stats.svg" alt="svg" /><a href="# ">Stats</a></button>
                 <button type="button" className="list-group-item list-group-item-action"> <img className="svg" src="/images/management.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Manage Ads</a></button>
                 <button type="button" className="list-group-item list-group-item-action "> <img className="svg" src="/images/Celebrate.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Events</a></button>
-                <button type="button" className="list-group-item list-group-item-action "><img className="svg" src="/images/upload.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Upload Documents</a></button>
+                <button
+                    type="button"
+                    onClick={() => dispatch(editRecord())}
+                    className="list-group-item list-group-item-action "
+                ><img className="svg" src="/images/upload.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Upload Documents</a></button>
                 <button type="button" className="list-group-item list-group-item-action"><img className="svg" src="/images/notification.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Notifications/ Inbox</a></button>
                 <button type="button" className="list-group-item list-group-item-action "> <img className="svg" src="/images/settings.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">Settings</a></button>
                 <button type="button" className="list-group-item list-group-item-action "> <img className="svg" src="/images/logout.svg" alt="svg" /><a onClick={(e) => { e.preventDefault() }} href="# ">logout</a></button>
