@@ -10,6 +10,7 @@ export default function UploadDoc() {
         setShow(hi => !hi)
         console.log(show)
     }
+    //
     return (
         <div className="container">
 
@@ -45,5 +46,7 @@ export default function UploadDoc() {
             <Modals show={show} setShow={setShow} handleShow={handleShow} />
 
         </div >
+
+
     )
 }

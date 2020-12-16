@@ -3,9 +3,9 @@ import Button from './Button'
 import Userpage from './Userpage'
 import { useSelector, useDispatch } from 'react-redux'
 import "../../css/userpage.css"
-
 import { stateModal } from '../action'
-import UploadDoc from './modal/UploadDoc'
+import UploadDoc from './modal/UploadDoc';
+// import ReactDom from "react-dom"
 
 
 function MainUserpage() {
