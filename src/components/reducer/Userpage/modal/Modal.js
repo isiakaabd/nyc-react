@@ -14,6 +14,7 @@ export default function Modals({ show, handleShow }) {
     return (
 
         <>
+
             <Modal isOpen={show}
 
                 shouldCloseOnOverlayClick={false}
@@ -23,7 +24,7 @@ export default function Modals({ show, handleShow }) {
                         position: 'absolute',
                         border: '1px solid #ccc',
                         background: '#fff',
-                        overflow: 'hidden',
+                        overflow: 'visible',
                         boxSizing: "border-box",
                         WebkitOverflowScrolling: 'touch',
                         borderRadius: '10px',
@@ -49,7 +50,8 @@ export default function Modals({ show, handleShow }) {
 
 
 
-                {/* <div className="col-6 col-md-7 col-lg-7 mx-auto"> */}
+
+
 
 
                 <div className="modal-content">
@@ -73,7 +75,7 @@ export default function Modals({ show, handleShow }) {
                                     style={{ color: '#8f8f8f' }}
                                 >
                                     Attach Document
-                            </label>
+                                        </label>
                                 <div
                                     style={{ height: '230px', borderRadius: '5px', border: '3px dashed #c4c4c4' }}
                                     className="custom-file">
@@ -115,24 +117,20 @@ export default function Modals({ show, handleShow }) {
                                 <label htmlFor="message-text" >Description</label>
                                 <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                             </div>
-
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleShow}>Cancel</button>
-                                <button type="button" onclick="uploadedDocs()" className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>Upload</button>
-                            </div>
-
-
-
                         </form>
+
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" onClick={handleShow}>Cancel</button>
+                        <button type="button" onclick="uploadedDocs()" className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>Upload</button>
                     </div>
                 </div>
 
 
 
-
             </Modal >
         </>
-        //, document.getElementById("portal")
+
     )
 
 

@@ -3,14 +3,13 @@ import ButtonContainer from './ButtonContainer';
 import Modals from './Modal';
 
 
-export default function UploadDoc() {
+function UploadDoc() {
     const [show, setShow] = useState(false);
     const handleShow = () => {
 
         setShow(hi => !hi)
         console.log(show)
     }
-    //
     return (
         <div className="container">
 
@@ -50,3 +49,4 @@ export default function UploadDoc() {
 
     )
 }
+export default UploadDoc
