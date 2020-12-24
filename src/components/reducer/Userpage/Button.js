@@ -3,9 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch, } from 'react-redux'
 import { editRecord, uploadDoc } from '../action';
 import React from 'react';
-import { Link } from "react-router-dom"
-import Modals from './modal/Modal';
-import UploadDoc from './modal/UploadDoc';
+
 
 
 
@@ -18,7 +16,7 @@ function Button() {
     const { businessName } = users
 
     const dispatch = useDispatch()
-    // dispatch(editRecord)
+
     return (
         <div className=" col-4 col-md-3  d-none d-md-block d-lg-block">
 
@@ -30,7 +28,7 @@ function Button() {
                 <button type="button" className="btn btn-default btn-block"><a href="#">View Profile</a></button>
             </div>
 
-            <div className="list-group">
+            <div className="list-group list-group-flush">
                 <button type="button"
 
                     onClick={() => dispatch(editRecord())}
@@ -67,4 +65,3 @@ function Button() {
     )
 }
 export default Button
-//

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Modals from '../Modal';
 import ButtonContainer from './ButtonContainer';
-import Modals from './Modal';
+
 
 
 function UploadDoc() {
@@ -45,7 +46,6 @@ function UploadDoc() {
             <Modals show={show} setShow={setShow} handleShow={handleShow} />
 
         </div >
-
 
     )
 }
