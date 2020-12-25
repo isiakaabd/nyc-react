@@ -10,10 +10,9 @@ import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
 import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import { SignUp } from "./components/pages/SignUp";
-
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
-import UploadDoc from "./components/reducer/Userpage/modal/UploadDoc";
+
 
 
 
@@ -43,7 +42,6 @@ function App() {
             <Route exact path="/userpage" component={MainUserpage} />
             <Route exact path="/contact" component={ContactUs} />
 
-            <Route exact path="/doc" component={UploadDoc} />
 
 
 

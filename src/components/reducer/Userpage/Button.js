@@ -11,7 +11,7 @@ import React from 'react';
 function Button() {
 
     const users = useSelector(state => state.userReducer.contacts[0])
-    console.log(users)
+  
 
     const { businessName } = users
 
