@@ -12,6 +12,7 @@ import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import { SignUp } from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
+import NavBar from "./sidebars/NavBar";
 
 
 
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/login" component={SignUp} />
 
             <Route exact path="/userpage" component={MainUserpage} />
+            <Route exact path="/nav" component={NavBar} />
             <Route exact path="/contact" component={ContactUs} />
 
 
