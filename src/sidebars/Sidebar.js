@@ -27,7 +27,7 @@ export default function Sidebar() {
             </div>
             <navs className={sidebar ? "nav-menu active " : "nav-menu "}>
                 <ul className=" nav-menu-items  " onClick={showSideBar}>
-                    <li className="navbar-toggle bg-warning">
+                    <li className="navbar-toggle">
                         <Link to="#" className="menu-bars">
                             <AiIcons.AiOutlineClose />
                         </Link>
@@ -37,7 +37,10 @@ export default function Sidebar() {
 
                     {sideBarData.map((sidebars, index) => {
                         return (
-                            <li key={index} className={sidebars.classname}>
+                            <li key={index}
+                                className={sidebars.classname}
+                                id={window.location.pathname == sidebars.path ? "active" : ""}
+                            >
                                 <Link to={sidebars.path}>
                                     {sidebars.icon}
                                     <span>{sidebars.title}</span>

@@ -8,7 +8,7 @@ import Faq from "./components/pages/Faq";
 //import ResetPassword from "./components/ResetPassword";
 import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
-import MainUserpage from './components/reducer/Userpage/MainUserpage';
+// import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import { SignUp } from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
@@ -39,7 +39,7 @@ function App() {
 
             <Route exact path="/login" component={SignUp} />
 
-            <Route exact path="/userpage" component={MainUserpage} />
+            {/* <Route exact path="/userpage" component={MainUserpage} /> */}
             <Route exact path="/nav" component={NavBar} />
             <Route exact path="/contact" component={ContactUs} />
 
