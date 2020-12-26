@@ -8,13 +8,13 @@ import Faq from "./components/pages/Faq";
 //import ResetPassword from "./components/ResetPassword";
 import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
-import MainUserpage from './components/reducer/Userpage/MainUserpage';
+// import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import { SignUp } from "./components/pages/SignUp";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
-import UploadDoc from "./components/reducer/Userpage/modal/UploadDoc";
-import Modals from "./components/reducer/Userpage/modal/Modal";
+import NavBar from "./sidebars/NavBar";
+
+
 
 
 
@@ -28,7 +28,6 @@ function App() {
         <Header />
 
 
-
         <div>
           <Switch>
             <Route exact path="/">
@@ -40,10 +39,11 @@ function App() {
 
             <Route exact path="/login" component={SignUp} />
 
-            <Route exact path="/userpage" component={MainUserpage} />
+            {/* <Route exact path="/userpage" component={MainUserpage} /> */}
+            <Route exact path="/nav" component={NavBar} />
             <Route exact path="/contact" component={ContactUs} />
 
-            <Route exact path="/doc" component={UploadDoc} />
+
 
 
             <Route component={Default} />
