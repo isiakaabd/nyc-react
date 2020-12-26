@@ -12,7 +12,7 @@ import * as ImIcons from "react-icons/im"
 export const sideBarData =
     [{
         title: "Edit Record",
-        path: "/",
+        path: "/nav/edit",
         icon: <faIcons.FaUserEdit />,
         classname: "nav-text"
     },
@@ -42,7 +42,7 @@ export const sideBarData =
     },
     {
         title: "Upload Documents",
-        path: "/Upload Documents",
+        path: "/upload-documents",
         icon: <FiIcons.FiUploadCloud />,
         classname: "nav-text"
     },

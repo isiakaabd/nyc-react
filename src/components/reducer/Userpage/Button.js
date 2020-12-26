@@ -1,7 +1,7 @@
 import '../../../components/css/button.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch, } from 'react-redux'
-import { editRecord, uploadDoc } from '../action';
+import { editRecord } from '../action';
 import React from 'react';
 
 
@@ -11,7 +11,7 @@ import React from 'react';
 function Button() {
 
     const users = useSelector(state => state.userReducer.contacts[0])
-  
+
 
     const { businessName } = users
 

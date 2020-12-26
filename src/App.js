@@ -28,7 +28,6 @@ function App() {
         <Header />
 
 
-
         <div>
           <Switch>
             <Route exact path="/">
