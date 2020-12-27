@@ -5,6 +5,7 @@ import * as FiIcons from "react-icons/fi"
 import * as BiIcons from "react-icons/bi"
 import * as SiIcons from "react-icons/si"
 import * as ImIcons from "react-icons/im"
+import * as RiIcons from "react-icons/ri"
 
 
 
@@ -49,7 +50,7 @@ export const sideBarData =
     {
         title: "Notifications/Inbox",
         path: "/Notifications/Inbox",
-        icon: <FiIcons.FiUploadCloud />,
+        icon: <RiIcons.RiNotification2Line />,
         classname: "nav-text"
     },
     {

@@ -7,7 +7,7 @@ function TextInput(props) {
     const { name, placeholder, value, id } = props
     return (
 
-        <div className="form-group col-md-6">
+        <div className="form-group col-10 col-md-6 col-lg-10">
 
             <input type={name}
 

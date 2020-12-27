@@ -5,7 +5,8 @@
      display:flex;
      justify-content: start;
      align-items: center;
-     background-color: #FFCC00;
+     background-color: transparent;
+     color:#7291A5 !important;
      margin:0;
      padding: 0;
  }
@@ -42,9 +43,8 @@
     justify-content: start;
     align-items: center;
     padding: 8px  16px 8px 16px;
-    border:1px solid#ddd;
-
-    background-color: #efefef;
+    border:1px solid#D0D1D2;
+    background-color: #FFFFFF;
     font-family: "ubuntu",sans-serif;
     border-left-style: hidden;
     border-right-style: hidden;
@@ -52,10 +52,7 @@
     padding-left: 10px; 
    
 }
- .navbar-toggle {
-  list-style-type: none;
-  background-color: #FFCC00;
-}
+
 .nav-text  a{
     text-decoration: none;
     color: black;
@@ -92,7 +89,7 @@
     border-left: 6px solid#EBBA32;
 }
 .nav-text:nth-child(odd){
-    background-color: #fcfcfc;
+    background-color: #D8D8D8;
     
 }
 .navbar-toggle{
@@ -101,7 +98,18 @@ height:80px;
 display: flex;
 justify-content: start;
 align-items: center;
+list-style-type: none;
+background-color: #FFCC00;
 }
+
+.navbar-toggle:hover,
+.menu-bars:hover,
+.menu-bars-item:hover{
+  border: none;
+  border-left: none;
+  color:blue
+ 
+  }
 span{
     margin-left: 16px;
 }

@@ -6,11 +6,12 @@ import { sideBarData } from './SideBarData'
 
 
 export default function Sidebar() {
-    const [sidebar, setSidebar] = useState(false)
+    const [sidebar, setSidebar] = useState(true)
     const showSideBar = () => {
-        console.log(sidebar)
         setSidebar(!sidebar)
     }
+
+
     return (
 
         <>
@@ -25,11 +26,11 @@ export default function Sidebar() {
                 </Link>
 
             </div>
-            <navs className={sidebar ? "nav-menu active " : "nav-menu "}>
+            <main className={sidebar ? "nav-menu active " : "nav-menu "}>
                 <ul className=" nav-menu-items  " onClick={showSideBar}>
                     <li className="navbar-toggle">
                         <Link to="#" className="menu-bars">
-                            <AiIcons.AiOutlineClose />
+                            <AiIcons.AiOutlineClose className="menu-bars-item" />
                         </Link>
 
                     </li>
@@ -39,7 +40,7 @@ export default function Sidebar() {
                         return (
                             <li key={index}
                                 className={sidebars.classname}
-                                id={window.location.pathname == sidebars.path ? "active" : ""}
+                                id={window.location.pathname === sidebars.path ? "active" : ""}
                             >
                                 <Link to={sidebars.path}>
                                     {sidebars.icon}
@@ -51,7 +52,7 @@ export default function Sidebar() {
 
 
                 </ul>
-            </navs>
+            </main>
 
         </>
     )

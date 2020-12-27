@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TextInput from '../../layout/userpageInput/TextInput';
 import Textarea from '../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../layout/userpageInput/SelectInput';
+import "../../css/userpage.css"
 
 
 
@@ -15,7 +16,7 @@ export default function Userpage() {
 
         <div className="container">
 
-            <div className="col-11 col-md-12 col-lg-12 py-4 ml-0  mx-auto">
+            <div className="col-11 col-md-12 col-lg-12">
                 <div className=" d-sm-block  d-md-none d-lg-none col-8 mx-auto col-sm-6 " style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
                     <input type="image" ondrop="imgSave()" style={{ width: "100px", margin: "0 25% 5% 25%" }} src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay" id="imageDisplay" />
                     <h3 id="Name" style={{ fontWeight: 900, fontFamily: 'ubuntu', fontSize: "14px", textAlign: "center" }} > {businessName} </h3>
@@ -43,14 +44,14 @@ export default function Userpage() {
                 <form className="mt-3">
                     <div className="form-row">
                         <TextInput
-                            className="form-group col-md-6 col-lg-3"
+                            className="form-group col-10 col-md-6 col-lg-5"
                             value={businessName}
                             id="Business Name"
                             name="text"
                             placeholder="Business Name " />
 
                         <TextInput
-                            className="form-group col-md-6"
+                            className="form-group col-10 col-md-6 col-lg-5"
                             value={email}
                             id="email"
                             placeholder="Email"
@@ -61,7 +62,7 @@ export default function Userpage() {
 
                     <div className="form-row">
                         <TextInput
-                            className="form-group col-md-6 col-lg-8"
+                            className="form-group col-10 col-md-6 col-lg-5"
                             name="text"
                             value={phone}
                             id="phone-Number"
@@ -69,7 +70,7 @@ export default function Userpage() {
 
                         <TextInput
                             name="fax"
-                            className="form-group col-md-6"
+                            className="form-group col-10 col-md-6 col-lg-5"
                             value={fax}
                             id="Fax"
                             placeholder="Fax" />
@@ -140,7 +141,7 @@ export default function Userpage() {
 
 
                         <TextInput
-                            className="form-group col-md-6 col-lg-8"
+                            className="form-group col-10  col-md-6 col-lg-5"
                             name="url"
                             value={website}
                             id="url"
@@ -148,7 +149,7 @@ export default function Userpage() {
 
 
                         <TextInput
-                            className="form-group col-md-6 col-lg-8"
+                            className="form-group col-10 col-md-6 col-lg-5"
                             name="location"
                             value={location}
                             id="locations"
@@ -156,7 +157,7 @@ export default function Userpage() {
 
 
                     </div>
-                    <div className="form-group  ">
+                    <div className="form-group col-10 col-md-6 col-lg-5 ">
                         <iframe height="248px" frameBorder={0} className="form-control" scrolling="no" marginHeight={0} marginWidth={0} id="gmap_canvas" src="https://maps.google.com/maps?width=1200&height=482.89&hl=en&q=Ahmadu%20Bello%20Way,%20Gudu,%20Abuja.%20Abuja+(Iya%20basira)&t=&z=15&ie=UTF8&iwloc=B&output=embed" />
                     </div>
                     <button type="submit" className="btn btn-lg btn-warning"> Update My Info</button>
