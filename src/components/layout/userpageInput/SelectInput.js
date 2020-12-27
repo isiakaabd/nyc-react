@@ -4,7 +4,7 @@ function SelectInputValue(props) {
     const { name, value, id } = props
     return (
 
-        <div className="form-group col-10 col-md-6 col-lg-10">
+        <div className="form-group col-12 col-md-8 col-lg-6">
 
             <select
                 name={name}

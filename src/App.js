@@ -13,6 +13,7 @@ import { SignUp } from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
 import NavBar from "./sidebars/NavBar";
+import Userpage2 from "./components/reducer/Userpage/modal/Userpage2";
 
 
 
@@ -21,6 +22,7 @@ import NavBar from "./sidebars/NavBar";
 
 
 function App() {
+
   return (
     <Router>
       <div className="App">
@@ -39,7 +41,7 @@ function App() {
 
             <Route exact path="/login" component={SignUp} />
 
-            {/* <Route exact path="/userpage" component={MainUserpage} /> */}
+            <Route exact path="/userpage" component={Userpage2} />
             <Route exact path="/nav" component={NavBar} />
             <Route exact path="/contact" component={ContactUs} />
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Button from './Button'
-import Userpage from './Userpage'
+// import Userpage from './Userpage'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { stateModal } from '../action'
@@ -25,9 +25,9 @@ function MainUserpage() {
                     <Button />
 
 
-                    <div className="col-5-md col-lg-6 ml-0 registration-form  mt-3" id="registration-form">
+                    <div className="col-md-10 col-lg-10 ml-0 registration-form  mt-3" id="registration-form">
 
-                        {state ? < Userpage /> : <UploadDoc />}
+                        {/* {state ? < Userpage /> : <UploadDoc />} */}
                     </div>
                 </div>
             </div>

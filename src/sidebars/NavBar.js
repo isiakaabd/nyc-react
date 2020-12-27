@@ -5,9 +5,10 @@ import UploadDoc from "../components/reducer/Userpage/modal/UploadDoc";
 import Userpage from "../components/reducer/Userpage/Userpage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../components/css/sidebar.css";
-import { useSelector, useDispatch } from 'react-redux'
-import "../components/css/userpage.css"
-import { stateModal } from "../components/reducer/action";
+// import { useSelector, useDispatch } from 'react-redux'
+// import "../components/css/userpage.css"
+import Userpage2 from "../components/reducer/Userpage/modal/Userpage2";
+//import { stateModal } from "../components/reducer/action";
 
 
 
@@ -25,7 +26,7 @@ export default function NavBar() {
         <>
 
             <Router>
-                <div className="d-flex flex-wrap ">
+                <div className="d-flex flex-wrap">
 
                     <div>
                         <RouterSideNavBAr />
@@ -36,10 +37,11 @@ export default function NavBar() {
 
                     <Switch>
 
-                        <div>
+                        <div className="w-75">
                             {/* {state ? < Userpage /> : null} */}
+                            <Route path="/edit" exact component={Userpage2} />
                             <Route path="/upload-documents" exact component={UploadDoc} />
-                            <Route path="/nav/edit" exact component={Userpage} />
+
 
                         </div>
                     </Switch>

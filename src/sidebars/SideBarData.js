@@ -13,7 +13,7 @@ import * as RiIcons from "react-icons/ri"
 export const sideBarData =
     [{
         title: "Edit Record",
-        path: "/nav/edit",
+        path: "/edit",
         icon: <faIcons.FaUserEdit />,
         classname: "nav-text"
     },
