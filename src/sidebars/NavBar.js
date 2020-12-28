@@ -26,7 +26,7 @@ export default function NavBar() {
         <>
 
             <Router>
-                <div className="d-flex flex-wrap">
+                <div className="d-flex flex-wrap ">
 
                     <div>
                         <RouterSideNavBAr />
@@ -37,10 +37,10 @@ export default function NavBar() {
 
                     <Switch>
 
-                        <div className="w-75">
+                        <div className="mx-auto">
                             {/* {state ? < Userpage /> : null} */}
-                            <Route path="/edit" exact component={Userpage2} />
-                            <Route path="/upload-documents" exact component={UploadDoc} />
+                            <Route path="/userpage/" exact component={Userpage2} />
+                            <Route path="/userpage/upload" exact component={UploadDoc} />
 
 
                         </div>

@@ -6,7 +6,7 @@ import { sideBarData } from './SideBarData'
 
 
 export default function Sidebar() {
-    const [sidebar, setSidebar] = useState(true)
+    const [sidebar, setSidebar] = useState(false)
     const showSideBar = () => {
         setSidebar(!sidebar)
     }
@@ -34,7 +34,14 @@ export default function Sidebar() {
                         </Link>
 
                     </li>
+                    <li className="d-none  d-lg-block ">
 
+
+                        <div className="sidebar-image d-flex justify-content-center align-items-center my-4">
+                            <input type="image" style={{ width: "150px", height: "150px" }} src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
+                        </div>
+
+                    </li>
 
                     {sideBarData.map((sidebars, index) => {
                         return (

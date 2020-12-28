@@ -41,20 +41,16 @@ function App() {
 
             <Route exact path="/login" component={SignUp} />
 
-            <Route exact path="/userpage" component={Userpage2} />
-            <Route exact path="/nav" component={NavBar} />
-            <Route exact path="/contact" component={ContactUs} />
-
-
-
+            <Route path="/userpage" component={NavBar} />
 
             <Route component={Default} />
-
-
           </Switch>
+
         </div>
         <Footer />
       </div>
+
+
     </Router>
   );
 }

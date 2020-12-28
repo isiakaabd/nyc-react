@@ -7,7 +7,7 @@ function Textarea(props) {
     const { name, placeholder, value, id } = props
     return (
 
-        <div className="form-group col-12 col-md-8 col-lg-12">
+        <div className="form-group col-12 col-md-12 col-lg-12">
 
             <textarea
                 placeholder={placeholder}

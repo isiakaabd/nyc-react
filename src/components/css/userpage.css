@@ -79,7 +79,7 @@
     line-height: 20px;
 }
 
-.registration-form .span {
+.span {
     line-height: 3;
     display: inline-block;
     background-color: #f8c800 !important;
@@ -99,7 +99,7 @@
 
 }
 
-span .fas {
+.span .fas {
     margin-left: 80px
 }
 
