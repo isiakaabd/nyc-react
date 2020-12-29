@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function Userpage2() {
+export default function Userpage() {
     const users = useSelector(state => state.userReducer.contacts[0])
 
 
@@ -20,7 +20,7 @@ export default function Userpage2() {
         <div className=" container-fluid  mx-auto my-5" style={{ width: "1000px" }}>
             <div className="col-11 col-md-12 col-lg-12 mx-auto">
                 <div className=" d-sm-block  d-md-none d-lg-none col-8 mx-auto col-sm-6   d-flex  flex-column justify-content-center align-items-center" >
-                    <input type="image" style={{ width: "150px", height: "150px" }} src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
+                    <input type="image" style={{ width: "150px", height: "150px" }} alt="profile_image" src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
                     <h3 id="Name" className="text-nowrap" style={{ fontWeight: 900, fontFamily: 'ubuntu', fontSize: "14px", textAlign: "center" }} > {businessName} </h3>
                     <button type="button" className="  btn btn-warning btn-block"><Link to="/" className="text-decoration-none text-white text-nowrap text-left" >View Profile</Link></button>
 
@@ -126,7 +126,7 @@ export default function Userpage2() {
                                     value={category}
 
                                 >
-                                    <option value={category} selected>{category}</option>
+                                    <option defaultValue={category} >{category}</option>
                                     <option value="Real Estate/Property">Real Estate/Property</option>
                                     <option>Beauty &amp; Fashion</option>
                                     <option>Technology</option>
@@ -169,7 +169,7 @@ export default function Userpage2() {
 
                             </div>
                             <div className="form-group ">
-                                <iframe height="248px" frameBorder={0} className="form-control" scrolling="no" marginHeight={0} marginWidth={0} id="gmap_canvas" src="https://maps.google.com/maps?width=1200&height=482.89&hl=en&q=Ahmadu%20Bello%20Way,%20Gudu,%20Abuja.%20Abuja+(Iya%20basira)&t=&z=15&ie=UTF8&iwloc=B&output=embed" />
+                                <iframe height="248px" frameBorder={0} className="form-control" title="location" scrolling="no" marginHeight={0} marginWidth={0} id="gmap_canvas" src="https://maps.google.com/maps?width=1200&height=482.89&hl=en&q=Ahmadu%20Bello%20Way,%20Gudu,%20Abuja.%20Abuja+(Iya%20basira)&t=&z=15&ie=UTF8&iwloc=B&output=embed" />
                             </div>
                             <button type="submit" className="btn btn-lg btn-warning"> Update My Info</button>
                         </form>

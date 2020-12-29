@@ -13,7 +13,7 @@ import { SignUp } from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
 import NavBar from "./sidebars/NavBar";
-import Userpage2 from "./components/reducer/Userpage/modal/Userpage2";
+
 
 
 

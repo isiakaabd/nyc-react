@@ -14,7 +14,7 @@ function Modals({ show, handleShow }) {
                     <form>
                         <div className="form-group">
                             <label htmlFor="recipient-name" style={{ color: '#8f8f8f' }}>Title</label>
-                            <input type="text" className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                            <input type="text" alt="" className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group">
                             <label
@@ -46,6 +46,7 @@ function Modals({ show, handleShow }) {
                             style={{ maxWidth: '600px', height: '230px', position: "absolute", transform: "translate(0%, -90%)" }}
                         >
                             <img
+                                alt=""
                                 src
                                 style={{ width: '430px', height: '220px', marginLeft: '15px', marginTop: '-35px', display: 'none' }}
                             />

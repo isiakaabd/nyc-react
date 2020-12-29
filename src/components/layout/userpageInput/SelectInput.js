@@ -8,7 +8,6 @@ function SelectInputValue(props) {
 
             <select
                 name={name}
-                value={value}
                 id={id}
                 className="form-control custom-select-md  mb-3"
                 value={value}>

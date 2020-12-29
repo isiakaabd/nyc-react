@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
 import * as AiIcons from "react-icons/ai"
 import * as faIcons from "react-icons/fa"
 import { Link } from 'react-router-dom'
@@ -6,6 +7,10 @@ import { sideBarData } from './SideBarData'
 
 
 export default function Sidebar() {
+    const users = useSelector(state => state.userReducer.contacts[1])
+
+
+    const { businessName } = users
     const [sidebar, setSidebar] = useState(false)
     const showSideBar = () => {
         setSidebar(!sidebar)
@@ -37,8 +42,11 @@ export default function Sidebar() {
                     <li className="d-none  d-lg-block ">
 
 
-                        <div className="sidebar-image d-flex justify-content-center align-items-center my-4">
-                            <input type="image" style={{ width: "150px", height: "150px" }} src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
+                        <div className="sidebar-image d-flex  flex-column justify-content-center align-items-center my-4">
+                            <input type="image" style={{ width: "150px", height: "150px" }} alt="profile_image" src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
+                            <h3 id="Name" className="text-nowrap" style={{ fontWeight: 900, fontFamily: 'ubuntu', fontSize: "14px", textAlign: "center" }} > {businessName} </h3>
+                            <button type="button" className="  btn btn-warning btn-block"><Link to="/" className=" w-75 mx-auto text-decoration-none text-white text-nowrap text-left" >View Profile</Link></button>
+
                         </div>
 
                     </li>
