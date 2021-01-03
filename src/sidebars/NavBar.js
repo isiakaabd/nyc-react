@@ -4,10 +4,9 @@ import React from 'react'
 import UploadDoc from "../components/reducer/Userpage/modal/UploadDoc";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../components/css/sidebar.css";
-
 import Userpage from "../components/reducer/Userpage/modal/Userpage2";
 import ManageAds from "../components/pages/ManageAds";
-
+import Notification from "../components/pages/Notification";
 
 
 
@@ -36,6 +35,7 @@ export default function NavBar() {
                             <Route path="/userpage/" exact component={Userpage} />
                             <Route path="/userpage/upload" exact component={UploadDoc} />
                             <Route path="/userpage/ManageAds" exact component={ManageAds} />
+                            <Route path="/userpage/Notifications" exact component={Notification} />
 
 
                         </div>

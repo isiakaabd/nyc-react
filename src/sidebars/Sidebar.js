@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
 import * as AiIcons from "react-icons/ai"
 import * as faIcons from "react-icons/fa"
 import { Link } from 'react-router-dom'
-import { sideBarData } from './SideBarData'
+import { sideBarData } from './SideBarData';
+import { connect } from "react-redux";
+import { editRecord } from '../components/reducer/action';
 
 
-export default function Sidebar() {
-    const users = useSelector(state => state.userReducer.contacts[1])
+
+function Sidebar(props) {
 
 
-    const { businessName } = users
+    const { businessName } = props.sidebarValue
     const [sidebar, setSidebar] = useState(false)
     const showSideBar = () => {
         setSidebar(!sidebar)
@@ -72,3 +73,14 @@ export default function Sidebar() {
         </>
     )
 }
+const MapStateToProps = (state) => {
+    return {
+        sidebarValue: state.userReducer.contacts[0]
+    }
+}
+const MapDispatchToProps = dispatch => {
+    return {
+        sidebarAction: () => dispatch(editRecord())
+    }
+}
+export default connect(MapStateToProps, MapDispatchToProps)(Sidebar)
