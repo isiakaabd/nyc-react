@@ -19,10 +19,10 @@ function Notification(props) {
                         <div className="col-md-3 my-2  col-lg-3  py-3" >
                             <img src="/images/WomanFace2.png" className="d-flex" alt="placeholder" style={{ height: " 173px", width: "161px" }} />
                         </div>
-                        <div className="col-10  mt-0 col-md-8 col-lg-8 m-0">
+                        <div className="col-12  py-4 col-md-8 col-lg-8 m-0">
 
                             <p style={{ fontSize: '18px', fontStyle: 'normal', fontWeight: 'normal', lineHeight: '27px', letterSpacing: '0px', textAlign: 'left', color: '#FFFFFF' }}>{businessName} is live on NYC</p>
-                            <h3 className="m-0" style={{ fontStyle: 'normal', fontWeight: 'normal', fontSize: '18px', marginLeft: '2rem', lineHeight: '21px', color: '#FFFFFF' }}>Welcome. <br /><br />All necessary and required messages and notifications would fall in here, promos and offers also.</h3>
+                            <h3 className="m-0" style={{ fontStyle: 'normal', fontWeight: 'normal', fontSize: '18px', lineHeight: '21px', color: '#FFFFFF' }}>Welcome. <br /><br />All necessary and required messages and notifications would fall in here, promos and offers also.</h3>
 
                         </div>
 

@@ -113,3 +113,7 @@ background-color: #FFCC00;
 span{
     margin-left: 16px;
 }
+.nav-menu-items .sidebar-image:hover,.imageDisplay:hover, .nav-menu-items .side-box:hover,.sidebar-image input:hover,.sidebar-image h3:hover,.sidebar-image button:hover, .btns a:hover{
+    border: none !important;
+    color: inherit;
+}
