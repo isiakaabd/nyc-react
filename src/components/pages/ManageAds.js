@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import ButtonContainer from '../reducer/Userpage/modal/ButtonContainer';
 import ModalAds from './ModalAds';
-
+import ViewDocs from "./ViewDocs"
 function ManageAds() {
     const [show, setShow] = useState(false);
+    const [view, setView] = useState(false);
     const handleShow = () => {
         setShow(show => !show)
     }
+    const ViewDocs = () => {
+        setView(view => !view)
+    }
+
+
     return (
 
         <div className="container">
@@ -34,13 +40,14 @@ function ManageAds() {
 
                     <ButtonContainer className="py-3"
                         name="View Advert "
-
+                        onClick={ViewDocs}
                     />
 
                 </ div>
             </ div>
             <ModalAds show={show} setShow={setShow} handleShow={handleShow} />
-
+            {/* <ViewDocs view={view} setView={setView} ViewDocs={ViewDocs} /> */}
+            {view ? <ViewDocs /> : null}
         </div >
 
     )

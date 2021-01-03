@@ -21,6 +21,7 @@ import NavBar from "./sidebars/NavBar";
 
 
 
+
 function App() {
 
   return (
@@ -40,7 +41,6 @@ function App() {
             <Route exact path="/terms" component={Terms} />
 
             <Route exact path="/login" component={SignUp} />
-
             <Route path="/userpage" component={NavBar} />
 
             <Route component={Default} />
