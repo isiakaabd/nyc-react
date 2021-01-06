@@ -1,27 +1,32 @@
+
 import React from 'react'
 import { Button, Modal } from "react-bootstrap"
 
 
 
-function Modals({ show, handleShow }) {
+function ModalAds({ show, handleShow }) {
     return (
         <>
             <Modal show={show} onHide={handleShow}>
                 <Modal.Header closeButton>
-                    <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Upload Document</h5>
+                    <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Create Advertisement</h5>
                 </Modal.Header>
                 <Modal.Body>
                     <form>
                         <div className="form-group">
-                            <label htmlFor="recipient-name" style={{ color: '#8f8f8f' }}>Title</label>
+                            <label htmlFor="recipient-name" >Advert Title</label>
                             <input type="text" alt="" className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message-text" >Description</label>
+                            <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group">
                             <label
                                 htmlFor="recipient-name"
                                 style={{ color: '#8f8f8f' }}
                             >
-                                Attach Document
+                                Picture / Flyer / Poster
                                         </label>
                             <div
                                 style={{ height: '230px', borderRadius: '5px', border: '3px dashed #c4c4c4' }}
@@ -61,10 +66,7 @@ function Modals({ show, handleShow }) {
                             <label htmlFor="message-text" style={{ fontSize: '14px', color: '#c4c4c4' }}>Accepted file types : .jpeg, .jpg, .png</label>
                             <span><i className="fas fa-lock" style={{ color: '#c4c4c4' }}> </i> Secure </span>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="message-text" >Description</label>
-                            <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
-                        </div>
+
                     </form>
 
 
@@ -78,12 +80,11 @@ function Modals({ show, handleShow }) {
                     <Button
 
                         className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>
-                        Upload
+                        Create
                     </Button>
                 </Modal.Footer>
             </Modal>
         </>
     )
 }
-
-export default Modals
+export default ModalAds

@@ -20,7 +20,10 @@ import NavBar from "./sidebars/NavBar";
 
 
 
+
+
 function App() {
+
   return (
     <Router>
       <div className="App">
@@ -36,23 +39,19 @@ function App() {
             <Route exact path="/about-us" component={About} />
             <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/terms" component={Terms} />
+            <Route exact path="/faq" component={Faq} />
 
             <Route exact path="/login" component={SignUp} />
-
-            {/* <Route exact path="/userpage" component={MainUserpage} /> */}
-            <Route exact path="/nav" component={NavBar} />
-            <Route exact path="/contact" component={ContactUs} />
-
-
-
+            <Route path="/userpage" component={NavBar} />
 
             <Route component={Default} />
-
-
           </Switch>
+
         </div>
         <Footer />
       </div>
+
+
     </Router>
   );
 }

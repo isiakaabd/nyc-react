@@ -39,9 +39,11 @@ const Footer = (props) => {
               <a href="/">
                 <li>Top Events</li>
               </a>
-              <a href="/">
+              <Link to="/contact">
+
                 <li>contact Us</li>
-              </a>
+              </Link>
+
             </ul>
           </div>
           <div className="newsletter">
@@ -70,7 +72,7 @@ const Footer = (props) => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

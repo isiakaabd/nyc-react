@@ -1,35 +1,48 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import React from 'react'
 import UploadDoc from "../components/reducer/Userpage/modal/UploadDoc";
-import Userpage from "../components/reducer/Userpage/Userpage";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../components/css/sidebar.css"
+import "../components/css/sidebar.css";
+import Userpage from "../components/reducer/Userpage/modal/Userpage2";
+import ManageAds from "../components/pages/ManageAds";
+import Notification from "../components/pages/Notification";
+
+
 
 export default function NavBar() {
+    const RouterSideNavBAr = withRouter(Sidebar)
 
     return (
+
+
         <>
+
             <Router>
                 <div className="d-flex flex-wrap ">
-                    {/* <div className="col-6 col-md-4 col-lg-4"> */}
+
                     <div>
-                        <Sidebar />
+                        <RouterSideNavBAr />
                     </div>
 
 
 
 
                     <Switch>
-                        {/* <div className="col-9 col-md-7 col-lg-7"> */}
-                        <div>
-                            <Route path="/upload-documents" exact component={UploadDoc} />
-                            <Route path="/nav/edit" exact component={Userpage} />
+
+                        <div className="mx-auto">
+
+                            <Route path="/userpage/" exact component={Userpage} />
+                            <Route path="/userpage/upload" exact component={UploadDoc} />
+                            <Route path="/userpage/ManageAds" exact component={ManageAds} />
+                            <Route path="/userpage/Notifications" exact component={Notification} />
+
 
                         </div>
                     </Switch>
                 </div>
             </Router>
+
         </>
     )
 }

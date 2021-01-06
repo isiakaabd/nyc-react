@@ -7,9 +7,7 @@ import ButtonContainer from './ButtonContainer';
 function UploadDoc() {
     const [show, setShow] = useState(false);
     const handleShow = () => {
-
-        setShow(hi => !hi)
-        console.log(show)
+        setShow(show => !show)
     }
     return (
         <div className="container">
@@ -19,7 +17,7 @@ function UploadDoc() {
                 <div className="d-flex flex-wrap col-12 col-md-12 col-lg-12" style={{ alignItems: 'center', background: '#686868', boxShadow: '0px 0px 1.27907px rgba(0, 0, 0, 0.1), 0px 2.55814px 12.7907px rgba(0, 0, 0, 0.3)', backdropFilter: 'blur(55.63px)', borderRadius: '10px' }}>
 
                     <div className=" col-md-3 my-2  col-lg-3  py-3" >
-                        <img src="images/WomanFace2.png" className="d-flex " style={{ height: " 173px", width: "161px" }} />
+                        <img src="/images/WomanFace2.png" className="d-flex " alt="placeholder" style={{ height: " 173px", width: "161px" }} />
                     </div>
                     <li name="string" id="string" style={{ display: 'none' }} />
                     <div className="col-9  mt-2 col-md-8 col-lg-8  mx-auto">
