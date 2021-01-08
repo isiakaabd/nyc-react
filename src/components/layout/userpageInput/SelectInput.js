@@ -1,7 +1,7 @@
 import React from 'react'
 function SelectInputValue(props) {
 
-    const { name, value, id } = props
+    const { name, value, id, onChange } = props
     return (
 
         <div className="form-group col-12 col-md-6 col-lg-6">
@@ -10,7 +10,10 @@ function SelectInputValue(props) {
                 name={name}
                 id={id}
                 className="form-control custom-select-md  mb-3"
-                value={value}>
+                value={value}
+                onChange={onChange}
+            >
+
 
                 <option value={value} selected>{value}</option>
 
