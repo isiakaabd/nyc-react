@@ -20,7 +20,7 @@ export const loginSetup = yup.object().shape({
 
 // SignUp Setup
 export const SignUpSetup = yup.object().shape({
-    name: yup.string()
+    business_name: yup.string()
       .max(15, "Must be 15 characters or less")
       .min(3, "Must be at least 3 characters")
       .required("This field is Required"),
