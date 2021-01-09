@@ -79,19 +79,19 @@ function Modals({ show, handleShow }) {
 
                         <div
                             className="d-flex flex-column "
-                            style={{ maxWidth: '400px', width: "inherit", height: '230px', transform: "translate(0%, -90%)", margin: "auto" }}
+                            style={{ maxWidth: '400px', width: "inherit", height: '230px !important' , transform: "translate(0%, -90%)", margin: "auto" }}
                         >
                             <img
                                 alt=""
                                 src=""
                                 id="document"
-
+                                style={{ maxWidth: '250px', height: 'inherit',margin:"auto", display: 'none',position:"relative",top: -"50px" }}
                             />
-                            <div className="d-none d-md-block d-lg-block" id="picCont">
-                                <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', marginLeft: '190px', marginTop: '-23px', marginBottom: '10px' }} />
-                                <p className="text-center picCont" style={{ textAlign: 'center', color: '#8f8f8f', transform: "translate(40%, -30%)" }}>Drag or drop here</p>
-                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f', transform: "translate(40%, -30%)" }}>Or</p>
-                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f', transform: "translate(40%, -30%)" }}>Browse files</p>
+                            <div className="d-none " id="picCont" >
+                                <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', marginLeft: '160px', marginTop: '-23px', marginBottom: '10px' }} />
+                                <p className="text-center picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Drag or drop here</p>
+                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Or</p>
+                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Browse files</p>
                             </div>
                         </div>
                         <div className="d-flex flex-nowrap justify-content-between">

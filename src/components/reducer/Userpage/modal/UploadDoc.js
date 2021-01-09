@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ViewDocs from '../../../pages/ViewDocs';
 import Modals from '../Modal';
 import ButtonContainer from './ButtonContainer';
 
@@ -9,6 +11,12 @@ function UploadDoc() {
     const handleShow = () => {
         setShow(show => !show)
     }
+    const [shows, setShows] = useState(false);
+    const handleShows = () => {
+        console.log("lo")
+        setShows(shows => !shows)
+    }
+
     return (
         <div className="container">
 
@@ -31,17 +39,18 @@ function UploadDoc() {
                 <div className=" d-flex flex-wrap " style={{ gap: "20px" }}>
                     <ButtonContainer
 
-                        onClick={handleShow}
+                        onClick={ handleShow}
                         name="Upload Document" />
 
                     <ButtonContainer className="py-3"
                         name="View Document "
-
+                        onClick={ handleShows}
                     />
-
+                
                 </ div>
             </ div>
             <Modals show={show} setShow={setShow} handleShow={handleShow} />
+      <ViewDocs shows={shows} setShows={setShows} handleShows={handleShows} /> 
 
         </div >
 

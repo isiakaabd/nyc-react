@@ -33,7 +33,7 @@ export default function Userpage() {
 
     });
 
-    const onChange = (e) => {
+   const onChange = (e) => {
         console.log("love")
         const { name, value } = e.target
         console.log(value)
