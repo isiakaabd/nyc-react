@@ -1,20 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextInput from '../../../layout/userpageInput/TextInput';
 import Textarea from '../../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../../layout/userpageInput/SelectInput';
-
 import "../../../css/userpage.css"
 import { Link } from 'react-router-dom';
 
 
 
 export default function Userpage() {
+
+
+
     const users = useSelector(state => state.userReducer.contacts[0])
 
 
-    const { phone, businessName, email, website, textarea, location, fax, state, category } = users
+
+
+
+    const [USerstate = users, setuSerState] = useState({
+        phone: "",
+        businessName: "",
+        email: "",
+        website: "",
+        textarea: "",
+        location: "",
+        fax: "",
+        state: "",
+        category: ""
+
+
+    });
+
+   const onChange = (e) => {
+        console.log("love")
+        const { name, value } = e.target
+        console.log(value)
+        setuSerState({ [name]: value })
+
+
+
+
+    }
+    const { phone, businessName, email, website, textarea, location, fax, state, category } = users;
+
     return (
 
         <div className=" container-fluid  mx-auto my-5" style={{ width: "1000px" }}>
@@ -59,11 +89,13 @@ export default function Userpage() {
                                     value={businessName}
                                     id="Business Name"
                                     name="text"
+                                    onChange={onChange}
                                     placeholder="Business Name " />
 
                                 <TextInput
                                     className="form-group "
                                     value={email}
+                                    onChange={onChange}
                                     id="email"
                                     placeholder="Email"
                                     name="email"
@@ -77,11 +109,13 @@ export default function Userpage() {
                                     name="text"
                                     value={phone}
                                     id="phone-Number"
+                                    onChange={onChange}
                                     placeholder="Phone-Number" />
 
                                 <TextInput
                                     name="fax"
                                     className="form-group"
+                                    onChange={onChange}
                                     value={fax}
                                     id="Fax"
                                     placeholder="Fax" />
@@ -90,6 +124,7 @@ export default function Userpage() {
                             <div className="form-row">
                                 <Textarea
                                     name="textarea"
+                                    onChange={onChange}
                                     id="textarea"
                                     placeholder="short-description"
                                     value={textarea}
@@ -110,6 +145,7 @@ export default function Userpage() {
                                     name="Location"
                                     id="city"
                                     value={state}
+                                    onChange={onChange}
                                 >
 
                                     <option value="Abuja">Abuja</option>
@@ -124,6 +160,7 @@ export default function Userpage() {
                                     name="Location"
                                     id="city"
                                     value={category}
+                                    onChange={onChange}
 
                                 >
                                     <option defaultValue={category} >{category}</option>
@@ -152,7 +189,7 @@ export default function Userpage() {
 
 
                                 <TextInput
-
+                                    onChange={onChange}
                                     name="url"
                                     value={website}
                                     id="url"
@@ -160,7 +197,7 @@ export default function Userpage() {
 
 
                                 <TextInput
-                                    // className="form-group "
+                                    onChange={onChange}
                                     name="location"
                                     value={location}
                                     id="locations"
@@ -171,7 +208,8 @@ export default function Userpage() {
                             <div className="form-group ">
                                 <iframe height="248px" frameBorder={0} className="form-control" title="location" scrolling="no" marginHeight={0} marginWidth={0} id="gmap_canvas" src="https://maps.google.com/maps?width=1200&height=482.89&hl=en&q=Ahmadu%20Bello%20Way,%20Gudu,%20Abuja.%20Abuja+(Iya%20basira)&t=&z=15&ie=UTF8&iwloc=B&output=embed" />
                             </div>
-                            <button type="submit" className="btn btn-lg btn-warning"> Update My Info</button>
+                            <button type="submit" className="btn btn-lg btn-warning"
+                                onClick={() => alert(JSON.stringify(USerstate))}> Update My Info</button>
                         </form>
                     </div>
                 </div>
