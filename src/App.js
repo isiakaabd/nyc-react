@@ -9,7 +9,7 @@ import ResetPassword from "./components/pages/ResetPassword";
 import Terms from "./components/pages/Terms";
 // import { Test } from "./testingForms";
 // import MainUserpage from './components/reducer/Userpage/MainUserpage';
-import { SignUp } from "./components/pages/SignUp";
+import SignUp from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
 import NavBar from "./sidebars/NavBar";
