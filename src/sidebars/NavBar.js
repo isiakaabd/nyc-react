@@ -7,6 +7,7 @@ import "../components/css/sidebar.css";
 import Userpage from "../components/reducer/Userpage/modal/Userpage2";
 import ManageAds from "../components/pages/ManageAds";
 import Notification from "../components/pages/Notification";
+import ViewDocs from "../components/pages/ViewDocs";
 
 
 
@@ -36,6 +37,7 @@ export default function NavBar() {
                             <Route path="/userpage/upload" exact component={UploadDoc} />
                             <Route path="/userpage/ManageAds" exact component={ManageAds} />
                             <Route path="/userpage/Notifications" exact component={Notification} />
+                            <Route path="/userpage/view" exact component={ViewDocs} />
 
 
                         </div>
