@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ButtonContainer from '../reducer/Userpage/modal/ButtonContainer';
 import ModalAds from './ModalAds';
-import ViewDocs from "./ViewDocs"
+
 function ManageAds() {
     const [show, setShow] = useState(false);
     const [view, setView] = useState(false);

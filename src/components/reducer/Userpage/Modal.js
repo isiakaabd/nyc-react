@@ -57,7 +57,7 @@ const onChange=(e)=>{
                     <form onSubmit={onSubmit }   >
                         <div className="form-group">
                             <label htmlFor="recipient-name" style={{ color: '#8f8f8f' }}>Title</label>
-                            <input type="text" alt=""  value={state.title} name="title" onChange={onChange} className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                            <input type="text" required value={state.title} name="title" onChange={onChange} className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group">
                             
@@ -119,7 +119,7 @@ const onChange=(e)=>{
                         </div>
                         <div className="form-group">
                             <label htmlFor="message-text" >Description</label>
-                            <input type="text" className="form-control" id="description" value={state.description} name="description"  onChange={onChange} style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                            <input type="text" className="form-control" id="description" required value={state.description} name="description"  onChange={onChange} style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                     </div>
                     
 
@@ -144,14 +144,10 @@ const onChange=(e)=>{
         </>
     )
 }
-const MapStateToProps = state => {
-    return {
-        sidebarValues: state.userReducer.Uploads[0]
-    }
-}
+
 const MapDispatchToProps = dispatch => {
     return {
         sidebarActions: (form) => dispatch(Uploads(form))
     }
 }
-export default connect(MapStateToProps, MapDispatchToProps)(Modals) 
+export default connect(null, MapDispatchToProps)(Modals) 

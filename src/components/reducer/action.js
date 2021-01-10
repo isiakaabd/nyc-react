@@ -1,5 +1,5 @@
 import axios from "axios";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT} from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
 export const getContacts = () => {
@@ -89,3 +89,31 @@ export const signupUser = (userData) => (dispatch) => {
       })
     )
 };
+export const deleteContact = (id) => {
+  // return async (dispatch) => {
+
+  //     try {
+
+  //         await axios.delete
+  //             (`https://jsonplaceholder.typicode.com/users/${id}`)
+  //         dispatch({
+  //             type: DELETE_CONTACT,
+  //             payload: id
+  //         }
+  //         )
+  //     } catch (e) {
+
+          // dispatch({
+            return{
+              type: DELETE_CONTACT,
+              payload: id
+          }
+  //       }
+
+  //     }
+
+
+
+
+  // }
+}
