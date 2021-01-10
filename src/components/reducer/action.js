@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from 'sweetalert'
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ } from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS} from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
 export const getContacts = () => {
@@ -30,8 +30,20 @@ export const uploadDoc = () => {
 export const stateModal = (dispatch) => {
   dispatch({
     type: STATE_MODAL,
+    
   });
 };
+
+// Upload doc action
+export const Uploads = (form) => {
+  return {
+    type:  UPLOADS,
+    payload:form
+  };
+};
+
+ 
+
 
 // FUNCTION CONTROLLING FAQ ACTION
 export const fetchFaq= () => {

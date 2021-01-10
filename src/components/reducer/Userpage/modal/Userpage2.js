@@ -19,26 +19,13 @@ export default function Userpage() {
 
 
 
-    const [USerstate = users, setuSerState] = useState({
-        phone: "",
-        businessName: "",
-        email: "",
-        website: "",
-        textarea: "",
-        location: "",
-        fax: "",
-        state: "",
-        category: ""
+    const [USerstate = users, setUSerstate] = useState("");
 
-
-    });
-
-   const onChange = (e) => {
-        console.log("love")
+ function onChange (e) {
+        
         const { name, value } = e.target
         console.log(value)
-        setuSerState({ [name]: value })
-
+        setUSerstate({ [name]: users.name })
 
 
 
