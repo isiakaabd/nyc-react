@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/terms" component={Terms} />
             <Route exact path="/faq" component={Faq} />
-
+           
             <Route exact path="/login" component={SignUp} />
             <Route path="/userpage" component={NavBar} />
             <Route path="/forgot" component={ForgotPassword} />

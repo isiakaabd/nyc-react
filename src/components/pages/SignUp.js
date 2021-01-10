@@ -1,12 +1,25 @@
 import React, { Component, useEffect} from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import "../css/special/signup.css";
 import { Formik, Field, Form} from "formik";
 import SignUpLogin2 from "./drag";
 import { SignUpSetup } from "../Validation/setups";
 import {signupUser} from '../reducer/action'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import GoogleLogin from 'react-google-login';
 
+const responseFacebook = (response) => {
+  console.log(response);
+}
+
+const componentClicked = () => {
+  console.log( "Clicked!" )
+}
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 const SignUp = () =>{
 
@@ -34,7 +47,7 @@ const SignUp = () =>{
         onSubmit={((values)=>{
           console.log(values)
             dispatch(signupUser(values))
-            
+
         })}
 >
         {(props) => {
@@ -53,15 +66,31 @@ const SignUp = () =>{
                     <h2 className="first-h1">Create Account</h2>
                     <p className="p1">Via</p>
                     <div className="social-media-platforms">
-                      <Link to="/" className="social-media-1">
-                        <i className="fab fa-facebook" />
-                      </Link>
-                      <Link to="/" lassName="social-media-1">
+                    <FacebookLogin
+                      appId="320788869091759"
+                      autoLoad={false}
+                      fields="name,email,picture"
+                      onClick={componentClicked}
+                      callback={responseFacebook}
+                      cssClass="facebook"
+                      render={renderProps => (
+                        <button onClick={renderProps.onClick}><i className="fab fa-facebook"/></button>
+                      )}
+                    />
+                    <GoogleLogin
+                      clientId="267645115807-n8sfk10g932h2t7ltchdlsvfhinfs0jn.apps.googleusercontent.com"
+                      buttonText="Login"
+                      onSuccess={responseGoogle}
+                      onFailure={responseGoogle}
+                      cookiePolicy={'single_host_origin'}
+                      cssClass="google"
+                    />
+                      {/* <Link to="/" lassName="social-media-1">
                         <i className="fab fa-instagram" />
                       </Link>
                       <Link to="/" className="social-media-1">
                         <i className="fab fa-linkedin" />
-                      </Link>
+                      </Link> */}
                     </div>
                     <span>OR</span>
                     <Field
@@ -190,7 +219,17 @@ const SignUp = () =>{
                 }
 
                 .social-media-platforms {
-                  margin: 20px 0;
+                  margin: 20px 10px;
+                  padding: 0 20px;
+                }
+
+                .social-media-platforms .facebook {
+                 background: white;
+                 display: none;
+                }
+
+                .social-media-platforms .facebook i {
+                  color: blue;
                 }
 
                 .social-media-platforms a {
