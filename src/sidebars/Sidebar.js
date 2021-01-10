@@ -12,7 +12,7 @@ function Sidebar(props) {
 
 
     const { businessName } = props.sidebarValue
-    const [sidebar, setSidebar] = useState(false)
+    const [sidebar, setSidebar] = useState(true)
     const showSideBar = () => {
         setSidebar(!sidebar)
     }

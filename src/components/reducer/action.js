@@ -33,10 +33,10 @@ export const stateModal = (dispatch) => {
 };
 
 // Upload doc action
-export const Uploads = (files) => {
+export const Uploads = (form) => {
   return {
     type:  UPLOADS,
-    payload:files
+    payload:form
   };
 };
 

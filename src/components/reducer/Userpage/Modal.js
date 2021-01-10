@@ -7,63 +7,45 @@ import { Uploads } from "../action";
 
 function Modals({ show, handleShow, sidebarActions,sidebarValues }) {
   
-    // function displayImage(event) { // display selected image function
-    //     if (event.target.files.length > 0) {// get the image src and append it to the preview which is the default image holder
-    //         let src = URL.createObjectURL(event.target.files[0]);
-    //         let preview = document.getElementById("document");
-    //         let cont = document.getElementById("picCont")
-    //         preview.src = src;
-    //         preview.style.display = "block";
-    //         let a = document.getElementById("picCont")
-    //         a.style.display = "none !important";
-    //         // 
-    //     }
-    // }
 
-    // function imageLoader(event) {
-    //     displayImage(event)
-    //     previewFile()
-    // }
-    // function previewFile() {
-    //     const preview = document.querySelector('img');
-    //     const file = document.querySelector('input[type=file]').files[0];
-    //     const reader = new FileReader();
+const [state, setstate] = useState({
+    title:"",
+    description: "",
+    image: ""
+})
 
-    //     reader.addEventListener("load", function () {
-    //         // convert image file to base64 string
-    //         let imgSrc = preview.src
-    //         imgSrc = reader.result;
-
-    //     }, false);
-
-    //     if (file) {
-    //         reader.readAsDataURL(file);
-    //     }
-    // }
-const [imagestate, setimagestate] = useState("")
-
+const onChange=(e)=>{
+    setstate({...state, [e.target.name]: e.target.value})
+}
 
    const imageLoader=(e)=>{
        const reader= new FileReader()
        reader.onload=()=>{
            if (reader.readyState===2){
-               console.log(reader.result)
-            setimagestate(reader.result)
+            //    console.log(reader.result)
+            setstate({...state,image:reader.result})
            }
        }
        reader.readAsDataURL(e.target.files[0])
+    }
 
+    const onSubmit=(e)=>{
+        const {title, description, image } = state;
+        e.preventDefault()
+        const form = {
 
+            title,
+         description ,
+            image
+        }
+        sidebarActions(form)
 
-
-
-
-
-//        let file= e.target.files
-// const files= file[0]
-// console.log(files)
-// console.log(sidebarAction)
-
+         // Clear State
+    setstate({
+        title: "",
+        description: "",
+           image:""
+      });
     }
     return (
         <>
@@ -72,12 +54,10 @@ const [imagestate, setimagestate] = useState("")
                     <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Upload Document</h5>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={(e)=>e.preventDefault()
-                   }
-                        >
+                    <form onSubmit={onSubmit }   >
                         <div className="form-group">
                             <label htmlFor="recipient-name" style={{ color: '#8f8f8f' }}>Title</label>
-                            <input type="text" alt="" className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                            <input type="text" alt=""  value={state.title} name="title" onChange={onChange} className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group">
                             
@@ -100,6 +80,7 @@ const [imagestate, setimagestate] = useState("")
                                         style={{ height: '250px', cursor: 'pointer' }}
                                         className="custom-file-input"
                                         name="filename"
+                                        
                                         onChange={imageLoader}
                                         accept="image/gif, image/jpeg, image/png , .pdf , .jpeg,.png"
                                     />
@@ -116,9 +97,9 @@ const [imagestate, setimagestate] = useState("")
                                  <div className="col-6 mx-auto my-auto">
                                      
                                  
-                            <img
+                                 <img
                                 alt=""
-                                src={imagestate}
+                                src={state.image}
                                 id="document"
                                 style={{ maxWidth: '250px', height: 'inherit',margin:"auto",position:"absolute",top: -"50px" }}
                                 />
@@ -138,7 +119,7 @@ const [imagestate, setimagestate] = useState("")
                         </div>
                         <div className="form-group">
                             <label htmlFor="message-text" >Description</label>
-                            <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
+                            <input type="text" className="form-control" id="description" value={state.description} name="description"  onChange={onChange} style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                     </div>
                     
 
@@ -152,7 +133,6 @@ const [imagestate, setimagestate] = useState("")
                     </Button>
                     <input 
                     type="submit"
-                    onClick={sidebarActions}
                         className="btn btn-primary" data-dismiss="modal" value  ="Upload" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}/>
                     
                    
@@ -171,7 +151,7 @@ const MapStateToProps = state => {
 }
 const MapDispatchToProps = dispatch => {
     return {
-        sidebarActions: (files) => dispatch(Uploads(files))
+        sidebarActions: (form) => dispatch(Uploads(form))
     }
 }
 export default connect(MapStateToProps, MapDispatchToProps)(Modals) 
