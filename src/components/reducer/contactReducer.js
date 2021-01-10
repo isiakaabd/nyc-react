@@ -3,14 +3,10 @@ import {
   GET_CONTACTS,
   STATE_MODAL,
   UPLOAD_RECORD,
-<<<<<<< HEAD
-  LOGIN_USER,
-  UPLOAD
-=======
   SIGNUP_USER,
   FETCH_FAQ
->>>>>>> 5316d82d2a421167f3199da20922ea71ddd840af
-} from "./type";
+} from 
+"./type";
 
 const initialState = {
   contacts: [
@@ -38,11 +34,7 @@ const initialState = {
   ],
   modal: true,
   users: [],
-<<<<<<< HEAD
-  uploadDoc:[]
-=======
   faq: [],
->>>>>>> 5316d82d2a421167f3199da20922ea71ddd840af
 };
 
 const reducer = (state = initialState, action) => {
