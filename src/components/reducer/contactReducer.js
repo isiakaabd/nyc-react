@@ -3,7 +3,8 @@ import {
   GET_CONTACTS,
   STATE_MODAL,
   UPLOAD_RECORD,
-  LOGIN_USER
+  SIGNUP_USER,
+  FETCH_FAQ
 } from "./type";
 
 const initialState = {
@@ -32,6 +33,7 @@ const initialState = {
   ],
   modal: true,
   users: [],
+  faq: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,10 +60,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         modal: state.modal,
       };
-    case LOGIN_USER:
+    case FETCH_FAQ:
       return {
         ...state,
-        user: [...state.users, action.payload],
+        faq: action.payload,
+      };
+    case SIGNUP_USER:
+      return {
+        ...state,
+        users: [...state.users, action.payload],
       };
     default:
       return state;
