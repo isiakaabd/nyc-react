@@ -3,7 +3,7 @@ import { useSelector ,useDispatch} from 'react-redux';
 import { deleteContact } from "./../.././components/reducer/action";
 
 
- function ViewDocs({shows, handleShows}) {
+ function ViewDocs({shows}) {
     const users = useSelector(state => state.userReducer.contacts[0])
     const uploadfile = useSelector(state => state.userReducer.Uploads)
     const {businessName } = users;

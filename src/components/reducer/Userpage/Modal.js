@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Container, Modal } from "react-bootstrap";
+import { Button,  Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Uploads } from "../action";
 
 
 
-function Modals({ show, handleShow, sidebarActions,sidebarValues }) {
+function Modals({ show, handleShow, sidebarActions}) {
   
 
 const [state, setstate] = useState({

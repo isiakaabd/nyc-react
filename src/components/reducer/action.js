@@ -102,7 +102,7 @@ export const deleteContact = (id) => {
   //         }
   //         )
   //     } catch (e) {
-
+console.log(id)
           // dispatch({
             return{
               type: DELETE_CONTACT,
