@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ } from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 

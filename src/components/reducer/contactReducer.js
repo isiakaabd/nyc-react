@@ -5,7 +5,8 @@ import {
   UPLOAD_RECORD,
   SIGNUP_USER,
   FETCH_FAQ
-} from "./type";
+} from 
+"./type";
 
 const initialState = {
   contacts: [
@@ -70,8 +71,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         users: [...state.users, action.payload],
       };
+    case UPLOAD:
+      return {
+        ...state,
+        uploadDoc:[...state.uploadDoc, action.payload]
+  
+      };
     default:
       return state;
-  }
-};
+      
+
+        } 
+      
+}   ;
 export default reducer;
