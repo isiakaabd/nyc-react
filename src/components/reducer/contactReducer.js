@@ -4,7 +4,8 @@ import {
   STATE_MODAL,
   UPLOAD_RECORD,
   SIGNUP_USER,
-  FETCH_FAQ
+  FETCH_FAQ,
+  UPLOADS
 } from 
 "./type";
 
@@ -35,6 +36,7 @@ const initialState = {
   modal: true,
   users: [],
   faq: [],
+  Uploads:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -71,10 +73,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         users: [...state.users, action.payload],
       };
-    case UPLOAD:
+    case UPLOADS:
       return {
         ...state,
-        uploadDoc:[...state.uploadDoc, action.payload]
+        Uploads:[...state.Uploads, action.payload]
   
       };
     default:

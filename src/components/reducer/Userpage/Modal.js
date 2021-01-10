@@ -1,12 +1,12 @@
-import React from 'react'
-import { Button, Modal } from "react-bootstrap";
+import React, { useState } from 'react'
+import { Button, Container, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Uploads } from "../action";
 
 
 
-function Modals({ show, handleShow, props}) {
-
+function Modals({ show, handleShow, sidebarActions,sidebarValues }) {
+  
     // function displayImage(event) { // display selected image function
     //     if (event.target.files.length > 0) {// get the image src and append it to the preview which is the default image holder
     //         let src = URL.createObjectURL(event.target.files[0]);
@@ -40,12 +40,29 @@ function Modals({ show, handleShow, props}) {
     //         reader.readAsDataURL(file);
     //     }
     // }
+const [imagestate, setimagestate] = useState("")
 
-    const imageLoader=(e)=>{
-let file= e.target.files
-const filess= file[0]
-console.log(filess)
-console.log(sidebarAction)
+
+   const imageLoader=(e)=>{
+       const reader= new FileReader()
+       reader.onload=()=>{
+           if (reader.readyState===2){
+               console.log(reader.result)
+            setimagestate(reader.result)
+           }
+       }
+       reader.readAsDataURL(e.target.files[0])
+
+
+
+
+
+
+
+//        let file= e.target.files
+// const files= file[0]
+// console.log(files)
+// console.log(sidebarAction)
 
     }
     return (
@@ -55,17 +72,20 @@ console.log(sidebarAction)
                     <h5 className="modal-title" id="staticBackdropLabel" style={{ color: '#8f8f8f' }}>Upload Document</h5>
                 </Modal.Header>
                 <Modal.Body>
-                    <form>
+                    <form onSubmit={(e)=>e.preventDefault()
+                   }
+                        >
                         <div className="form-group">
                             <label htmlFor="recipient-name" style={{ color: '#8f8f8f' }}>Title</label>
                             <input type="text" alt="" className="form-control" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group">
+                            
                             <label
                                 htmlFor="recipient-name"
                                 style={{ color: '#8f8f8f' }}
                             >
-                                Attach Document
+                                Attach Document 
                             </label>
                             <div
                                 style={{ height: '230px', borderRadius: '5px', border: '3px dashed #c4c4c4' }}
@@ -90,56 +110,68 @@ console.log(sidebarAction)
                         <div
                             className="d-flex flex-column "
                             style={{ maxWidth: '400px', width: "inherit", height: '230px !important' , transform: "translate(0%, -90%)", margin: "auto" }}
-                        >
+                            >
+                            <div className="Container">
+                             <div className="row">
+                                 <div className="col-6 mx-auto my-auto">
+                                     
+                                 
                             <img
                                 alt=""
-                                src=""
+                                src={imagestate}
                                 id="document"
-                                style={{ maxWidth: '250px', height: 'inherit',margin:"auto", display: 'none',position:"relative",top: -"50px" }}
-                            />
-                            <div className="d-none " id="picCont" >
+                                style={{ maxWidth: '250px', height: 'inherit',margin:"auto",position:"absolute",top: -"50px" }}
+                                />
+                                </div>
+                                </div>   
+                            </div>
+                            <div className="d-none d-lg-block" id="picCont" >
                                 <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', marginLeft: '160px', marginTop: '-23px', marginBottom: '10px' }} />
                                 <p className="text-center picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Drag or drop here</p>
                                 <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Or</p>
                                 <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Browse files</p>
                             </div>
-                        </div>
-                        <div className="d-flex flex-nowrap justify-content-between">
+                                </div>
+                            <div className="d-flex flex-nowrap justify-content-between">
                             <label htmlFor="message-text" style={{ fontSize: '14px', color: '#c4c4c4' }}>Accepted file types : .jpeg, .jpg, .png</label>
                             <span><i className="fas fa-lock" style={{ color: '#c4c4c4' }}> </i> Secure </span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="message-text" >Description</label>
                             <input type="text" className="form-control" id="description" style={{ color: '#8f8f8f', borderRadius: '5px' }} />
-                        </div>
-                    </form>
+                    </div>
+                    
 
 
-                </Modal.Body>
+                
                 <Modal.Footer>
                     <Button
                         onClick={handleShow}
                         className="btn btn-secondary">
                         Cancel
                     </Button>
-                    <Button
-                    onClick={props.sidebarAction(Uploads)}
-                        className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>
-                        Upload
-                    </Button>
+                    <input 
+                    type="submit"
+                    onClick={sidebarActions}
+                        className="btn btn-primary" data-dismiss="modal" value  ="Upload" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}/>
+                    
+                   
                 </Modal.Footer>
+                </form>
+                </Modal.Body>
             </Modal>
+            
         </>
     )
 }
-const MapStateToProps = (state) => {
+const MapStateToProps = state => {
     return {
-        sidebarValue: state.userReducer.contacts[0]
+        sidebarValues: state.userReducer.Uploads[0]
     }
 }
 const MapDispatchToProps = dispatch => {
     return {
-        sidebarAction: (filess) => dispatch(Uploads(filess))
+        sidebarActions: (files) => dispatch(Uploads(files))
     }
 }
 export default connect(MapStateToProps, MapDispatchToProps)(Modals) 
