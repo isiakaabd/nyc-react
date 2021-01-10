@@ -3,7 +3,8 @@ import {
   GET_CONTACTS,
   STATE_MODAL,
   UPLOAD_RECORD,
-  LOGIN_USER
+  LOGIN_USER,
+  UPLOAD
 } from "./type";
 
 const initialState = {
@@ -32,6 +33,7 @@ const initialState = {
   ],
   modal: true,
   users: [],
+  uploadDoc:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -63,8 +65,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: [...state.users, action.payload],
       };
+    case UPLOAD:
+      return {
+        ...state,
+        uploadDoc:[...state.uploadDoc, action.payload]
+  
+      };
     default:
       return state;
-  }
-};
+      
+
+        } 
+      
+}   ;
 export default reducer;

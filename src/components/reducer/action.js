@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, LOGIN_USER } from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, LOGIN_USER ,UPLOAD} from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
 export const getContacts = () => {
@@ -38,4 +38,12 @@ export const userLogin = (userDetails) => {
       type: LOGIN_USER,
       payload: userDetails
   }
+};
+
+//Upload action
+export const Uploads = (filess) => {
+  return {
+    type: UPLOAD,
+    payload: filess
+}
 };

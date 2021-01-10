@@ -1,42 +1,52 @@
 import React from 'react'
-import { Button, Modal } from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Uploads } from "../action";
 
 
 
-function Modals({ show, handleShow }) {
+function Modals({ show, handleShow, props}) {
 
-    function displayImage(event) { // display selected image function
-        if (event.target.files.length > 0) {// get the image src and append it to the preview which is the default image holder
-            let src = URL.createObjectURL(event.target.files[0]);
-            let preview = document.getElementById("document");
-            let cont = document.getElementById("picCont")
-            preview.src = src;
-            preview.style.display = "block";
-            let a = document.getElementById("picCont")
-            a.style.display = "none !important";
-            // 
-        }
-    }
+    // function displayImage(event) { // display selected image function
+    //     if (event.target.files.length > 0) {// get the image src and append it to the preview which is the default image holder
+    //         let src = URL.createObjectURL(event.target.files[0]);
+    //         let preview = document.getElementById("document");
+    //         let cont = document.getElementById("picCont")
+    //         preview.src = src;
+    //         preview.style.display = "block";
+    //         let a = document.getElementById("picCont")
+    //         a.style.display = "none !important";
+    //         // 
+    //     }
+    // }
 
-    function imageLoader(event) {
-        displayImage(event)
-        previewFile()
-    }
-    function previewFile() {
-        const preview = document.querySelector('img');
-        const file = document.querySelector('input[type=file]').files[0];
-        const reader = new FileReader();
+    // function imageLoader(event) {
+    //     displayImage(event)
+    //     previewFile()
+    // }
+    // function previewFile() {
+    //     const preview = document.querySelector('img');
+    //     const file = document.querySelector('input[type=file]').files[0];
+    //     const reader = new FileReader();
 
-        reader.addEventListener("load", function () {
-            // convert image file to base64 string
-            let imgSrc = preview.src
-            imgSrc = reader.result;
+    //     reader.addEventListener("load", function () {
+    //         // convert image file to base64 string
+    //         let imgSrc = preview.src
+    //         imgSrc = reader.result;
 
-        }, false);
+    //     }, false);
 
-        if (file) {
-            reader.readAsDataURL(file);
-        }
+    //     if (file) {
+    //         reader.readAsDataURL(file);
+    //     }
+    // }
+
+    const imageLoader=(e)=>{
+let file= e.target.files
+const filess= file[0]
+console.log(filess)
+console.log(sidebarAction)
+
     }
     return (
         <>
@@ -113,7 +123,7 @@ function Modals({ show, handleShow }) {
                         Cancel
                     </Button>
                     <Button
-
+                    onClick={props.sidebarAction(Uploads)}
                         className="btn btn-primary" data-dismiss="modal" style={{ background: '#F8C800', border: '#F8C800', color: '#fff' }}>
                         Upload
                     </Button>
@@ -122,5 +132,14 @@ function Modals({ show, handleShow }) {
         </>
     )
 }
-
-export default Modals
+const MapStateToProps = (state) => {
+    return {
+        sidebarValue: state.userReducer.contacts[0]
+    }
+}
+const MapDispatchToProps = dispatch => {
+    return {
+        sidebarAction: (filess) => dispatch(Uploads(filess))
+    }
+}
+export default connect(MapStateToProps, MapDispatchToProps)(Modals) 
