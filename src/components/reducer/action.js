@@ -1,6 +1,6 @@
 import axios from "axios";
 import swal from 'sweetalert'
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ } from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
