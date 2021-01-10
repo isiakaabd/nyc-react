@@ -1,57 +1,16 @@
-import React, { Component} from "react";
+import React, { Component, useEffect} from "react";
 import { Link } from "react-router-dom";
+import {useDispatch} from 'react-redux';
 import "../css/special/signup.css";
 import { Formik, Field, Form} from "formik";
 import SignUpLogin2 from "./drag";
 import { SignUpSetup } from "../Validation/setups";
-//import logo from '../img/logo.png';
+import {signupUser} from '../reducer/action'
 
-class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        userData: {
-          businessName: "",
-          email: "",
-          password: "",
-        }
-    };
-    // this.onChange = this.onChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
 
-  businessHandler = (e) => {
-    this.setState({
-      businessName: e.target.value
-    })
-  }
+const SignUp = () =>{
 
-  emailHandler = (e) => {
-    this.setState({
-      email: e.target.value
-    })
-  }
-
-  passwordHandler = (e) => {
-    this.setState({
-      password: e.target.value
-    })
-  }
-
-  handleSubmit = (e) => {
-    alert(`${this.state.businessName} Registered successfully`)
-    console.log(this.state);
-    this.setState({
-      userData: {
-        businessName: "",
-        email: "",
-        password: "",
-      }
-    })
-    e.preventDefault();
-  }
-
-  componentDidMount() {
+  useEffect(()=> {
     const signUpButton = document.getElementById("signUp");
     const signInButton = document.getElementById("signIn");
     const container = document.getElementById("container");
@@ -63,29 +22,34 @@ class SignUp extends Component {
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
-  }
-
-  render() {
+  })
+  const dispatch = useDispatch()
     return (
       <Formik
         // Initial Values of the props
-        initialValues={{ business_name: "", email: "", password: ""}}
+        initialValues={{ businessName: "", email: "", password: ""}}
         // Validation Defination with yup
         validationSchema={SignUpSetup}
-        // onSubmit={(values)=>auth(values)}
-      >
+       // onSubmit
+        onSubmit={((values)=>{
+          console.log(values)
+            dispatch(signupUser(values))
+            
+        })}
+>
         {(props) => {
           const {
             touched,
             errors,
             isSubmitting,
-            handleBlur,
+            handleChange,
+            handleSubmit
           } = props;
           return (
             <div className="mainer" id="main">
               <div className="container" id="container">
                 <div className="form-container sign-up-container">
-                  <Form onSubmit={this.handleSubmit}>
+                  <Form onSubmit={handleSubmit}>
                     <h2 className="first-h1">Create Account</h2>
                     <p className="p1">Via</p>
                     <div className="social-media-platforms">
@@ -103,23 +67,18 @@ class SignUp extends Component {
                     <Field
                       type="text"
                       name="businessName"
+                      onChange={handleChange}
                       id="business-name"
-                      value={this.state.businessName}
-                      onChange={this.businessHandler}
-                      onBlur={handleBlur}
                       placeholder="Enter Business Name"
-                      className={errors.business_name && touched.business_name && "error"}
+                      className={errors.businessName && touched.businessName && "error"}
                     />
-                    {errors.businessName && touched.business_name && (
+                    {errors.businessName && touched.businessName && (
                       <div className="input-feedback">{errors.name}</div>
                     )}
                     <Field
                       type="email"
                       name="email"
                       id="email"
-                      value={this.state.email}
-                      onChange={this.emailHandler}
-                      onBlur={handleBlur}
                       placeholder="Enter your Email Address"
                       className={errors.email && touched.email && "error"}
                     />
@@ -133,9 +92,6 @@ class SignUp extends Component {
                       type="password"
                       name="password"
                       id="password"
-                      value={this.state.password}
-                      onChange={this.passwordHandler}
-                      onBlur={handleBlur}
                       placeholder="Enter your Password"
                     />
                     {errors.password && touched.password && (
@@ -415,7 +371,7 @@ class SignUp extends Component {
         }}
       </Formik>
     );
-  }
 }
 
-export { SignUp };
+
+export default SignUp;

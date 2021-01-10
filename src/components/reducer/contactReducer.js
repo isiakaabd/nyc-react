@@ -3,8 +3,13 @@ import {
   GET_CONTACTS,
   STATE_MODAL,
   UPLOAD_RECORD,
+<<<<<<< HEAD
   LOGIN_USER,
   UPLOAD
+=======
+  SIGNUP_USER,
+  FETCH_FAQ
+>>>>>>> 5316d82d2a421167f3199da20922ea71ddd840af
 } from "./type";
 
 const initialState = {
@@ -33,7 +38,11 @@ const initialState = {
   ],
   modal: true,
   users: [],
+<<<<<<< HEAD
   uploadDoc:[]
+=======
+  faq: [],
+>>>>>>> 5316d82d2a421167f3199da20922ea71ddd840af
 };
 
 const reducer = (state = initialState, action) => {
@@ -60,10 +69,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         modal: state.modal,
       };
-    case LOGIN_USER:
+    case FETCH_FAQ:
       return {
         ...state,
-        user: [...state.users, action.payload],
+        faq: action.payload,
+      };
+    case SIGNUP_USER:
+      return {
+        ...state,
+        users: [...state.users, action.payload],
       };
     case UPLOAD:
       return {
