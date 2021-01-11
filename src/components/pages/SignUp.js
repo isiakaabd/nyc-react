@@ -37,6 +37,7 @@ const SignUp = () =>{
     });
   })
   const dispatch = useDispatch()
+  
     return (
       <Formik
         // Initial Values of the props
@@ -64,7 +65,7 @@ const SignUp = () =>{
                 <div className="form-container sign-up-container">
                   <Form onSubmit={handleSubmit}>
                     <h2 className="first-h1">Create Account</h2>
-                    <p className="p1">Via</p>
+                    {/* <p className="p1">Via</p>
                     <div className="social-media-platforms">
                     <FacebookLogin
                       appId="320788869091759"
@@ -76,23 +77,23 @@ const SignUp = () =>{
                       render={renderProps => (
                         <button onClick={renderProps.onClick}><i className="fab fa-facebook"/></button>
                       )}
-                    />
-                    <GoogleLogin
+                    /> */}
+                    {/* <GoogleLogin
                       clientId="267645115807-n8sfk10g932h2t7ltchdlsvfhinfs0jn.apps.googleusercontent.com"
                       buttonText="Login"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={'single_host_origin'}
                       cssClass="google"
-                    />
+                    /> */}
                       {/* <Link to="/" lassName="social-media-1">
                         <i className="fab fa-instagram" />
                       </Link>
                       <Link to="/" className="social-media-1">
                         <i className="fab fa-linkedin" />
                       </Link> */}
-                    </div>
-                    <span>OR</span>
+                    {/* </div>
+                    <span>OR</span> */}
                     <Field
                       type="text"
                       name="businessName"

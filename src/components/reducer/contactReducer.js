@@ -4,6 +4,7 @@ import {
   STATE_MODAL,
   UPLOAD_RECORD,
   SIGNUP_USER,
+  LOGIN_USER,
   FETCH_FAQ,
   UPLOADS,
   DELETE_CONTACT,
@@ -37,6 +38,7 @@ const initialState = {
   ],
   modal: true,
   users: [],
+  isLoggedIn: false,
   faq: [],
   Uploads:[],
   adverts:[]
@@ -82,6 +84,14 @@ const reducer = (state = initialState, action) => {
         users: [...state.users, action.payload],
       };
 
+      case LOGIN_USER:
+        return {
+          ...state,
+        users: [...state.users, action.payload],
+        isLoggedIn: true
+        }
+
+        
     case UPLOADS:
       return {
         ...state,

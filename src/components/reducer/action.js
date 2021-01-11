@@ -83,6 +83,8 @@ export const fetchFaq= () => {
    }
   };
 
+
+
 // FUNCTION CONTROLLING SIGNUP ACTION
 // export const signupUser = userData => {
 //   return (dispatch) => {
@@ -100,7 +102,12 @@ export const fetchFaq= () => {
 //   }
 // }
 
+
+
+
 export const signupUser = (userData) => {
+  console.log("action")
+
   return (dispatch) => {
   fetch("https://naija-yellow-catalogue.herokuapp.com/signup", 
   {
@@ -110,12 +117,18 @@ export const signupUser = (userData) => {
     },
     body: JSON.stringify(userData),
   })
-    .then((resp) => resp.json())
-    .then((post) =>
+    // .then((resp) => resp.json())
+    .then((post) => {
+
+      console.log(post)
+
       dispatch({
         type: SIGNUP_USER,
         payload: post,
+
       })
+      
+    }
     )
     if (userData) {
       return swal({
@@ -123,11 +136,61 @@ export const signupUser = (userData) => {
         text: "You have Registered Successfully",
         icon: "success",
         button: "Proceed",
-      });
+      }).then(
+        window.location.reload()
+      );
       
     }
   }
 };
+
+
+export const loginUser = (userData) => {
+
+  return (dispatch) => {
+  fetch("https://naija-yellow-catalogue.herokuapp.com/login", 
+  {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  })
+    .then((resp) => resp.json())
+    .then((post) => {
+
+      swal({
+        title: "Awesome!",
+        text: "Login Successful",
+        icon: "success",
+        button: "Proceed",
+      })
+
+      localStorage.setItem("token", JSON.stringify(post.Token))
+      localStorage.setItem("user", JSON.stringify(post.data))
+      
+   
+
+        dispatch({
+          type: LOGIN_USER,
+          payload: post,
+  
+        })
+       
+      
+    }
+    )
+    }
+    
+
+ 
+  }
+
+
+
+
+
+
 export const deleteContact = (id) => {
   // return async (dispatch) => {
 
