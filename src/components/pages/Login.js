@@ -1,14 +1,16 @@
 
-import React, { Component, createRef } from 'react';
-import { Link } from "react-router-dom";
+import React, { Component, useEffect} from "react";
+import { Link, useHistory } from "react-router-dom";
 import "../css/special/signup.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { loginSetup } from '../Validation/setups';
+import {useDispatch, useSelector} from 'react-redux';
+import { loginUser } from "../reducer/action";
 //import logo from '../img/logo.png';
 
 // Class Component
 
-class Login extends Component {
+
   // constructor(props){
   //   super(props);
   //   // Creating a Ref
@@ -17,8 +19,32 @@ class Login extends Component {
 
   // }
 
+  const Login = () =>{
 
-  render() {
+    useEffect(()=> {
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+  
+      signUpButton.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+  
+      signInButton.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+    })
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const userReducer = useSelector(state => state.userReducer)
+
+ if (userReducer.isLoggedIn){
+  
+    history.push("/userpage")
+
+ }
+
+ console.log(userReducer.isLoggedIn)
     return (
     
     <Formik
@@ -27,6 +53,13 @@ class Login extends Component {
       // Validation Defination with yup
       validationSchema = {loginSetup}
       // onSubmit={(values)=>auth(values)}
+
+      onSubmit={((values)=>{
+        console.log(values)
+          dispatch(loginUser(values))
+         
+      })}
+
     >
       {(props) => {
         const {
@@ -43,7 +76,7 @@ class Login extends Component {
       <Form>
         <h2 className="first-h1">Welcome Back</h2>
         <p className="p2"> Sign In Via</p>
-        <div className="social-media-platforms">
+        {/* <div className="social-media-platforms">
           <Link to="/" className="social-media-1">
             <i className="fab fa-facebook" />
           </Link>
@@ -54,7 +87,7 @@ class Login extends Component {
             <i className="fab fa-linkedin" />
           </Link>
         </div>
-        <span>OR</span>
+        <span>OR</span> */}
         <Field
           type="email"
           name="email"
@@ -379,8 +412,8 @@ class Login extends Component {
 </Formik>
 )
 }
-}
 
-export { Login }      
+
+export default Login     
 
 
