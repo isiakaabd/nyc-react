@@ -6,12 +6,10 @@ import ViewDoc from './ViewDoc';
 function ManageAds() {
     const [adshow, setAdshow] = useState(false);
     const handleAdshow = () => {
-        console.log("handld")
         setAdshow(adshow => !adshow)
     }
     const [adshows, setAdshows] = useState(true);
     const handleAdshows = () => {
-        console.log("handldsssss")
         setAdshows(adshows => !adshows)
     }
 

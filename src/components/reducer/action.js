@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from 'sweetalert';
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER} from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
 export const getContacts = () => {
@@ -51,7 +51,7 @@ export const Uploads = (form) => {
 export const advert = (item) => {
   return async (dispatch) => {
     const users = await axios.post
-        ("https://naija-yellow-catalogue.herokuapp.com/adverts", item)
+        ("https://jsonplaceholder.typicode.com/users", item)
         console.log(users)
         dispatch({
         type: ADVERT,
@@ -59,8 +59,18 @@ export const advert = (item) => {
         payload: users.data
     }
     )
+    if (item) {
+      return swal({
+        title: "Great job!",
+        text: "Document Uploaded Successfully",
+        icon: "success",
+        button: "Proceed",
+      })
+    }
+    }
 }
-};
+
+;
 
 
 
@@ -119,9 +129,6 @@ export const signupUser = (userData) => {
   })
     // .then((resp) => resp.json())
     .then((post) => {
-
-      console.log(post)
-
       dispatch({
         type: SIGNUP_USER,
         payload: post,

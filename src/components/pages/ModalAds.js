@@ -34,7 +34,7 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
             const item = {
     
                 title,
-             description ,
+                description ,
                 flyer
             }
             
