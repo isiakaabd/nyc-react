@@ -5,7 +5,8 @@ import {
   UPLOAD_RECORD,
   SIGNUP_USER,
   FETCH_FAQ,
-  UPLOADS
+  UPLOADS,
+  DELETE_CONTACT
 } from 
 "./type";
 
@@ -85,9 +86,11 @@ const reducer = (state = initialState, action) => {
         Uploads:[...state.Uploads, action.payload]
   
       };
-
-
-
+      case DELETE_CONTACT:
+            return {
+                ...state,
+                Uploads: state.Uploads.filter(contact => contact.id !== action.payload)
+            }
     default:
       return state;
       

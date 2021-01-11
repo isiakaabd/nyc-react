@@ -11,7 +11,7 @@ function UploadDoc() {
     const handleShow = () => {
         setShow(show => !show)
     }
-    const [shows, setShows] = useState(false);
+    const [shows, setShows] = useState(true);
     const handleShows = () => {
         setShows(shows => !shows)
     }
