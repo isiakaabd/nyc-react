@@ -12,34 +12,34 @@ import Terms from "./components/pages/Terms";
 import SignUp from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
-import NavBar from "./sidebars/NavBar";
+// import NavBar from "./sidebars/NavBar";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-
-        <div>
+    // 
+    
+     <>
+     <div>
+    
+     <Router>
+     <Header />
           <Switch>
-            <Route exact path="/">
-              <Land />
-            </Route>
+            <Route  exact path="/" component={Land} /> 
             <Route exact path="/about-us" component={About} />
             <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/terms" component={Terms} />
             <Route exact path="/faq" component={Faq} />
-           
             <Route exact path="/login" component={SignUp} />
-            <Route path="/userpage" component={NavBar} />
-            <Route path="/forgot" component={ForgotPassword} />
-            <Route path="/reset" component={ResetPassword} />
+            <Route exact path="/forgot" component={ForgotPassword} />
+            <Route exact path="/reset" component={ResetPassword} />
             <Route component={Default} />
           </Switch>
-        </div>
+         
         <Footer />
-      </div>
-    </Router>
+        </Router>
+        </div>
+        </>
+    // 
   );
 }
 

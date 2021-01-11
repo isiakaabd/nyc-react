@@ -15,11 +15,23 @@ export default function Userpage() {
 
     const users = useSelector(state => state.userReducer.contacts[0])
 
+    // const { phone, businessName, email, website, textarea, location, fax, state, category } = users;
 
 
 
 
-    const [USerstate = users, setUSerstate] = useState("");
+    const [USerstate , setUSerstate] = useState({
+        phone:"", 
+        businessName: "", 
+        email:"", 
+        website: " ", 
+        textarea: "", 
+        location:"", 
+        fax:"",
+        state:"",
+        category:"" 
+    });
+    const { phone, businessName, email, website, textarea, location, fax, state, category } = USerstate;
 
  function onChange (e) {
         
@@ -30,7 +42,7 @@ export default function Userpage() {
 
 
     }
-    const { phone, businessName, email, website, textarea, location, fax, state, category } = users;
+   
 
     return (
 
