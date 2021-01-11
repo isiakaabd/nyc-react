@@ -6,7 +6,8 @@ import {
   SIGNUP_USER,
   FETCH_FAQ,
   UPLOADS,
-  DELETE_CONTACT
+  DELETE_CONTACT,
+  ADVERT
 } from 
 "./type";
 
@@ -37,7 +38,8 @@ const initialState = {
   modal: true,
   users: [],
   faq: [],
-  Uploads:[]
+  Uploads:[],
+  adverts:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -84,6 +86,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         Uploads:[...state.Uploads, action.payload]
+  
+      };
+    case ADVERT :
+      return {
+        ...state,
+        adverts:[...state.adverts, action.payload]
   
       };
       case DELETE_CONTACT:

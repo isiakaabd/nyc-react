@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from 'sweetalert';
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT} from "./type";
 import UploadDoc from "./Userpage/modal/UploadDoc";
 
 export const getContacts = () => {
@@ -41,8 +41,28 @@ export const Uploads = (form) => {
     payload:form
   };
 };
+// Advert doc action
+// export const advert = (item) => {
+//   return {
+//     type:  ADVERT,
+//     payload:item
+//   };
+// };
+export const advert = (item) => {
+  return async (dispatch) => {
+    const users = await axios.post
+        ("https://naija-yellow-catalogue.herokuapp.com/adverts", item)
+        console.log(users)
+        dispatch({
+        type: ADVERT,
+      
+        payload: users.data
+    }
+    )
+}
+};
 
- 
+
 
 
 // FUNCTION CONTROLLING FAQ ACTION
