@@ -46,39 +46,48 @@ const reducer = (state = initialState, action) => {
         ...state,
         contacts: action.payload,
       };
+
     case EDIT_RECORD:
       return {
         ...state,
         contacts: state.contacts,
         modal: !state.modal,
       };
+
     case UPLOAD_RECORD:
       return {
         ...state,
         contacts: action.payload,
         modal: !state.modal,
       };
+
     case STATE_MODAL:
       return {
         ...state,
         modal: state.modal,
       };
+
     case FETCH_FAQ:
       return {
         ...state,
         faq: action.payload,
       };
+
     case SIGNUP_USER:
       return {
         ...state,
         users: [...state.users, action.payload],
       };
+
     case UPLOADS:
       return {
         ...state,
         Uploads:[...state.Uploads, action.payload]
   
       };
+
+
+
     default:
       return state;
       

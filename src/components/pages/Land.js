@@ -14,20 +14,11 @@ const Land = (props) => {
             {" "}
             never get stranded <br /> with business decisions
           </h3>
-          <div className="box-headers">
-            <div className="first">
-              <h5> Yellow Pages</h5>
-            </div>
-            <div className="second">
-              <a href="./contents/event.html">
-                <h5>Events</h5>
-              </a>
-            </div>
-          </div>
+         
           <div className="main-box">
             <div className="box-contents">
               <div className="input-icon">
-                <i className="fas fa-book-open" />
+                
                 <input
                   type="text"
                   name="whoweknow"

@@ -104,6 +104,7 @@ export const signupUser = (userData) => {
         icon: "success",
         button: "Proceed",
       });
+      
     }
   }
 };
