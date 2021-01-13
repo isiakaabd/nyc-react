@@ -67,13 +67,14 @@ import { loginUser } from "../reducer/action";
           errors,
           isSubmitting,
           handleChange,
-          handleBlur,
+          handleSubmit,
+          handleBlur
         } = props;
 
         return (
        <div>
       <div className="form-container sign-in-container">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h2 className="first-h1">Welcome Back</h2>
         <p className="p2"> Sign In Via</p>
         {/* <div className="social-media-platforms">

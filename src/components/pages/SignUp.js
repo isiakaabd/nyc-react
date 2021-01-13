@@ -35,9 +35,15 @@ const SignUp = () =>{
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
+
+
+    
   })
   const dispatch = useDispatch()
   
+  
+
+
     return (
       <Formik
         // Initial Values of the props
@@ -100,10 +106,11 @@ const SignUp = () =>{
                       onChange={handleChange}
                       id="business-name"
                       placeholder="Enter Business Name"
-                      className={errors.businessName && touched.businessName && "error"}
+                      className={errors.businessName && touched.businessName && "error"} 
+                     
                     />
                     {errors.businessName && touched.businessName && (
-                      <div className="input-feedback">{errors.name}</div>
+                      <div className="input-feedback">{errors.businessName}</div>
                     )}
                     <Field
                       type="email"
@@ -191,6 +198,8 @@ const SignUp = () =>{
                   text-decoration: none;
                   margin: 15px 0;
                 }
+
+                
 
                 a:hover {
                   text-decoration: none;
