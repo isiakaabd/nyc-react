@@ -36,12 +36,6 @@ export const sideBarData =
         classname: "nav-text"
     },
     {
-        title: "Events",
-        path: "/userpage/Events",
-        icon: <BiIcons.BiCalendarEvent />,
-        classname: "nav-text"
-    },
-    {
         title: "Upload Documents",
         path: "/userpage/upload",
         icon: <FiIcons.FiUploadCloud />,

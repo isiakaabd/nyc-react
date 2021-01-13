@@ -15,6 +15,7 @@ import {
 const initialState = {
   contacts: [
     {
+      id: 1,
       businessName: "REMLAD VENTURES",
       website: "https:// www.remlad.com",
       email: "isiakaabd@gmail.com",
@@ -26,6 +27,7 @@ const initialState = {
       state: "osun",
     },
     {
+      id:2,
       businessName: "REMLAD VENTURES",
       website: "https:// www.remlad.com",
       email: "isiakaabd@gmail.com",
@@ -37,6 +39,7 @@ const initialState = {
     },
   ],
   modal: true,
+  user:{},
   users: [],
   isLoggedIn: false,
   faq: [],
@@ -55,8 +58,8 @@ const reducer = (state = initialState, action) => {
     case EDIT_RECORD:
       return {
         ...state,
-        contacts: state.contacts,
-        modal: !state.modal,
+        contacts:[ state.contacts,action.payload],
+      
       };
 
     case UPLOAD_RECORD:
@@ -107,7 +110,7 @@ const reducer = (state = initialState, action) => {
       case DELETE_CONTACT:
             return {
                 ...state,
-                Uploads: state.Uploads.filter(contact => contact.id !== action.payload)
+                Uploads: state.Uploads.filter(item => item.id !== action.payload)
             }
     default:
       return state;

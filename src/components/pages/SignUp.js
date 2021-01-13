@@ -46,6 +46,7 @@ const SignUp = () =>{
         validationSchema={SignUpSetup}
        // onSubmit
         onSubmit={((values)=>{
+          
           console.log(values)
             dispatch(signupUser(values))
 

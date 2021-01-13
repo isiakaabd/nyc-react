@@ -27,7 +27,7 @@ advertfile.map((file,index)=>{
 <li key={index}>
 <div className=" col-10 mx-auto card mb-3" id="forza">
 <div className="d-flex justify-content-center row no-gutters">
-    <div className="col-md-4 mb-0 " id="marko">
+    <div className="col-md-4 mb-0 align-self-center" id="marko">
         <img src={file.flyer} className="card-img" alt="image" />
     </div>
     <div className="col-md-8">

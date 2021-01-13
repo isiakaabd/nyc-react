@@ -67,52 +67,49 @@ const onChange=(e)=>{
                             >
                                 Attach Document 
                             </label>
-                            <div
-                                style={{ height: '230px', borderRadius: '5px', border: '3px dashed #c4c4c4' }}
-                                className="custom-file">
-                                <div
-                                    className="custom-file"
-                                    id="change"
-                                >
+                 <div className="container-fluid" style={{height:"230px"}}>
+
+    
+
+                            <div style={{ height: "inherit", borderRadius: '5px', border: '3px dashed #c4c4c4' }} className="custom-file">
+                               
                                     <input
                                         id="uploadDoc"
                                         type="file"
-                                        style={{ height: '250px', cursor: 'pointer' }}
+                                        style={{ height: "inherit", cursor: 'pointer',width: "100%"}}
                                         className="custom-file-input"
                                         name="filename"
-                                        
+                                        multiple
                                         onChange={imageLoader}
-                                        accept="image/gif, image/jpeg, image/png , .pdf , .jpeg,.png"
+                                        accept="image/gif, image/jpeg, image/png , .pdf , .jpeg,.png, .txt"
                                     />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="d-flex flex-column "
-                            style={{ maxWidth: '400px', width: "inherit", height: '230px !important' , transform: "translate(0%, -90%)", margin: "auto" }}
-                            >
-                            <div className="Container">
-                             <div className="row">
-                                 <div className="col-6 mx-auto my-auto">
-                                     
-                                 
+                                <div className="row"style={{height:"inherit !important",marginLeft:"0", display: "flex",justifyContent: "center",width: "inherit",justifyItems: "center"}}> 
                                  <img
-                                alt=""
+                                alt=" "
                                 src={state.image}
                                 id="document"
-                                style={{ maxWidth: '250px', height: 'inherit',margin:"auto",position:"absolute",top: -"50px" }}
+                                style={{ maxWidth: '300px', height: '226px',margin:"auto",position:"absolute",top: "0",maxHeight: "inherit", width:"100%" }}
                                 />
-                                </div>
-                                </div>   
+                           
                             </div>
-                            <div className="d-none d-lg-block" id="picCont" >
-                                <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', marginLeft: '160px', marginTop: '-23px', marginBottom: '10px' }} />
-                                <p className="text-center picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Drag or drop here</p>
-                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Or</p>
-                                <p className="picCont" style={{ textAlign: 'center', color: '#8f8f8f' }}>Browse files</p>
+                        </div>
+                        </div>
+                        <div
+                            className="d-none"
+                            // style={{ maxWidth: '400px', width: "inherit", height: '230px !important' , transform: "translate(0%, -90%)", margin: "auto" }}
+                            >
+                           
+                                
+                                <div className="container">
+                            <div className=" d-none d-lg-block" >
+                                <i className="fas fa-file-upload picCont" style={{ textAlign: 'center', color: '#c4c4c4', fontSize: '90px', }} />
+                                <p className=" picCont" style={{  color: 'red' }}>Drag or drop here</p>
+                                <p className="picCont" style={{  color: '#8f8f8f' }}>Browse files</p>
+                                <p className="picCont" style={{  color: '#8f8f8f' }}>Or</p>
+                            </div>
                             </div>
                                 </div>
+              </div>
                             <div className="d-flex flex-nowrap justify-content-between">
                             <label htmlFor="message-text" style={{ fontSize: '14px', color: '#c4c4c4' }}>Accepted file types : .jpeg, .jpg, .png</label>
                             <span><i className="fas fa-lock" style={{ color: '#c4c4c4' }}> </i> Secure </span>

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
+import React, { useState,useEffect } from 'react';
+import { useSelector ,useDispatch} from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextInput from '../../../layout/userpageInput/TextInput';
 import Textarea from '../../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../../layout/userpageInput/SelectInput';
 import "../../../css/userpage.css"
 import { Link } from 'react-router-dom';
+import {editRecord} from "../../action"
 
 
 
@@ -13,23 +14,27 @@ export default function Userpage() {
 
 
 
-    const users = useSelector(state => state.userReducer.contacts[0])
+    const users = useSelector(state => state.userReducer.users[0])
 
-    // const { phone, businessName, email, website, textarea, location, fax, state, category } = users;
+const dispatch =useDispatch()
+// useEffect(() => {
+//     dispatch(loginUser())
+   
+// }, [])
 
 
 
 
     const [USerstate , setUSerstate] = useState({
-        phone:"", 
-        businessName: "", 
-        email:"", 
-        website: " ", 
-        textarea: "", 
-        location:"", 
-        fax:"",
-        state:"",
-        category:"" 
+        phone:users.phone, 
+        businessName:users.name, 
+        email:users.email, 
+        website:users.email, 
+        textarea:users.textarea, 
+        location:users.location, 
+        fax:users.fax,
+        state:users.state,
+        category:users.category 
     });
     const { phone, businessName, email, website, textarea, location, fax, state, category } = USerstate;
 
@@ -37,12 +42,28 @@ export default function Userpage() {
         
         const { name, value } = e.target
         console.log(value)
-        setUSerstate({ [name]: users.name })
+        setUSerstate({...USerstate, [name]:value })
 
 
 
     }
-   
+   const onSubmit=(e)=>{
+        e.preventDefault()
+
+        const form = {
+            phone,
+            businessName, 
+            email, 
+            website, 
+            textarea, 
+            location, 
+            fax,
+            state,
+            category
+        }
+        console.log(form)
+        dispatch(editRecord(form))
+   }
 
     return (
 
@@ -79,7 +100,7 @@ export default function Userpage() {
                     <div className=" mt-4 col-11 col-md-10 col-lg-10 mr-auto" >
 
 
-                        <form className=" mx-auto"  >
+                        <form onSubmit={onSubmit} className=" mx-auto"  >
 
 
                             <div className="form-row">
