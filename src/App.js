@@ -7,6 +7,7 @@ import Faq from "./components/pages/Faq";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import ResetPassword from "./components/pages/ResetPassword";
 import Terms from "./components/pages/Terms";
+import PrivateRoute from "./helpers/PrivateRoute";
 // import { Test } from "./testingForms";
 // import MainUserpage from './components/reducer/Userpage/MainUserpage';
 import SignUp from "./components/pages/SignUp";
@@ -31,7 +32,7 @@ function App() {
             <Route exact path="/faq" component={Faq} />
            
             <Route exact path="/login" component={SignUp} />
-            <Route path="/userpage" component={NavBar} />
+            <PrivateRoute exact path="/userpage" component={NavBar} />
             <Route path="/forgot" component={ForgotPassword} />
             <Route path="/reset" component={ResetPassword} />
             <Route component={Default} />
