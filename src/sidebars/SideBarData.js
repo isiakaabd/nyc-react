@@ -6,6 +6,7 @@ import * as BiIcons from "react-icons/bi"
 import * as SiIcons from "react-icons/si"
 import * as ImIcons from "react-icons/im"
 import * as RiIcons from "react-icons/ri"
+import Logout from "../components/Validation/setups"
 
 
 
@@ -56,8 +57,8 @@ export const sideBarData =
 
     {
         title: "Logout",
-        path: "/userpage/Logout",
         icon: <FiIcons.FiLogOut />,
-        classname: "nav-text"
+        classname: "nav-text",
+        func: Logout()
     },
     ]

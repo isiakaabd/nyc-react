@@ -58,7 +58,9 @@ function Sidebar(props) {
                                 className={sidebars.classname}
                                 id={window.location.pathname === sidebars.path ? "active" : ""}
                             >
-                                <Link to={sidebars.path}>
+                                <Link to={sidebars.path}
+                                    onClick={sidebars.func}
+                                >
                                     {sidebars.icon}
                                     <span>{sidebars.title}</span>
                                 </Link>

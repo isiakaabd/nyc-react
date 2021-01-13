@@ -137,9 +137,11 @@ export const signupUser = (userData) => {
         text: "You have Registered Successfully",
         icon: "success",
         button: "Proceed",
-      }).then(
-        window.location.reload()
-      );
+      })
+      
+      // .then(
+      //   window.location.reload()
+      // );
       
     }
   }
