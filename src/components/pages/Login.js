@@ -44,19 +44,20 @@ import { loginUser } from "../reducer/action";
 
  }
 
- console.log(userReducer.isLoggedIn)
+//  console.log(userReducer.isLoggedIn)
     return (
     
     <Formik
       // Initial Values of the props
-      initialValues={{ email: "", password: "" , name: ""}}
+      initialValues={{ email: "", password: ""}}
       // Validation Defination with yup
       validationSchema = {loginSetup}
       // onSubmit={(values)=>auth(values)}
 
-      onSubmit={((values)=>{
+      onSubmit={((values, action)=>{
         console.log(values)
-          dispatch(loginUser(values))
+        console.log(action)
+        dispatch(loginUser(values, action))
          
       })}
 
