@@ -46,7 +46,7 @@ export const Uploads = (form) => {
 export const advert = (item) => {
   return async (dispatch) => {
     const users = await axios.post
-        ("https://naija-yellow-catalogue.herokuapp.com/adverts", item)
+        ("https://naija-yellow-catalogue.herokuapp.com/adverts/", item)
         console.log(users)
         dispatch({
         type: ADVERT,
@@ -150,46 +150,41 @@ export const signupUser = (userData) => {
 
 export const loginUser = (userData) => {
 
-  // return (dispatch) => {
-  // fetch("https://naija-yellow-catalogue.herokuapp.com/login/", 
-  // {
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify(userData),
-  // })
-  //   .then((resp) => resp.json())
-  //   .then((post) => {
+  return (dispatch) => {
+  fetch("https://naija-yellow-catalogue.herokuapp.com/login/", 
+  {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  })
+    .then((resp) => resp.json())
+    .then((post) => {
 
-  //     swal({
-  //       title: "Awesome!",
-  //       text: "Login Successful",
-  //       icon: "success",
-  //       button: "Proceed",
-  //     })
+      swal({
+        title: "Awesome!",
+        text: "Login Successful",
+        icon: "success",
+        button: "Proceed",
+      })
 
-  //     localStorage.setItem("token", JSON.stringify(post.Token))
-  //     localStorage.setItem("user", JSON.stringify(post.data))
-  //       dispatch({
-  //         type: LOGIN_USER,
-  //         payload: post,
+      localStorage.setItem("token", JSON.stringify(post.Token))
+      localStorage.setItem("user", JSON.stringify(post.data))
+        dispatch({
+          type: LOGIN_USER,
+          payload: post,
   
-  //       })
+        })
        
       
-    // }
-    // )
-    // }
+    }
+    )
+    }
     
-return{
-  type:  LOGIN_USER,
-    payload:userData
-}
- 
+
+
   }
-
-
 
 
 

@@ -6,7 +6,7 @@ import Textarea from '../../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../../layout/userpageInput/SelectInput';
 import "../../../css/userpage.css"
 import { Link } from 'react-router-dom';
-import {editRecord} from "../../action"
+import {loginUser} from "../../action"
 
 
 
@@ -26,15 +26,15 @@ const dispatch =useDispatch()
 
 
     const [USerstate , setUSerstate] = useState({
-        phone:users.phone, 
-        businessName:users.name, 
-        email:users.email, 
-        website:users.email, 
-        textarea:users.textarea, 
-        location:users.location, 
-        fax:users.fax,
-        state:users.state,
-        category:users.category 
+        phone:userInfo.phone, 
+        businessName:userInfo.businessName, 
+        email:userInfo.email, 
+        website:userInfo.website, 
+        textarea:userInfo.textarea, 
+        location:userInfo.location, 
+        fax:userInfo.fax,
+        state:userInfo.state,
+        category:userInfo.category 
     });
     const { phone, businessName, email, website, textarea, location, fax, state, category } = USerstate;
 
@@ -62,7 +62,7 @@ const dispatch =useDispatch()
             category
         }
         console.log(form)
-        dispatch(editRecord(form))
+        dispatch(loginUser(form))
    }
 
     return (
@@ -71,7 +71,7 @@ const dispatch =useDispatch()
             <div className="col-11 col-md-12 col-lg-12 mx-auto">
                 <div className=" d-sm-block  d-md-none d-lg-none col-8 mx-auto col-sm-6   d-flex  flex-column justify-content-center align-items-center" >
                     <input type="image" style={{ width: "150px", height: "150px" }} alt="profile_image" src="/images/arimoro.jpeg" className=" rounded-circle imageDisplay align-self-center" id="imageDisplay" />
-                    <h3 id="Name" className="text-nowrap" style={{ fontWeight: 900, fontFamily: 'ubuntu', fontSize: "14px", textAlign: "center" }} > ${userInfo.businessName} </h3>
+                    <h3 id="Name" className="text-nowrap" style={{ fontWeight: 900, fontFamily: 'ubuntu', fontSize: "14px", textAlign: "center" }} > {businessName} </h3>
                     <button type="button" className="  btn btn-warning btn-block"><Link to="/" className="text-decoration-none text-white text-nowrap text-left" >View Profile</Link></button>
 
                 </div>
