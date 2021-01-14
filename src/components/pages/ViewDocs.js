@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import { useSelector ,useDispatch} from 'react-redux';
 import { deleteContact } from "./../.././components/reducer/action";
 
@@ -8,11 +8,10 @@ import { deleteContact } from "./../.././components/reducer/action";
     const uploadfile = useSelector(state => state.userReducer.Uploads)
     const {businessName } = users;
   const dispatch= useDispatch()
-
- const onDeleteClick = id => {
-   dispatch(deleteContact(id))
-
-  };
+ 
+const onDeleteClick = () => {
+ dispatch(deleteContact())
+  }
     return (
        
         <>
@@ -20,25 +19,46 @@ import { deleteContact } from "./../.././components/reducer/action";
 {shows? null          
 : 
 uploadfile.map((file,index)=>{
+  const {title,description,image}= file;
+  // console.log(index)
+  if(file===null){
   return(
-  <ul style={{listStyle:"none"}}>
+
+    
+    <ul> 
+      <div className=" col-10 mx-auto card mb-3" id="forza">
+
+
+
+      alert("love")
+    </div>
+    </ul>
+    
+  )
+  }else{
+  return(
+
+  <ul key={index} style={{listStyle:"none"}}>
       
   
-<li key={index}>
-<div className=" col-10 mx-auto card mb-3" id="forza">
-<div className="d-flex justify-content-center row no-gutters">
-    <div className="col-md-4 mb-0 " id="marko">
-        <img src={file.image} className="card-img" alt="image" />
+<li>
+<div className=" col-10 col-lg-6 col-md-6 mx-auto card mb-3" id="forza">
+<div className="d-flex justify-content-center  row no-gutters">
+    <div className="col-md-4 mb-0 align-self-center" id="marko">
+        <img src={image} className="card-img" alt="image" />
+        
     </div>
     <div className="col-md-8">
+        {/* <div className="card-header"> */}
+        <h5 className="card-title p-3">{title}</h5>
+          {/* </div> */}
         <div className="card-body">
-            <h5 className="card-title">{file.title}</h5>
-            <p className="card-text">{file.description}</p>
+            <p className="card-text">{description}</p>
             <p className="card-text"><strong className="text-muted">{businessName}</strong></p>
             <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
             <div className=" d-flex col-4">
 
-            <button type="button" className="btn btn-primary p-2" onClick={onDeleteClick}>Delete</button>
+            <button  type="button" className="btn btn-danger p-2" onClick={ onDeleteClick.bind(title)}>Delete</button>
             </div>
 
         </div>
@@ -48,11 +68,12 @@ uploadfile.map((file,index)=>{
 
 </li>
   </ul>
-  ) 
+  ) }
 })
 
 }
-        </>
+   
+</>
     )
 }
 

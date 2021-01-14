@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import ButtonContainer from '../reducer/Userpage/modal/ButtonContainer';
 import ModalAds from './ModalAds';
-import ViewDocs from './ViewDocs';
+import ViewDoc from './ViewDoc';
 
 function ManageAds() {
-    const [show, setShow] = useState(false);
-    const handleShow = () => {
-        setShow(show => !show)
+    const [adshow, setAdshow] = useState(false);
+    const handleAdshow = () => {
+        setAdshow(adshow => !adshow)
     }
-    const [shows, setShows] = useState(true);
-    const handleShows = () => {
-        setShows(shows => !shows)
+    const [adshows, setAdshows] = useState(true);
+    const handleAdshows = () => {
+        setAdshows(adshows => !adshows)
     }
 
 
@@ -36,19 +36,18 @@ function ManageAds() {
                 <div className=" d-flex flex-wrap " style={{ gap: "20px" }}>
                     <ButtonContainer
 
-                        onClick={handleShow}
+                        onClick={handleAdshow}
                         name="Create Advert" />
 
                     <ButtonContainer className="py-3"
                         name="View Advert "
-                        onClick={ViewDocs}
+                        onClick={handleAdshows}
                     />
 
                 </ div>
             </ div>
-            <ModalAds show={show} setShow={setShow} handleShow={handleShow} />
-            {/* <ViewDocs view={view} setView={setView} ViewDocs={ViewDocs} /> */}
-            <ViewDocs shows={shows} setShows={setShows} handleShows={handleShows} /> 
+            <ModalAds adshow={adshow} setAdshow={setAdshow} handleAdshow={handleAdshow} />
+            <ViewDoc adshows={adshows} setAdshows={setAdshows} handleAdshows={handleAdshows} /> 
         </div >
 
     )

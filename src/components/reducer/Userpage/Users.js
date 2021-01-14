@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { editRecord } from '../action'
-import Userpage from './Userpage'
+// import Userpage from './Userpage2'
 import { connect } from "react-redux"
 import "../Userpage/../../../components/css/userpage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Userpage from './modal/Userpage2';
 
 function Users({ editRecord, Users }) {
 

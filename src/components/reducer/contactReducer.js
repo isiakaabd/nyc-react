@@ -7,13 +7,15 @@ import {
   LOGIN_USER,
   FETCH_FAQ,
   UPLOADS,
-  DELETE_CONTACT
+  DELETE_CONTACT,
+  ADVERT
 } from 
 "./type";
 
 const initialState = {
   contacts: [
     {
+      id: 1,
       businessName: "REMLAD VENTURES",
       website: "https:// www.remlad.com",
       email: "isiakaabd@gmail.com",
@@ -25,6 +27,7 @@ const initialState = {
       state: "osun",
     },
     {
+      id:2,
       businessName: "REMLAD VENTURES",
       website: "https:// www.remlad.com",
       email: "isiakaabd@gmail.com",
@@ -36,10 +39,12 @@ const initialState = {
     },
   ],
   modal: true,
+  user:{},
   users: [],
   isLoggedIn: false,
   faq: [],
-  Uploads:[]
+  Uploads:[],
+  adverts:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,8 +58,8 @@ const reducer = (state = initialState, action) => {
     case EDIT_RECORD:
       return {
         ...state,
-        contacts: state.contacts,
-        modal: !state.modal,
+        contacts:[ state.contacts,action.payload],
+      
       };
 
     case UPLOAD_RECORD:
@@ -96,10 +101,16 @@ const reducer = (state = initialState, action) => {
         Uploads:[...state.Uploads, action.payload]
   
       };
+    case ADVERT :
+      return {
+        ...state,
+        adverts:[...state.adverts, action.payload]
+  
+      };
       case DELETE_CONTACT:
             return {
                 ...state,
-                Uploads: state.Uploads.filter(contact => contact.id !== action.payload)
+                Uploads: state.Uploads.filter(item => item.id !== action.payload)
             }
     default:
       return state;

@@ -15,32 +15,45 @@ import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
 import NavBar from "./sidebars/NavBar";
 
+
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
 
-        <div>
+     <>
+     <div>
+
+     <Router>
+     <Route    path="/login" component={SignUp} />
+     </Router>
+    
+     <Header />
+    
           <Switch>
-            <Route exact path="/">
-              <Land />
-            </Route>
+            <Route  exact path="/" component={Land} /> 
             <Route exact path="/about-us" component={About} />
             <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/terms" component={Terms} />
             <Route exact path="/faq" component={Faq} />
+<<<<<<< HEAD
+            <Route    path="/login" component={SignUp} />
+            <Route exact path="/forgot" component={ForgotPassword} />
+            <Route exact path="/reset" component={ResetPassword} />
+            {/* <Route  path="/userpage" component={NavBar} /> */}
+=======
            
             <Route exact path="/login" component={SignUp} />
             <PrivateRoute exact path="/userpage" component={NavBar} />
             <Route path="/forgot" component={ForgotPassword} />
             <Route path="/reset" component={ResetPassword} />
+>>>>>>> 5da8b0038423a00920d75705ddc018e5a28325ee
             <Route component={Default} />
           </Switch>
-        </div>
+        
         <Footer />
-      </div>
-    </Router>
+        
+        </div>
+        </>
+  
   );
 }
 

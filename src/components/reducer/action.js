@@ -1,8 +1,8 @@
 import axios from "axios";
 import swal from 'sweetalert';
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, LOGIN_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT} from "./type";
-import UploadDoc from "./Userpage/modal/UploadDoc";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER} from "./type";
+
 
 export const getContacts = () => {
   return async (dispatch) => {
@@ -14,18 +14,18 @@ export const getContacts = () => {
   };
 };
 
-export const editRecord = () => {
+export const editRecord = (form) => {
   return {
     type: EDIT_RECORD,
-    payload: UploadDoc,
+     payload: form,
   };
 };
 
-export const uploadDoc = () => {
-  return {
-    type: EDIT_RECORD,
-  };
-};
+// export const uploadDoc = () => {
+//   return {
+//     type: EDIT_RECORD,
+//   };
+// };
 
 export const stateModal = (dispatch) => {
   dispatch({
@@ -42,7 +42,31 @@ export const Uploads = (form) => {
   };
 };
 
- 
+
+export const advert = (item) => {
+  return async (dispatch) => {
+    const users = await axios.post
+        ("https://naija-yellow-catalogue.herokuapp.com/adverts", item)
+        console.log(users)
+        dispatch({
+        type: ADVERT,
+        payload: users.data
+    }
+    )
+    if (item) {
+      return swal({
+        title: "Great job!",
+        text: "Document Uploaded Successfully",
+        icon: "success",
+        button: "Proceed",
+      })
+    }
+    }
+}
+
+;
+
+
 
 
 // FUNCTION CONTROLLING FAQ ACTION
@@ -99,9 +123,6 @@ export const signupUser = (userData) => {
   })
     // .then((resp) => resp.json())
     .then((post) => {
-
-      console.log(post)
-
       dispatch({
         type: SIGNUP_USER,
         payload: post,
@@ -129,42 +150,42 @@ export const signupUser = (userData) => {
 
 export const loginUser = (userData) => {
 
-  return (dispatch) => {
-  fetch("https://naija-yellow-catalogue.herokuapp.com/login", 
-  {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  })
-    .then((resp) => resp.json())
-    .then((post) => {
+  // return (dispatch) => {
+  // fetch("https://naija-yellow-catalogue.herokuapp.com/login/", 
+  // {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify(userData),
+  // })
+  //   .then((resp) => resp.json())
+  //   .then((post) => {
 
-      swal({
-        title: "Awesome!",
-        text: "Login Successful",
-        icon: "success",
-        button: "Proceed",
-      })
+  //     swal({
+  //       title: "Awesome!",
+  //       text: "Login Successful",
+  //       icon: "success",
+  //       button: "Proceed",
+  //     })
 
-      localStorage.setItem("token", JSON.stringify(post.Token))
-      localStorage.setItem("user", JSON.stringify(post.data))
-      
-   
-
-        dispatch({
-          type: LOGIN_USER,
-          payload: post,
+  //     localStorage.setItem("token", JSON.stringify(post.Token))
+  //     localStorage.setItem("user", JSON.stringify(post.data))
+  //       dispatch({
+  //         type: LOGIN_USER,
+  //         payload: post,
   
-        })
+  //       })
        
       
-    }
-    )
-    }
+    // }
+    // )
+    // }
     
-
+return{
+  type:  LOGIN_USER,
+    payload:userData
+}
  
   }
 
@@ -174,30 +195,26 @@ export const loginUser = (userData) => {
 
 
 export const deleteContact = (id) => {
-  // return async (dispatch) => {
+ 
+  return async (dispatch) => {
 
-  //     try {
+    try {
 
-  //         await axios.delete
-  //             (`https://jsonplaceholder.typicode.com/users/${id}`)
-  //         dispatch({
-  //             type: DELETE_CONTACT,
-  //             payload: id
-  //         }
-  //         )
-  //     } catch (e) {
-console.log(id)
-          // dispatch({
-            return{
-              type: DELETE_CONTACT,
-              payload: id
-          }
-  //       }
+        await axios.delete
+            (`https://jsonplaceholder.typicode.com/users/${id}`)
+        dispatch({
+            type: DELETE_CONTACT,
+            payload: id
+        }
+        )
+    } catch (e) {
 
-  //     }
-
-
-
-
-  // }
+        dispatch({
+            type: DELETE_CONTACT,
+            payload: id
+        }
+        )
+      }
+    }
+  
 }
