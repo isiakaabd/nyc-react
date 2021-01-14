@@ -16,18 +16,18 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
     const onChange=(e)=>{
         setstate({...state, [e.target.name]: e.target.value})
     }
-    
        const imageLoaders=(e)=>{
            const reader= new FileReader()
            reader.onload=()=>{
                if (reader.readyState===2){
-                //    console.log(reader.result)
+                console.log(reader.result)
                 setstate({...state,flyer:reader.result})
                }
            }
            reader.readAsDataURL(e.target.files[0])
         }
-    
+
+        //lo
         const onSubmit=(e)=>{
             const {title, description, flyer } = state;
             e.preventDefault()

@@ -30,7 +30,7 @@ function Users({ editRecord, Users }) {
 
 const MapStateToProps = (state) => {
     return {
-        Users: state.userReducer.contacts
+        Users: state.userReducer.users
     }
 }
 const MapDispatchToProps = dispatch => {

@@ -19,6 +19,7 @@ const onChange=(e)=>{
 }
 
    const imageLoader=(e)=>{
+       console.log(e.target.file)
        const reader= new FileReader()
        reader.onload=()=>{
            if (reader.readyState===2){
