@@ -2,6 +2,7 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/landing.css";
+import SearchBus from "./SearchBus"
 
 AOS.init();
 
@@ -17,9 +18,9 @@ const Land = (props) => {
          
           <div className="main-box">
             <div className="box-contents">
-              <div className="input-icon">
-                
-                <input
+              {/* <div className="input-icon"> */}
+                <SearchBus />
+                {/* <input
                   type="text"
                   name="whoweknow"
                   id="business"
@@ -59,8 +60,8 @@ const Land = (props) => {
                   className="search-btn"
                 >
                   Search
-                </button>
-              </div>
+                </button> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
