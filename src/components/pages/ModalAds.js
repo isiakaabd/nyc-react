@@ -20,7 +20,7 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
            const reader= new FileReader()
            reader.onload=()=>{
                if (reader.readyState===2){
-                //    console.log(reader.result)
+                console.log(reader.result)
                 setstate({...state,flyer:reader.result})
                }
            }
