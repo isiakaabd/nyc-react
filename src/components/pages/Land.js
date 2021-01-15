@@ -2,11 +2,17 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/landing.css";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 AOS.init();
 
 const Land = (props) => {
   return (
+    <div>
+
+    <Header />
+    
     <div>
       <section id="main-area">
         <div className="main-content">
@@ -83,9 +89,8 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Real Estate &amp; Property</h5>
                 <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Realtors and Surveryors, find the right people in business for you,
+                  and also, let them find you.
                 </p>
               </div>
               <div className="card-footer">
@@ -102,8 +107,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Catering &amp; Decorations</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                 Find the best of Interior and Exterior Designers with a touch of both Local and International concepts.
                 </p>
               </div>
               <div className="card-footer">
@@ -125,8 +129,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Construction and Renovation</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  Architects, Urban and Regional Planners, Project Managers, get in here.
                 </p>
               </div>
               <div className="card-footer">
@@ -148,8 +151,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Health &amp; Fitness</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  Find the best of Fitness coaches and health experts around you.
                 </p>
               </div>
               <div className="card-footer">
@@ -168,8 +170,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Fashion &amp; Beauty</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  Businesses that surround glamour and the glow, find the best boutiques and fashion designers.
                 </p>
               </div>
               <div className="card-footer">
@@ -191,8 +192,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Electronics &amp; Repair</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                 Businesses relating to the industry of  Gadgets and more.
                 </p>
               </div>
               <div className="card-footer">
@@ -209,12 +209,11 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">News &amp; Media</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  Media Houses and Entertainment Businesses.
                 </p>
               </div>
               <div className="card-footer">
-                <small className="text-muted">Last updated 10 mins ago</small>
+                
               </div>
             </div>
             {/* Card Eight */}
@@ -227,8 +226,7 @@ const Land = (props) => {
               <div className="card-body">
                 <h5 className="card-title">Agriculture</h5>
                 <p className="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
+                  Agriprenueral businesses, and agricultural industries.
                 </p>
               </div>
               <div className="card-footer">
@@ -320,6 +318,8 @@ const Land = (props) => {
           </div>
         </div>
       </section>
+    </div>
+    <Footer />
     </div>
   );
 };

@@ -1,9 +1,16 @@
 import React from 'react';
 import '../css/terms.css'
 
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+
 const Terms = props =>{
 
     return (
+      <div>
+
+        <Header />
+     
         <section className="terms">
         <div className="bg-landing">
           <h1 className="heading">TERMS OF SERVICE</h1> 
@@ -89,7 +96,10 @@ const Terms = props =>{
           </div>
         </div>
       </section>
-      
+                  
+        <Footer />
+
+      </div>
             
 
     )

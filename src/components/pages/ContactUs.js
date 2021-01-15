@@ -5,6 +5,8 @@ import Textarea from '../layout/input/Textarea';
 import PropTypes from "prop-types"
 import "../css/contact-us.css";
 import axios from 'axios';
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 
 class ContactUs extends Component {
@@ -83,6 +85,8 @@ class ContactUs extends Component {
     render() {
         const { name, email, textarea, error } = this.state
         return (
+            <div>
+                <Header />
             <div className="d-flex justify-content-center my-5" >
                 <div className=" col-10 mx-auto col-md-4  lg-col-5  mt-2" style={divContainer}>
 
@@ -148,6 +152,9 @@ class ContactUs extends Component {
 
                 </div >
 
+            </div>
+
+            <Footer />
             </div>
 
 
