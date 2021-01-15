@@ -15,16 +15,20 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
     
     const onChange=(e)=>{
         setstate({...state, [e.target.name]: e.target.value})
+        document.getElementById("document").style.display= "none"
     }
        const imageLoaders=(e)=>{
            const reader= new FileReader()
            reader.onload=()=>{
                if (reader.readyState===2){
                 console.log(reader.result)
+              
                 setstate({...state,flyer:reader.result})
                }
            }
+           console.log(e.target.files[0])
            reader.readAsDataURL(e.target.files[0])
+          
         }
 
         //lo
@@ -37,6 +41,7 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
                 description ,
                 flyer
             }
+
             
     //// SUBMIT advert ////
             modalAdsAction(item)

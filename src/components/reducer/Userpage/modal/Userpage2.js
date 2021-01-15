@@ -14,7 +14,7 @@ export default function Userpage() {
 
 
 
-    const users = useSelector(state => state.userReducer.users[0])
+    const userInfo = useSelector(state => state.userReducer.users[0])
 
 const dispatch =useDispatch()
 // useEffect(() => {
@@ -22,7 +22,7 @@ const dispatch =useDispatch()
    
 // }, [])
 
-    let userInfo = JSON.parse(localStorage.getItem("user"));
+    // let userInfo = JSON.parse(localStorage.getItem("user"));
 
 
     const [USerstate , setUSerstate] = useState({
