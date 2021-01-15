@@ -2,11 +2,15 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/about.css";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 AOS.init();
 
 const About = (props) => {
   return (
+    <div>
+      <Header/>
     <div>
       <section className="section-1">
         <div className="header">
@@ -111,6 +115,9 @@ const About = (props) => {
           </div>
         </div>
       </section>
+    </div>
+    <Footer/>
+
     </div>
   );
 };

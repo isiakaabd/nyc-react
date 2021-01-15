@@ -22,12 +22,10 @@ function App() {
      <>
      <div>
 
-     <Router>
-     <Route    path="/login" component={SignUp} />
-     </Router>
+     
     
-     <Header />
     
+    <Router>
           <Switch>
             <Route  exact path="/" component={Land} /> 
             <Route exact path="/about-us" component={About} />
@@ -40,8 +38,8 @@ function App() {
             <Route path="/reset" component={ResetPassword} />
             <Route component={Default} />
           </Switch>
-        
-        <Footer />
+          </Router>
+       
         
         </div>
         </>

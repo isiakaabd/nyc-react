@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {fetchFaq} from "../reducer/action"
 import "../css/faq.css";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 class Faq extends Component {
   componentWillMount() {
@@ -12,7 +14,11 @@ class Faq extends Component {
     this.props.faqs.map((faq) => {
       console.log(faq)
     })
+  
       return (
+        <div>
+          <Header/>
+        
         <main id="main" className="container">
           <section id="main-image">
             <div className="main-image">
@@ -392,6 +398,8 @@ class Faq extends Component {
             </section>
           </section>
         </main>
+        <Footer />
+        </div>
       );
   }
 }
