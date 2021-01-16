@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 // import useEffect from "react";
 // import useFetch from "./usage"
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER,EDIT_USERS} from "./type";
 
 
 export const getContacts = () => {
@@ -22,6 +22,64 @@ export const editRecord = (form) => {
      payload: form,
   };
 };
+
+export const editUsers = (form) => {
+ 
+  console.log("action")
+
+  return (dispatch) => {
+  fetch("https://naija-yellow-catalogue.herokuapp.com/api/users/profile", 
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(form),
+  })
+  .then((resp) => 
+  {
+console.log(resp)    
+return resp.json()})
+
+    .then((post) => {
+      console.log(post)
+      if(post.status===200){
+
+        swal({
+          title: "Congratulations!",
+          text: "You have Registered Successfully",
+          icon: "success",
+          button: "Proceed",
+        })
+
+        dispatch({
+          type: EDIT_USERS,
+     payload: post,
+  
+        })
+      } else if(post.status === 400){
+
+        
+        swal({
+          title: "Error!",
+          text: post.message,
+          icon: "warning",
+          button: "Ok",
+        })
+ 
+      } else {
+        swal({
+          title: "Error!",
+          text: "Oops, there was an error",
+          icon: "warning",
+          button: "Ok",
+        })
+      }
+      
+    })
+};
+}
+
 
 // export const uploadDoc = () => {
 //   return {
@@ -130,7 +188,7 @@ export const signupUser = (userData) => {
   console.log("action")
 
   return (dispatch) => {
-  fetch("https://naija-yellow-catalogue.herokuapp.com/signup", 
+  fetch("https://naija-yellow-catalogue.herokuapp.com/api/signup", 
   {
     method: "POST",
     headers: {
@@ -145,7 +203,7 @@ return resp.json()})
 
     .then((post) => {
       console.log(post)
-      if(post.data){
+      if(post.status===200){
 
         swal({
           title: "Congratulations!",
@@ -199,7 +257,7 @@ return resp.json()})
 export const loginUser = (userData, action) => {
 
   return (dispatch) => {
-  fetch("https://naija-yellow-catalogue.herokuapp.com/login/", 
+  fetch("https://naija-yellow-catalogue.herokuapp.com/api/login/", 
   {
     method: "POST",
     headers: {
@@ -262,7 +320,10 @@ export const loginUser = (userData, action) => {
       })
     }
     
-
+  // return {
+  //   type: LOGIN_USER,
+  //   payload:userData
+  // };
 
   }
 

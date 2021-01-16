@@ -6,15 +6,23 @@ import Textarea from '../../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../../layout/userpageInput/SelectInput';
 import "../../../css/userpage.css"
 import { Link } from 'react-router-dom';
-import {loginUser} from "../../action"
+import {signupUser} from "../../action";
+
 
 
 
 export default function Userpage() {
 
+const option=[
+    {
+    value: "chocolate", label: "chocolate"
+},
+    {value: "chocolate", label: "chocolate"
+},
+    {value: "chocolate", label: "chocolate"
+}]
 
-
-    const userInfo = useSelector(state => state.userReducer.users[0])
+    const user = useSelector(state => state.userReducer.users[0])
 
 const dispatch =useDispatch()
 // useEffect(() => {
@@ -22,11 +30,11 @@ const dispatch =useDispatch()
    
 // }, [])
 
-    // let userInfo = JSON.parse(localStorage.getItem("user"));
+     let userInfo = JSON.parse(localStorage.getItem("user"));
 
 
     const [USerstate , setUSerstate] = useState({
-        phone:userInfo.phone, 
+        phoneNumber:userInfo.phoneNumber, 
         businessName:userInfo.businessName, 
         email:userInfo.email, 
         website:userInfo.website, 
@@ -36,7 +44,7 @@ const dispatch =useDispatch()
         state:userInfo.state,
         category:userInfo.category 
     });
-    const { phone, businessName, email, website, textarea, location, fax, state, category } = USerstate;
+    const {phoneNumber, businessName, email, website, textarea, location, fax, state, category } = USerstate;
 
  function onChange (e) {
         
@@ -51,7 +59,7 @@ const dispatch =useDispatch()
         e.preventDefault()
 
         const form = {
-            phone,
+            phoneNumber,
             businessName, 
             email, 
             website, 
@@ -62,7 +70,7 @@ const dispatch =useDispatch()
             category
         }
         console.log(form)
-        dispatch(loginUser(form))
+        dispatch(signupUser(form))
    }
 
     return (
@@ -126,8 +134,8 @@ const dispatch =useDispatch()
                             <div className="form-row">
                                 <TextInput
                                     className="form-group "
-                                    name="text"
-                                    value={phone}
+                                    name="phoneNumber"
+                                    value={phoneNumber}
                                     id="phone-Number"
                                     onChange={onChange}
                                     placeholder="Phone-Number" />
@@ -161,20 +169,14 @@ const dispatch =useDispatch()
 
                             <div className="form-row">
 
-                                <SelectInputValue
+                              <SelectInputValue
                                     name="Location"
                                     id="city"
                                     value={state}
                                     onChange={onChange}
-                                >
+                                     options={option}
+                                /> 
 
-                                    <option value="Abuja">Abuja</option>
-                                    <option value="Kaduna">Kaduna</option>
-                                    <option value="Osun"> Osun </option>
-                                    <option value="Lagos">Lagos</option>
-
-
-                                </SelectInputValue>
 
                                 <SelectInputValue
                                     name="Location"
@@ -210,7 +212,7 @@ const dispatch =useDispatch()
 
                                 <TextInput
                                     onChange={onChange}
-                                    name="url"
+                                    name="website"
                                     value={website}
                                     id="url"
                                     placeholder="url" />

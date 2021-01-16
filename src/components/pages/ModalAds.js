@@ -12,37 +12,58 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
         description: "",
         flyer: ""
     })
-    
-    const onChange=(e)=>{
+   //new  state
+   const [docstate, setdocstate] = useState({
+    title:"",
+    description: "",
+    doc: null})
+      const onChange=(e)=>{
         setstate({...state, [e.target.name]: e.target.value})
-        document.getElementById("document").style.display= "none"
+        setdocstate({...docstate, [e.target.name]: e.target.value})
+        // document.getElementById("document").style.display= "none"
     }
        const imageLoaders=(e)=>{
            const reader= new FileReader()
            reader.onload=()=>{
                if (reader.readyState===2){
-                console.log(reader.result)
+                // console.log(reader.result)
               
                 setstate({...state,flyer:reader.result})
                }
            }
-           console.log(e.target.files[0])
+      console.log(e.target.files[0].name)
            reader.readAsDataURL(e.target.files[0])
-          
+        //    setdocstate(e.target.files[0])   
+           setdocstate({...docstate, doc: e.target.files[0] , [e.target.name]: e.target.value})
+      
         }
 
         //lo
         const onSubmit=(e)=>{
-            const {title, description, flyer } = state;
+        //  const {title, description, flyer } = state;
+            const {title, description, doc } = docstate;
             e.preventDefault()
+            // const item = {
+    
+            //     title,
+            //     description ,
+            //     flyer
+            // }
             const item = {
     
                 title,
                 description ,
-                flyer
+                doc
             }
-
             
+
+// const formData = new formData()
+// formData.append(item)
+// console.log(formData)
+            console.log(docstate)
+            // console.log(e.target.files[0].name)
+            console.log(docstate.doc.name)
+         
     //// SUBMIT advert ////
             modalAdsAction(item)
     
@@ -50,7 +71,7 @@ function ModalAds({ adshow, handleAdshow,modalAdsAction}) {
         setstate({
             title: "",
             description: "",
-            flyer:""
+            doc:""
           });
         }
      
