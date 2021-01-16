@@ -23,62 +23,75 @@ export const editRecord = (form) => {
   };
 };
 
-export const editUsers = (form) => {
+export const editUsers  = (id) => {
  
-  console.log("action")
+  return async (dispatch) => {
 
-  return (dispatch) => {
-  fetch("https://naija-yellow-catalogue.herokuapp.com/api/users/profile", 
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(form),
-  })
-  .then((resp) => 
-  {
-console.log(resp)    
-return resp.json()})
+    try {
 
-    .then((post) => {
-      console.log(post)
-      if(post.status===200){
-
-        swal({
-          title: "Congratulations!",
-          text: "You have Registered Successfully",
-          icon: "success",
-          button: "Proceed",
-        })
+        await axios.post
+            (`https://naija-yellow-catalogue.herokuapp.com/users/profile/${id}`)
+        dispatch({
+            type: EDIT_USERS,
+            payload: id
+        }
+        )
+    } catch (e) {
 
         dispatch({
-          type: EDIT_USERS,
-     payload: post,
-  
-        })
-      } else if(post.status === 400){
-
-        
-        swal({
-          title: "Error!",
-          text: post.message,
-          icon: "warning",
-          button: "Ok",
-        })
- 
-      } else {
-        swal({
-          title: "Error!",
-          text: "Oops, there was an error",
-          icon: "warning",
-          button: "Ok",
-        })
+            type: EDIT_USERS,
+            payload: id
+        }
+        )
       }
+    }
+  }
+// export const editUsers = (form) => {
+ 
+//   console.log("action")
+
+//   return (dispatch) => {
+//   fetch("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/", 
+//   {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(form),
+//   })
+//   .then((resp) => 
+//   {
+// console.log(resp)    
+// return resp.json()})
+
+//     .then((post) => {
+//       console.log(post)
+//       if(post.status===200){
+
+//         swal({
+//           title: "Congratulations!",
+//           text: "You have Registered Successfully",
+//           icon: "success",
+//           button: "Proceed",
+//         })
+
+//         dispatch({
+//           type: EDIT_USERS,
+//      payload: post,
+  
+//         })
+//       }else {
+//         swal({
+//           title: "Error!",
+//           text: "Oops, there was an error",
+//           icon: "warning",
+//           button: "Ok",
+//         })
+//       }
       
-    })
-};
-}
+//     })
+// };
+// }
 
 
 // export const uploadDoc = () => {

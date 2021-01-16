@@ -6,7 +6,7 @@ import Textarea from '../../../layout/userpageInput/Textarea';
 import SelectInputValue from '../../../layout/userpageInput/SelectInput';
 import "../../../css/userpage.css"
 import { Link } from 'react-router-dom';
-import {signupUser} from "../../action";
+import {editUsers} from "../../action";
 
 
 
@@ -15,11 +15,11 @@ export default function Userpage() {
 
 const option=[
     {
-    value: "chocolate", label: "chocolate"
+    value: "Kano", label: "Kano"
 },
-    {value: "chocolate", label: "chocolate"
+    {value: "Kaduna", label: "Kaduna"
 },
-    {value: "chocolate", label: "chocolate"
+    {value: "Kastina", label: "Kastina"
 }]
 
     const user = useSelector(state => state.userReducer.users[0])
@@ -55,6 +55,15 @@ const dispatch =useDispatch()
 
 
     }
+
+    // on change for react select
+
+    const onChangeSelect=(value)=>{
+      
+        // const { name, value } = e.target
+        //  console.log(name)
+        setUSerstate({value })
+    }
    const onSubmit=(e)=>{
         e.preventDefault()
 
@@ -70,7 +79,7 @@ const dispatch =useDispatch()
             category
         }
         console.log(form)
-        dispatch(signupUser(form))
+        dispatch(editUsers(form))
    }
 
     return (
@@ -118,6 +127,7 @@ const dispatch =useDispatch()
                                     id="Business Name"
                                     name="text"
                                     onChange={onChange}
+                                    disabled
                                     placeholder="Business Name " />
 
                                 <TextInput
@@ -127,6 +137,7 @@ const dispatch =useDispatch()
                                     id="email"
                                     placeholder="Email"
                                     name="email"
+                                    disabled
                                 />
 
                             </div>
@@ -173,8 +184,11 @@ const dispatch =useDispatch()
                                     name="Location"
                                     id="city"
                                     value={state}
-                                    onChange={onChange}
+                                    onChange={onChangeSelect}
                                      options={option}
+                                     placeholder="Location"
+                                    
+                                     
                                 /> 
 
 
@@ -182,28 +196,11 @@ const dispatch =useDispatch()
                                     name="Location"
                                     id="city"
                                     value={category}
-                                    onChange={onChange}
+                                    onChange={onChangeSelect}
+                                    placeholder="City"
 
-                                >
-                                    <option defaultValue={category} >{category}</option>
-                                    <option value="Real Estate/Property">Real Estate/Property</option>
-                                    <option>Beauty &amp; Fashion</option>
-                                    <option>Technology</option>
-                                    <option>Catering &amp; Decoration</option>
-                                    <option>Agriculture</option>
-                                    <option>Restaurant</option>
-                                    <option>Construction and Renovation</option>
-                                    <option>Transportation</option>
-                                    <option>News &amp; Media</option>
-                                    <option>Health and Fitness</option>
-                                    <option>Education &amp; Schools</option>
-                                    <option>Electronics</option>
-
-                                </SelectInputValue>
-
-
-
-
+                                />
+                                
 
 
                             </div>

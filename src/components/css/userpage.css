@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Ubuntu&display=swap');
 
 
-.form-control{
+.form-control,.react-select{
     background-color: #f3f3f3;
 }
 .sub-container {
