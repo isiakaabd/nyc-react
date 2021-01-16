@@ -22,7 +22,7 @@ class SearchResult extends Component {
             alt="Placeholder Picture"
           />
         <div className="card-body">
-            <h5 className="card-title">Business Name: {business.businessName}</h5>
+            <h5 className="card-title">{business.businessName}</h5>
               <p className="card-text">{business.description}</p>
                </div>
                   <ul className="list-group list-group-flush">

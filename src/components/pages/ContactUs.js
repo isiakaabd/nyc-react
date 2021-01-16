@@ -7,6 +7,7 @@ import "../css/contact-us.css";
 import axios from 'axios';
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
+import swal from 'sweetalert';
 
 
 class ContactUs extends Component {
@@ -41,6 +42,15 @@ class ContactUs extends Component {
         if (textarea === "") {
             this.setState({ error: { textarea: ' textarea is Required ' } })
             return
+        }
+
+        if (name) {
+            swal({
+                title: "Thanks",
+                text: "We have received your details",
+                icon: "success",
+                button: "Ok",
+              })
         }
 
 
