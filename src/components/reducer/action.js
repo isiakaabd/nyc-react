@@ -12,7 +12,15 @@ export const getContacts = () => {
     dispatch({
       type: GET_CONTACTS,
       payload: users.data,
-    });
+    })
+    if (users.data) {
+      swal({
+        title: "Thanks",
+        text: "We have received your details",
+        icon: "success",
+        button: "Ok",
+      })
+    }
   };
 };
 
