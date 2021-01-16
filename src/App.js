@@ -14,6 +14,7 @@ import SignUp from "./components/pages/SignUp";
 import Default from "./components/pages/Default";
 import ContactUs from "./components/pages/ContactUs";
 import NavBar from "./sidebars/NavBar";
+import SearchResult from './components/pages/SearchResult'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/terms" component={Terms} />
             <Route exact path="/faq" component={Faq} />
             <Route exact path="/login" component={SignUp} />
+            <Route exact path="/search" component={props => <SearchResult result={props}/>} />
             <PrivateRoute exact path="/userpage" component={NavBar} />
             <Route path="/forgot" component={ForgotPassword} />
             <Route path="/reset" component={ResetPassword} />

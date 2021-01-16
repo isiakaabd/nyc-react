@@ -1,0 +1,38 @@
+.search-header {
+    font-size: 28px;
+    padding: 15px 0;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.search-label {
+    min-width: 100%;
+}
+
+.search-label i {
+    margin: -5px 6px;
+    background: #EBBA32;
+    border: none;
+    color: #000000;
+    padding: 18px 40px !important;
+    font-weight: bold;
+    font-size: 14px !important;
+    border-radius: 5px;
+  }
+
+/* select{
+  padding: 15px 45px;
+  outline: none;
+  width: 22%;
+  border-radius: 4px;
+  border: none;
+  color: grey;
+} */
+
+input[type='text']{
+  padding: 12px 15px;
+  margin: 0px 5px;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+}

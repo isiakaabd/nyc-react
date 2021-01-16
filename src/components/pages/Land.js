@@ -2,6 +2,7 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/landing.css";
+import SearchBus from "./SearchBus"
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 
@@ -23,9 +24,9 @@ const Land = (props) => {
          
           <div className="main-box">
             <div className="box-contents">
-              <div className="input-icon">
-                
-                <input
+              {/* <div className="input-icon"> */}
+                <SearchBus />
+                {/* <input
                   type="text"
                   name="whoweknow"
                   id="business"
@@ -65,8 +66,8 @@ const Land = (props) => {
                   className="search-btn"
                 >
                   Search
-                </button>
-              </div>
+                </button> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
@@ -93,9 +94,9 @@ const Land = (props) => {
                   and also, let them find you.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 10 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Two */}
             <div className="card" data-aos="fade-up-left">
@@ -110,9 +111,9 @@ const Land = (props) => {
                  Find the best of Interior and Exterior Designers with a touch of both Local and International concepts.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 30 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Three */}
             <div
@@ -132,9 +133,9 @@ const Land = (props) => {
                   Architects, Urban and Regional Planners, Project Managers, get in here.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 8 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Four */}
             <div
@@ -154,9 +155,9 @@ const Land = (props) => {
                   Find the best of Fitness coaches and health experts around you.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 3 mins ago</small>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="card-deck">
@@ -173,9 +174,9 @@ const Land = (props) => {
                   Businesses that surround glamour and the glow, find the best boutiques and fashion designers.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 25 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Six */}
             <div
@@ -195,9 +196,9 @@ const Land = (props) => {
                  Businesses relating to the industry of  Gadgets and more.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 7 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Seven */}
             <div className="card" data-aos="fade-down-right">
@@ -212,9 +213,9 @@ const Land = (props) => {
                   Media Houses and Entertainment Businesses.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 
-              </div>
+              </div> */}
             </div>
             {/* Card Eight */}
             <div className="card" data-aos="fade-down-left">
@@ -229,9 +230,9 @@ const Land = (props) => {
                   Agriprenueral businesses, and agricultural industries.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 11 mins ago</small>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="card-deck">
@@ -250,9 +251,9 @@ const Land = (props) => {
                   content than the first to show that equal height action.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 18 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Ten */}
             <div
@@ -274,9 +275,9 @@ const Land = (props) => {
                   longer.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 35 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Eleven */}
             <div className="card" data-aos="fade-down-right">
@@ -292,9 +293,9 @@ const Land = (props) => {
                   additional content.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 16 mins ago</small>
-              </div>
+              </div> */}
             </div>
             {/* Card Twelve */}
             <div className="card" data-aos="fade-down-left">
@@ -311,9 +312,9 @@ const Land = (props) => {
                   content than the first to show that equal height action.
                 </p>
               </div>
-              <div className="card-footer">
+              {/* <div className="card-footer">
                 <small className="text-muted">Last updated 13 mins ago</small>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
