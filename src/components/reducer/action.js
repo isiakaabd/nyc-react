@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 // import useEffect from "react";
 // import useFetch from "./usage"
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER,FETCH_BUSINESS} from "./type";
 
 
 export const getContacts = () => {
@@ -66,10 +66,19 @@ export const advert = (item) => {
     }
 }
 
-;
-
-
-
+// FUNCTION CONTROLLING THE SEARCH OF USERS
+// export const getBusiness = () => {
+//   return (dispatch) => {
+//     fetch("https://naija-yellow-catalogue.herokuapp.com/api/company/search")
+//     .then((resp) => resp.json())
+//     .then((business) => 
+//     dispatch({
+//       type: FETCH_BUSINESS,
+//       payload: business,
+//     }))
+//     .catch((err) => console.log("Request Failed", err)); // Catch errors
+//    }
+// }
 
 // FUNCTION CONTROLLING FAQ ACTION
 export const fetchFaq= () => {

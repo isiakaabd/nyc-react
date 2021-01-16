@@ -1,104 +1,108 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import {Redirect, Link} from 'react-router-dom';
+// import { connect } from "react-redux";
+// import { getBusiness } from "../reducer/action";
 import "../css/searchBus.css"
 
 class SearchBus extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: '',
-            results: {},
-            loading: false,
-            message: ''
+            businessName: '',
+            userCategory: '',
+            state: '',
+            redirect: false,
+            allBusiness: [],
         }
-
-        this.cancel = '';
+    
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    fetchSearchResult = (updatedPageNo, query) => {
-        const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : '';
-        const searchUrl = `https://pixabay.com/api/?key=19890992-08817bdd72ea00c7556c9633c&q=${query}&page=4`
+    setRedirect = () => {
+      this.setState({
+        redirect: true
+      })
+    }
 
-        if (this.cancel) {
-            this.cancel.cancel();
-        }
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to="/search" />
+      }
+    }
 
-        this.cancel = axios.CancelToken.source();
+    // FETCHING ALL BUSINESSES
+    fetchUsers() {
+      fetch("https://naija-yellow-catalogue.herokuapp.com/api/company/search")
+      .then(response => response.json())
+      .then(data =>
+          this.setState({
+            allBusiness: data,
+          })
+      )
+      .catch((err) => console.log("Request Failed", err)); // Catch errors
+    }
 
-        axios.get(searchUrl, {
-            cancelToken: this.cancel.token
+    componentDidMount() {
+      this.fetchUsers();
+    }
+
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+
+        let newAllBusiness = this.state.allBusiness.filter((d) => {
+          let searchValue = d.businessName || d.userCategory || d.state;
+          return searchValue.includes(e.target.value);
         })
-        .then (res => {
-            const resultNotFoundMsg = ! res.data.hits.length
-                                    ? 'There are no search results. Please try a new search'
-                                    : ''
-            this.setState({
-                results: res.data.hits,
-                message: resultNotFoundMsg,
-                loading: false
-            })
+
+        this.setState({
+          allBusiness: newAllBusiness,
         })
-        .catch(error => {
-            if (axios.isCancel(error) || error) {
-                this.setState({
-                    loading: false,
-                    message: 'Failed to fetch data'
-                })
-            }
-        })
+
+        console.log(newAllBusiness);
     }
 
-    handleOnInputChange = (e) => {
-        const query = e.target.value;
-        if (!query) {
-            this.setState({query, results: {}, message: ''})
-        } else {
-            this.setState( {query: query, loading: true, message: ""}, () => {
-                this.fetchSearchResult( 1, query);
-            })
-        }
+    onSubmit = (e) => {
+        console.log('The name of our business is ' + this.state.allBusiness.businessName + ' and our location is ' + this.state.state)
     }
 
-    renderSearchResult = () => {
-        const {results} = this.state;
-
-        if ( Object.keys( results ).length && results.length) {
-            return (
-                <div className="results-container">
-                    { results.map( result => {
-                        return (
-                            <a className="result-item" key={result.id} href={result.previewURL}>
-                                <h6 className="image-username">{result.user}</h6>
-                                <div className="image-wrapper">
-                                    <img className="image" src={result.previewURL} alt={`${result.username} image`} />
-                                </div>
-                            </a>
-                        )
-                    })}
-                </div>
-            )
-        }
-    }
-
-    render() {
-        const {query, message} = this.state; 
-        console.log(this.state)
+    render() {        
+       const {allBusiness} = this.state;
         return (
             <div>
+              {this.renderRedirect()}
                 {/* Search Header */}
                 <h2 className="search-header">Search For Your Businesses</h2>
                {/* Search Field */}
                <label className="search-label" htmlFor="search-input">
                    <input
                    style={{border: "none"}}
-                   name="query"
+                   name="businessName"
                     type="text"
-                    value={query}
-                    onChange={this.handleOnInputChange}
+                    value={this.state.businessName}
+                    onChange={this.onChange}
                     id="search-input"
                     placeholder="Business Name"
                    />
-                    <select style={{border: "none", margin: "0px 10px"}} required>
+                   <input
+                   style={{border: "none"}}
+                   name="userCategory"
+                    type="text"
+                    value={this.state.userCategory}
+                    onChange={this.onChange}
+                    id="category-input"
+                    placeholder="Category"
+                   />
+                   <input
+                   style={{border: "none"}}
+                   name="state"
+                    type="text"
+                    value={this.state.state}
+                    onChange={this.onChange}
+                    id="location-input"
+                    placeholder="Location"
+                   />
+                 {/* <select style={{border: "none", margin: "0px 10px"}} required>
                   <option value disabled selected hidden>
                     Category
                   </option>
@@ -124,13 +128,10 @@ class SearchBus extends Component {
                   <option>Lagos</option>
                   <option>Kano</option>
                   <option>Jos</option>
-                </select>
-                    <i className="fa fa-search" aria-hidden="true" />
+                </select> */}
+                    {/* <i className="fa fa-search" onClick={this.setRedirect} aria-hidden="true" /> */}
+                    <Link to={{pathname:"/search", state: {businesses: allBusiness}}} ><i className="fa fa-search" aria-hidden="true" /> </Link>
                </label>
-               {/* Error Message */}
-               {message && <p className="message">{message}</p>}
-               {/* Result */}
-               {this.renderSearchResult()}
             </div>
         )
     }
