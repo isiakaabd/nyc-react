@@ -30,7 +30,7 @@ export const editUsers  = (id) => {
     try {
 
         await axios.post
-            ("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/" ,id)
+            ("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/", {id})
         dispatch({
             type: EDIT_USERS,
             payload: id
@@ -162,37 +162,6 @@ export const fetchFaq= () => {
 
 
 
-// FUNCTION CONTROLLING SIGNUP ACTION
-
-// export const signupUser = userData => {
-  
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const signupData = useFetch('https://naija-yellow-catalogue.herokuapp.com/signup', { userData })
-
-//   if (!signupData.response){
-//     console.log("Wahala Dey")
-//   } else {
-//     console.log(signupData.response.data)
-//   }
-
-  // useEffect(()=> {
-
-  // return (dispatch) => {
-  //   axios.post('https://naija-yellow-catalogue.herokuapp.com/signup', { userData })
-  //   .then(response => {
-  //     console.log(response);
-  //     // dispatch ({
-  //     //   type: SIGNUP_USER,
-  //     //   payload: response.data
-  //     // })
-  //     this.setState(response)
-  //   })
-  //   .catch(error => {
-  //     console.log(error)
-  //   })
-  // }})
-
-// }
 
 
 
@@ -250,17 +219,7 @@ return resp.json()})
       }
       
     })
-    // if(userData) {
-    //   return swal({
-    //     title: "Great job!",
-    //     text: "You have Registered Successfully",
-    //     icon: "success",
-    //     button: "Proceed",
-    //   })
-      
-      // .then(
-      //   window.location.reload()
-      // );
+    
       
     
   }

@@ -85,10 +85,11 @@ const onChange= (e) =>{
     
     // on change for react select
 
+//   1.
     const onChangeSelect=(value)=>{
         setUSerstate({...USerstate,userCategory: value.value})
     }
-
+//   2.
     const onChangeSelects=(value)=>{
         setUSerstate({...USerstate,state: value.value})
     }
@@ -139,9 +140,8 @@ const onChange= (e) =>{
             userCategory,
             displayPicture
         }
-        const formData= new FormData();
-        formData.append("form", form)
-        console.log( formData)
+        console.log( form)
+        // sending the form to redux store,  edituser is the action called upon
         dispatch(editUsers(form))
    }
 
