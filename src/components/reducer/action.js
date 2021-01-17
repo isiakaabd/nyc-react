@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 // import useEffect from "react";
 // import useFetch from "./usage"
 // import { Redirect } from "react-router-dom";
-import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER,FETCH_BUSINESS} from "./type";
+import { EDIT_RECORD, GET_CONTACTS, STATE_MODAL, SIGNUP_USER, FETCH_FAQ ,EDIT_USERS ,UPLOADS,DELETE_CONTACT,ADVERT,LOGIN_USER,FETCH_BUSINESS} from "./type";
 
 
 export const getContacts = () => {
@@ -37,8 +37,8 @@ export const editUsers  = (id) => {
 
     try {
 
-        await axios.post
-            ("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/", {id})
+        await axios.put
+            ("https://naija-yellow-catalogue.herokuapp.com/api/users/profile", {id})
         dispatch({
             type: EDIT_USERS,
             payload: id
@@ -61,7 +61,7 @@ export const editUsers  = (id) => {
 //   return (dispatch) => {
 //   fetch("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/", 
 //   {
-//     method: "POST",
+//     method: "PUT",
 //     headers: {
 //       "Content-Type": "application/json",
 //     },
@@ -72,7 +72,7 @@ export const editUsers  = (id) => {
 // console.log(resp)    
 // return resp.json()})
 
-//     .then((post) => {
+//     .then((put) => {
 //       console.log(post)
 //       if(post.status===200){
 
@@ -85,7 +85,7 @@ export const editUsers  = (id) => {
 
 //         dispatch({
 //           type: EDIT_USERS,
-//      payload: post,
+//      payload: put,
   
 //         })
 //       }else {

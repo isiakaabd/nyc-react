@@ -142,7 +142,7 @@ const onChange= (e) =>{
         }
         console.log( form)
         // sending the form to redux store,  edituser is the action called upon
-        dispatch(editUsers(form))
+        dispatch(editUsers({form}))
    }
 
     return (

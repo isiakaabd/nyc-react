@@ -9,6 +9,7 @@ import {
   UPLOADS,
   DELETE_CONTACT,
   ADVERT,
+  EDIT_USERS
   // FETCH_BUSINESS
 } from 
 "./type";
