@@ -39,7 +39,7 @@ const initialState = {
       state: "osun",
     },
   ],
-  editUSer:[],
+  editUSer:{},
   modal: true,
   user:{},
   users: [],
@@ -66,7 +66,7 @@ const reducer = (state = initialState, action) => {
     case EDIT_USERS:
       return {
         ...state,
-        editUSer:[ state.editUSer,action.payload],
+        editUSer:action.payload
       
       };
 

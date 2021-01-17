@@ -13,6 +13,9 @@ import {editUsers} from "../../action";
 
 export default function Userpage() {
 
+
+
+
 const option=[
     {
     value: "Kano", label: "Kano"
@@ -21,6 +24,31 @@ const option=[
 },
     {value: "Kastina", label: "Kastina"
 }]
+
+
+// option used for react select
+
+const locationOption=[
+    {
+    value: "Kano", label: "Kano"
+},
+    {value: "Kaduna", label: "Kaduna"
+},
+    {value: "Kastina", label: "Kastina"
+}]
+
+// theme for the custom select
+function customTheme(theme) {
+    return{
+        ...theme,
+        colors:{
+            ...theme.colors,
+            primary25: "orange",
+            primary: " black"
+        }
+    }
+}
+
 
     const user = useSelector(state => state.userReducer.users[0])
 
@@ -38,47 +66,82 @@ const dispatch =useDispatch()
         businessName:userInfo.businessName, 
         email:userInfo.email, 
         website:userInfo.website, 
-        textarea:userInfo.textarea, 
-        location:userInfo.location, 
+        description:userInfo.description, 
+        city:userInfo.city, 
         fax:userInfo.fax,
         state:userInfo.state,
-        category:userInfo.category 
+        userCategory:userInfo.userCategory,
+        displayPicture: userInfo.displayPicture
     });
-    const {phoneNumber, businessName, email, website, textarea, location, fax, state, category } = USerstate;
+    const {phoneNumber, businessName, email, website,description, city, fax, state, userCategory ,displayPicture} = USerstate;
 
- function onChange (e) {
+const onChange= (e) =>{
         
         const { name, value } = e.target
-        console.log(value)
         setUSerstate({...USerstate, [name]:value })
-
-
 
     }
 
+    
     // on change for react select
 
     const onChangeSelect=(value)=>{
-      
-        // const { name, value } = e.target
-        //  console.log(name)
-        setUSerstate({value })
+        setUSerstate({...USerstate,userCategory: value.value})
     }
+
+    const onChangeSelects=(value)=>{
+        setUSerstate({...USerstate,state: value.value})
+    }
+
+
+   const handleInputChanged=(reason ,value) =>{
+//     if (reason.action === "set-value") {
+//         return 
+//         setUSerstate({
+            
+//             ...USerstate,value
+//     })
+//     }
+    }
+    // image Loader
+    const imageLoaders=(e)=>{
+        const reader= new FileReader()
+        reader.onload=()=>{
+            if (reader.readyState===2){
+             // console.log(reader.result)
+           
+             setUSerstate({...USerstate,displayPicture:reader.result})
+            }
+        }
+
+        reader.readAsDataURL(e.target.files[0])
+   
+   
+     }
+
+
+    // submitting the form
+
    const onSubmit=(e)=>{
         e.preventDefault()
-
+        const { id ,otp} = userInfo
         const form = {
+            id,
+           otp,
             phoneNumber,
             businessName, 
             email, 
             website, 
-            textarea, 
-            location, 
+            description, 
+            city, 
             fax,
             state,
-            category
+            userCategory,
+            displayPicture
         }
-        console.log(form)
+        const formData= new FormData();
+        formData.append("form", form)
+        console.log( formData)
         dispatch(editUsers(form))
    }
 
@@ -103,9 +166,10 @@ const dispatch =useDispatch()
                         <i className=" text-white fas fa-upload fa-2x" />
                     </aside>
                     <div className=" fine col-lg-12" style={{ height: '200px', background: '#ebebe0' }}>
-                        <form style={{ width: '300px' }}>
-                            <div style={{ width: '300px' }} className="custom-file">
-                                <input style={{ width: "150px" }} type="file" className="custom-file-input" name="filename" id="customFile" accept="image/gif, image/jpeg, image/png" />
+                        <form style={{ width: 'inherit' }}>
+                            <div style={{ width: 'inherit' }} className="custom-file">
+                                <input style={{ height: "150px" }} type="file" className="custom-file-input" name="filename" id="customFile" onChange={imageLoaders} accept="image/gif, image/jpeg, image/png" />
+                          <input type="text" name="" value={displayPicture} hidden />
                             </div>
                         </form>
                         <h2>Or drag your file here to upload</h2>
@@ -162,11 +226,11 @@ const dispatch =useDispatch()
 
                             <div className="form-row">
                                 <Textarea
-                                    name="textarea"
+                                    name="description"
                                     onChange={onChange}
                                     id="textarea"
                                     placeholder="short-description"
-                                    value={textarea}
+                                    value={description}
 
                                 />
                             </div>
@@ -181,23 +245,30 @@ const dispatch =useDispatch()
                             <div className="form-row">
 
                               <SelectInputValue
-                                    name="Location"
-                                    id="city"
-                                    value={state}
-                                    onChange={onChangeSelect}
+                                    name="state"
+                                    id="state"
+                                    // inputValue={state}
+                                 
+                                  onChange={onChangeSelects}
                                      options={option}
-                                     placeholder="Location"
-                                    
-                                     
+                                     placeholder="Current State"
+                                     theme={customTheme}
+                                    //  onInputChange={handleInputChanged}
+                                    //  defaultInputValue={state}
                                 /> 
 
 
                                 <SelectInputValue
-                                    name="Location"
-                                    id="city"
-                                    value={category}
+                                    name="Category"
+                                    id="Category"
+                                    // inputValue={userCategory}
+                                    // defaultInputValue={userCategory}
                                     onChange={onChangeSelect}
-                                    placeholder="City"
+                                    placeholder="Category"
+                                    options= {locationOption}
+                                    theme={customTheme}
+                                    // onInputChange={handleInputChanged}
+                                   
 
                                 />
                                 
@@ -217,10 +288,10 @@ const dispatch =useDispatch()
 
                                 <TextInput
                                     onChange={onChange}
-                                    name="location"
-                                    value={location}
+                                    name="city"
+                                    value={city}
                                     id="locations"
-                                    placeholder="location" />
+                                    placeholder="City" />
 
 
                             </div>

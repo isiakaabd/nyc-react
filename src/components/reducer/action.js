@@ -30,7 +30,7 @@ export const editUsers  = (id) => {
     try {
 
         await axios.post
-            (`https://naija-yellow-catalogue.herokuapp.com/users/profile/${id}`)
+            ("https://naija-yellow-catalogue.herokuapp.com/api/users/profile/" ,id)
         dispatch({
             type: EDIT_USERS,
             payload: id
@@ -333,10 +333,6 @@ export const loginUser = (userData, action) => {
       })
     }
     
-  // return {
-  //   type: LOGIN_USER,
-  //   payload:userData
-  // };
 
   }
 

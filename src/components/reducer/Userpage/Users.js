@@ -4,7 +4,7 @@ import { editRecord } from '../action'
 import { connect } from "react-redux"
 import "../Userpage/../../../components/css/userpage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Userpage from './modal/Userpage2';
+// import Userpage from './modal/Userpage2';
 
 function Users({ editRecord, Users }) {
 
