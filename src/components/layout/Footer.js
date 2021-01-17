@@ -36,12 +36,9 @@ const Footer = (props) => {
                   <Link to="/terms">Terms &amp; Conditions</Link>
                 </li>
               </a>
-              <a href="/">
-                <li>Top Events</li>
-              </a>
               <Link to="/contact">
 
-                <li>contact Us</li>
+                <li>Contact Us</li>
               </Link>
 
             </ul>
@@ -63,10 +60,9 @@ const Footer = (props) => {
           <div className="follow-us">
             <h3>Follow Us</h3>
             <span>
-              <i className="fab fa-twitter" />
-              <i className="fab fa-linkedin" />
-              <i className="fab fa-instagram" />
+              <a href="https://www.linkedin.com/company/naija-yellow-catalogue" target="_blank"><i style={{color: "white"}}  className="fab fa-linkedin" /></a>
               <i className="fab fa-medium" />
+              <i className="fab fa-twitter" />
             </span>
             <p>Copyright © 2020 Naija Yellow Catalogue.</p>
           </div>

@@ -9,7 +9,7 @@ import {
   UPLOADS,
   DELETE_CONTACT,
   ADVERT,
-  EDIT_USERS
+  // FETCH_BUSINESS
 } from 
 "./type";
 
@@ -46,7 +46,8 @@ const initialState = {
   isLoggedIn: false,
   faq: [],
   Uploads:[],
-  adverts:[]
+  adverts:[],
+  fetchBusiness: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -94,6 +95,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         users: [...state.users, action.payload],
       };
+
+      // case FETCH_BUSINESS:
+      //   return {
+      //     ...state,
+      //     fetchBusiness: [...state.fetchBusiness, action.payload],
+      //   };
 
       case LOGIN_USER:
         return {
